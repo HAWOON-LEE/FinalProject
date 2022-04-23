@@ -28,9 +28,6 @@ import java.util.stream.Collectors;
 public class BoardService {
 
     private final BoardRepository repository;
-    private final UserRepository userRepository;
-//    private final MemberRepository memberRepository;
-//    private final PostRepository postRepository;
 
     public List<SearchBoardDto> findAll(){
         List<SearchBoardDto> dto = repository.findAll().stream().map(b -> new SearchBoardDto(b)).collect(Collectors.toList());
@@ -38,9 +35,7 @@ public class BoardService {
     }
 
     public List<SearchBoardDto> searchBoard(String keyword) {
-        List<SearchBoardDto> dto = null;
-        dto = repository.findByBoardTitleAndPostContentContaining(keyword).stream().map(b -> new SearchBoardDto(b)).collect(Collectors.toList());
-
+        List<SearchBoardDto> dto =  repository.findByBoardTitleAndPostContentContaining(keyword).stream().map(b -> new SearchBoardDto(b)).collect(Collectors.toList());
         return dto;
     }
 
@@ -68,12 +63,11 @@ public class BoardService {
         repository.save(board);
     }
 
-    public void deleteBoard(Long boardIndex, @AuthenticationPrincipal UserDetailsService custom) {
-        if (repository.findById(boardIndex).get().getUser().getUser_id().equals(custom.getId())) {
-            repository.deleteBoardById(boardIndex, custom.getId());
-        }
-
-    }
+//    public void deleteBoard(Long boardIndex, @AuthenticationPrincipal UserDetailsService custom) {
+//        if (repository.findById(boardIndex).get().getUser().getId().equals(custom.getId())) {
+//            repository.deleteBoardById(boardIndex, custom.getId());
+//        }
+//    }
 
     public void updateBoard(Long boardIndex){
         Optional<Board> opBoard = repository.findById(boardIndex);
@@ -100,3 +94,6 @@ public class BoardService {
 
 
 }
+
+
+

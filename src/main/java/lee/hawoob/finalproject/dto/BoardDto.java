@@ -17,7 +17,7 @@ public class BoardDto {
 
     private String title;
 
-    private String imgURL;
+//    private String imgURL;
 
     private String content;
 
@@ -29,7 +29,7 @@ public class BoardDto {
     public BoardDto(Board board){
         this.boardIndex = board.getBoardIndex();
         this.title = board.getTitle();
-        this.imgURL = board.getImgURL();
+//        this.imgURL = board.getImgURL();
         this.content = board.getContent();
         this.user = board.getUser();
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 작성</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+</head>
+<body>
+<div id="wrap">
+    <header th:replace="fragment/common::header">
+    </header>
+    <div>
+        <div>
+            <a href="/templates/board/detail"><i class="fas fa-arrow-left"></i></a>
+            <h3>글 수정</h3>
+        </div>
+    </div>
+    <div id="menu">
+    </div>
+    <div id="main" class="container">
+        <form th:action="@{/templates/board/update}" method="post" th:object="${form}">
+            <table class="input-table">
+                <tr>
+                    <th>제목</th>
+                    <td>
+                        <input type="title" name="title" th:value="*{title}" >
+                        <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title error</td>
+                    </td>
+                </tr>
+                <input type="hidden" th:field="*{no}">
+                <input type="hidden" th:field="*{date}">
+                <tr>
+                    <th>내용</th>
+                    <td>
+                        <textarea rows="10" cols="50" th:text="*{content}" name="content" th:value="*{content}"></textarea>
+<!--                        <td th:if="${#fields.hasErrors('content')}" th:errors="*{content}">content error</td>-->
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="게시">
+        </form>
+    </div>
+    <footer>
+        <div class="container">
+            <h4>&copy;2022 KH semi-project(YS). All Right Reserved.</h4>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
