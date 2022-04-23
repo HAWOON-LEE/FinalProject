@@ -197,7 +197,11 @@
                                 data-bs-offset="-100,10"
                         >
                             <span><i class="icofont-user"></i></span>
-                            <span class="d-none d-md-inline">김승언</span>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
+                            <span class="d-none d-md-inline" th:text="${#authentication.getName()}"></span>
+                            <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                                <a href="/login" th:href="@{/login}">Login</a>
+                            </div>
                         </a>
 
                         <ul class="dropdown-menu">
@@ -245,7 +249,8 @@
                 <div class="wallet-btn">
                     <a href="wallet.html"
                     ><span><i class="icofont-wallet" data-blast="color"></i></span>
-                        <span class="d-none d-md-inline">ISTJ</span>
+                        <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
+                        <span class="d-none d-md-inline"><a href="/logout" th:href="@{/logout}">Logout</a></span>
                     </a>
                 </div>
             </div>
