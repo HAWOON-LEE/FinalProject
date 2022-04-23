@@ -43,4 +43,5 @@ public class UserController {
         userRepository.update(user.getMbti(), user.getNickname(), user.getEmail());
         return "/home";
     }
+
 }
