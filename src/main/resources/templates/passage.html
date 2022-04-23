@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Labartisan">
+    <meta name="description"
+        content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ====****>  Meta tags for Social Media(Better SEO)  <****==== -->
+    <!-- <meta property="og:title" content=""> -->
+    <!-- <meta property="og:type" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css//icofont.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- site title -->
+  <title>나만의 도서관- MBTI에 맞는 도서추천 사이트</title>
+</head>
+
+<body class="home-3">
+  <!-- preloader start here -->
+  <div class="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-icon">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- preloader ending here -->
+
+<!-- ===============// header section start here \\================= -->
+<header class="header">
+    <div class="container-fluid">
+      <div class="header__content">
+        <div class="header__logo">
+          <a href="home.html">
+            <img
+              src="assets/images/logo/nado_white (1).png"
+              alt="nado_white"
+            />
+          </a>
+        </div>
+        <div class="header__menu">
+          <ul class="header__nav mb-0">
+            <li class="header__nav-item">
+             
+               <a
+                 class="header__nav-link"
+                 href="home.html"
+                 role="button"
+               
+                 >Home</a
+               >
+
+               
+             </li>
+           </ul>
+           
+              <a
+                class="header__nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-bs-offset="0,10"
+                >도서추천</a
+              >
+
+              <ul class="dropdown-menu header__nav-menu">
+                <li>
+                  <a class="drop-down-item active" href="recommend.html"
+                    >MBTI별 도서추천</a
+                  >
+                </li>
+              </ul>
+            </li>
+            
+            <li class="header__nav-item">
+              <a
+                class="header__nav-link active"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-bs-offset="0,10"
+                >내 서재</a
+              >
+
+              <ul class="dropdown-menu header__nav-menu">
+                <li>
+                  <a class="drop-down-item" href="bookshelf.html"
+                    >내 서재 목록</a
+                  >
+                </li>
+                <li>
+                  <a class="drop-down-item" href="passage.html">구절 등록</a>
+                </li>
+                <li>
+                  <a class="drop-down-item" href="review.html"> 한줄평 등록</a>
+                </li>
+              </ul>
+            </li>
+            <li class="header__nav-item">
+              <a
+                class="header__nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-bs-offset="0,10"
+                >나만의 구절</a
+              >
+
+              <ul class="dropdown-menu header__nav-menu">
+                <li>
+                  <a class="drop-down-item" href="pboard.html">나만의 구절 작성중</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="header__nav-item">
+              <a
+                class="header__nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-bs-offset="0,10"
+                >토론장</a
+              >
+
+              <ul class="dropdown-menu header__nav-menu">
+                <li>
+                  <a class="drop-down-item" href="blog.html">공백</a>
+                </li>
+                <li>
+                  <a class="drop-down-item" href="blog-2.html">공백</a>
+                </li>
+              </ul>
+            </li>
+            <li class="header__nav-item">
+              
+
+              <ul
+                class="dropdown-menu header__nav-menu"
+                data-popper-placement="top-start"
+              >
+                <li>
+                  <a class="drop-down-item" href="activity.html"
+                    >내 정보 조회</a
+                  >
+                </li>
+                <li>
+                  <a class="drop-down-item" href="help.html">공백</a>
+                </li>
+                <li>
+                  <a class="drop-down-item" href="help-single.html">공백</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="header__actions">
+          <div class="header__action header__action--search">
+            <button class="header__action-btn" type="button">
+              <i class="icofont-search-1"></i>
+            </button>
+          </div>
+
+          <div class="header__action header__action--profile">
+            <div class="dropdown">
+              <a
+                class="dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                data-bs-offset="-100,10"
+              >
+                <span><i class="icofont-user"></i></span>
+                <span class="d-none d-md-inline">김승언</span>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="author.html"
+                    ><span class="me-1"><i class="icofont-options"></i></span>
+                    Edit Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="activity.html"
+                    ><span class="me-1"
+                      ><i class="icofont-lightning-ray"></i
+                    ></span>
+                    Activity</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="signup.html"
+                    ><span class="me-1"
+                      ><i class="icofont-space-shuttle"></i
+                    ></span>
+                    Sign Up</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="signin.html"
+                    ><span class="me-1"><i class="icofont-login"></i></span>
+                    Sign In</a
+                  >
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Sign Out
+                    <span class="ms-1"><i class="icofont-logout"></i></span
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="wallet-btn">
+            <a href="wallet.html"
+              ><span><i class="icofont-wallet" data-blast="color"></i></span>
+              <span class="d-none d-md-inline">ISTJ</span>
+            </a>
+          </div>
+        </div>
+
+        <button class="menu-trigger header__btn" id="menu05">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- ===============//header section end here \\================= -->
+
+
+
+    <!-- ==========Page Header Section Start Here========== -->
+    <section class="variation-section padding-bottom padding-top">
+      <div id="drag-container">
+          <div id="spin-container">
+            <!-- Add your images (or video) here -->
+          
+            <img
+            src="assets/images/nft-item/위저드베이커리.jpg"
+            alt="nft-img"/>
+            <img
+            src="assets/images/nft-item/달러구트꿈백화점.jpg"
+            alt="nft-img"/>
+            <img
+            src="assets/images/nft-item/불편한편의점.jpg"
+            alt="nft-img"/>
+            <img
+            src="assets/images/nft-item/아몬드.jpg"
+            alt="nft-img"/>
+            <img
+            src="assets/images/nft-item/위저드베이커리.jpg"
+            alt="nft-img"/>
+            <img
+            src="assets/images/nft-item/달러구트꿈백화점.jpg"
+            alt="nft-img"/>
+            <img
+            src="assets/images/nft-item/불편한편의점.jpg"
+            alt="nft-img"/>
+            <img
+            src="assets/images/nft-item/아몬드.jpg"
+            alt="nft-img"/>
+                     
+           
+          </div>
+          <div id="ground"></div>
+        </div>
+        
+        
+<!-- ==========Page Header Section End Here========== -->
+
+    <!-- ==========Create NFT Section start Here========== -->
+    <section class="create-nft-section padding-bottom padding-top">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="row justify-content-center">
+                    
+                    <div class="col-lg-8">
+                        <!-- create item -->
+                        <div class="create-nft py-4 px-4">
+                            <form class="create-nft-form">
+                                
+                                <!-- item name input -->
+                                <div class="form-floating item-name-field mb-3">
+                                    <input type="text" class="form-control" id="itemNameInput" placeholder="Item Name">
+                                    <label for="itemNameInput">구절을 등록해주세요.</label>
+                                </div>
+                                <!-- item-description -->
+                                <div class="form-floating item-desc-field mb-30">
+                                    <textarea class="form-control" placeholder="Item Description"
+                                        id="itemDesc"></textarea>
+                                    <label for="itemDesc">감상이나 추가 설명이 있을 경우 입력해주세요.</label>
+                                </div>
+                               
+                                <!-- item price -->
+                                <div class="item-price-field mb-3">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <select class="form-select" id="selectCrypto"
+                                                    aria-label="Floating label select">
+                                                    <option selected>
+                                                        1
+                                                    </option>
+                                                    <option value="1">
+                                                        2
+                                                    </option>
+                                                    <option value="2">3
+                                                    </option>
+                                                    <option value="3">4
+                                                    </option>
+                                                    <option value="4">5
+                                                    </option>
+                                                </select>
+                                                <label for="selectCrypto">별점</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="itemPriceInput"
+                                                    placeholder="Item Price">
+                                                <label for="itemPriceInput">페이지 정보</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Royalites, Size & copy -->
+                               
+                                <!-- submit button -->
+                                <div class="submit-btn-field text-center">
+                                    <button type="submit">등록</button>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ==========Create NFT Section Ends Here========== -->
+
+
+    <!-- ===============//footer section start here \\================= -->
+    <footer class="footer-section">
+        <div class="footer-top">
+          <div class="footer-newsletter">
+            <div class="container">
+              <div class="row g-4 align-items-center justify-content-center">
+                <div class="col-lg-6">
+                 
+               
+         
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+           <div class="text-center py-0 mb-0">
+              <a href="home.html">
+                <img
+                  src="assets/images/logo/nado_white (1).png"
+                  alt="nado_white"
+                />
+              </a>
+            </div>
+          <div class="container">
+            <p class="text-center py-4 mb-0">
+              All rights reserved &copy; 나만의 도서관
+              
+            </p>
+          </div>
+        </div>
+      </footer>
+      <!-- ===============//footer section end here \\================= -->
+  
+      <!-- scrollToTop start here -->
+      <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+      <!-- scrollToTop ending here -->
+
+
+
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+
+
+
+    <!-- All Scripts -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/countdown.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.simpleLoadMore.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/functions.js"></script>
+</body>
+
+</html>

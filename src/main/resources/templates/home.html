@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="ko" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="author" content="Labartisan" />
+    <meta
+            name="description"
+            content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Meta tags for Social Media(Better SEO) -->
+    <!-- <meta property="og:title" content=""> -->
+    <!-- <meta property="og:type" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="../static/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/icofont.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- site title -->
+    <title>나만의 도서관- MBTI에 맞는 도서추천 사이트</title>
+</head>
+
+<body class="home-3">
+<!-- preloader start here -->
+<div class="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- preloader ending here -->
+
+<!-- ===============// header section start here \\================= -->
+<header class="header">
+    <div class="container-fluid">
+        <div class="header__content">
+            <div class="header__logo">
+                <a th:href="@{/}">
+                    <img
+                            th:src="@{/images/logo/nado_white (1).png}"
+                            alt="nado_white"
+                    />
+                </a>
+            </div>
+            <div class="header__menu">
+                <ul class="header__nav mb-0">
+                    <li class="header__nav-item">
+
+                        <a
+                                class="header__nav-link  active"
+                                th:href="@{/}"
+                                role="button"
+
+                        >Home</a
+                        >
+
+
+                    </li>
+                </ul>
+                <a
+                        class="header__nav-link"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        data-bs-offset="0,10"
+                >도서추천</a
+                >
+
+                <ul class="dropdown-menu header__nav-menu">
+                    <li>
+                        <a class="drop-down-item active"
+                           th:href="@{/recommend}"
+                        >MBTI별 도서추천</a
+                        >
+                    </li>
+                </ul>
+                </li>
+
+                <li class="header__nav-item">
+                    <a
+                            class="header__nav-link"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            data-bs-offset="0,10"
+                    >내 서재</a
+                    >
+
+                    <ul class="dropdown-menu header__nav-menu">
+                        <li>
+                            <a class="drop-down-item" href="bookshelf.html"
+                            >내 서재 목록(작성중)</a
+                            >
+                        </li>
+                        <li>
+                            <a class="drop-down-item" href="passage.html">구절 등록</a>
+                        </li>
+                        <li>
+                            <a class="drop-down-item" th:href="@{/review}"> 한줄평</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__nav-item">
+                    <a
+                            class="header__nav-link"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            data-bs-offset="0,10"
+                    >나만의 구절</a
+                    >
+
+                    <ul class="dropdown-menu header__nav-menu">
+                        <li>
+                            <a class="drop-down-item" href="pboard.html">나만의 구절 작성중</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="header__nav-item">
+                    <a
+                            class="header__nav-link"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            data-bs-offset="0,10"
+                    >토론장</a
+                    >
+
+                    <ul class="dropdown-menu header__nav-menu">
+                        <li>
+                            <a class="drop-down-item" href="blog.html">공백</a>
+                        </li>
+                        <li>
+                            <a class="drop-down-item" href="blog-2.html">공백</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__nav-item">
+
+
+                    <ul
+                            class="dropdown-menu header__nav-menu"
+                            data-popper-placement="top-start"
+                    >
+                        <li>
+                            <a class="drop-down-item" href="activity.html"
+                            >내 정보 조회</a
+                            >
+                        </li>
+                        <li>
+                            <a class="drop-down-item" href="help.html">공백</a>
+                        </li>
+                        <li>
+                            <a class="drop-down-item" href="help-single.html">공백</a>
+                        </li>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+
+            <div class="header__actions">
+                <div class="header__action header__action--search">
+                    <button class="header__action-btn" type="button">
+                        <i class="icofont-search-1"></i>
+                    </button>
+                </div>
+
+                <div class="header__action header__action--profile">
+                    <div class="dropdown">
+                        <a
+                                class="dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                data-bs-offset="-100,10"
+                        >
+                            <span><i class="icofont-user"></i></span>
+                            <span class="d-none d-md-inline">김승언</span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="author.html"
+                                ><span class="me-1"><i class="icofont-options"></i></span>
+                                    Edit Profile</a
+                                >
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="activity.html"
+                                ><span class="me-1"
+                                ><i class="icofont-lightning-ray"></i
+                                ></span>
+                                    Activity</a
+                                >
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="signup.html"
+                                ><span class="me-1"
+                                ><i class="icofont-space-shuttle"></i
+                                ></span>
+                                    Sign Up</a
+                                >
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="signin.html"
+                                ><span class="me-1"><i class="icofont-login"></i></span>
+                                    Sign In</a
+                                >
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Sign Out
+                                    <span class="ms-1"><i class="icofont-logout"></i></span
+                                    ></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wallet-btn">
+                    <a href="wallet.html"
+                    ><span><i class="icofont-wallet" data-blast="color"></i></span>
+                        <span class="d-none d-md-inline">ISTJ</span>
+                    </a>
+                </div>
+            </div>
+
+            <button class="menu-trigger header__btn" id="menu05">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- ===============//header section end here \\================= -->
+
+<!-- ===============//banner section start here \\================= -->
+<section
+        class="banner-section"
+        style="background-image: url(/images/banner/배경이미지3.png)"
+>
+    <div class="container">
+        <div class="banner-wrapper">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <div class="banner-content">
+                        <h1 class="mb-3">
+                            <span class="gradient-text-orange">MBTI</span>에 해당하는</h1>
+                        <h1> 도서를 추천받아보세요!</h1>
+                        <p class="container"></p>
+                        <div class="banner-btns d-flex flex-wrap">
+                            <a href="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC" class="default-btn move-top"
+                            ><span>무료검사</span>
+                            </a>
+                            <a href="https://www.career4u.net/Main/Main.asp" class="default-btn move-right"
+                            ><span>유료검사</span>
+                            </a>
+                        </div>
+
+                        <p class="mb-11"></p>
+                        <div class="container wrapper item">
+                            <b href="explore.html"
+                            ><span>ENTJ</span></b>
+                            <a></a>
+                            <b href="explore.html"
+                            ><span>ENTP</span></b>
+                            <a></a>
+
+                            <b href="explore.html"
+                            ><span>ENFJ</span></b>
+                            <a></a>
+                            <b href="explore.html"
+                            ><span>ENFP</span></b>
+                            <a></a>
+                            <b href="explore.html"
+                            ><span>ESTJ</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>ESFJ</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>ESTP</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>ESFP</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>INTJ</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>INTP</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>INFJ</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>INFP</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>ISTJ</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>ISFJ</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>ISTP</span></b><a></a>
+                            <b href="explore.html"
+                            ><span>ISFP</span></b>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="swiper banner-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="nft-item">
+                                    <div class="nft-inner">
+                                        <!-- nft top part -->
+                                        <div
+                                                class="nft-item-top d-flex justify-content-between align-items-center"
+                                        >
+                                            <div class="author-part">
+                                                <ul class="author-list d-flex">
+                                                    <li class="single-author">
+                                                        <a href="author.html"></a>
+                                                    </li>
+                                                    <li
+                                                            class="single-author d-flex align-items-center"
+                                                    >
+
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                            <div class="more-part">
+                                                <div class="dropstart">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- nft-bottom part -->
+                                        <div class="nft-item-bottom">
+                                            <div class="nft-thumb">
+                                                <img
+                                                        th:src="@{/images/nft-item/위저드베이커리.jpg}"
+                                                        alt="nft-img"
+                                                />
+
+                                                <!-- nft countdwon -->
+                                                <!-- <ul class="nft-countdown count-down" data-date="May 05, 2022 21:14:01">
+                                                                                                    <li>
+                                                                                                        <span class="days">34</span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span class="hours">09</span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span class="minutes">32</span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span class="seconds">32</span>
+                                                                                                    </li>
+                                                                                                </ul> -->
+                                                <span class="badge rounded-pill position-absolute"
+                                                ><i class="icofont-heart"></i> 1.3k</span
+                                                >
+                                            </div>
+                                            <div class="nft-content">
+                                                <div class="content-title">
+                                                    <h5>
+                                                        <a href="item-details.html"
+                                                        >위저드 베이커리 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;구병모</a
+                                                        >
+                                                    </h5>
+                                                </div>
+
+                                                <div
+                                                        class="nft-status d-flex flex-wrap justify-content-between align-items-center"
+                                                >
+                              <span class="nft-view"
+                              ><a href="activity.html"
+                              ><i class="icofont-eye-alt"></i> 한줄평
+                                  감상</a
+                              >
+                              </span>
+                                                    <div class="nft-price d-flex align-items-center">
+                                <span class="currency-img">
+                                  <img
+                                          th:src="@{/images/currency/책장.png}"
+                                          alt="currency img"
+                                  />
+                                </span>
+                                                        <div class="nft-stock">11 in Stock</div>
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                        class="price-like d-flex justify-content-between align-items-center"
+                                                >
+                                                    <div class="nft-price d-flex align-items-center">
+
+                                                        <p>ENTJ</p>
+                                                    </div>
+
+                                                    <a href="item-details.html" class="nft-bid"
+                                                    >상세보기</a
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="nft-item">
+                                    <div class="nft-inner">
+                                        <!-- nft top part -->
+                                        <div
+                                                class=" d-flex justify-content-between align-items-center"
+                                        >
+                                            <div class="author-part">
+                                                <ul class="author-list d-flex">
+                                                    <li class="single-author">
+                                                        <a href="author.html"
+                                                        ></a>
+                                                    </li>
+                                                    <li
+                                                            class="single-author d-flex align-items-center"
+                                                    >
+                                                        <a href="author.html"
+                                                        ></a>
+                                                        <h6><a href="author.html"></a></h6>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="more-part">
+                                                <div class="dropstart">
+                                                    <a></a>
+
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- nft-bottom part -->
+                                        <div class="nft-item-bottom">
+                                            <div class="nft-thumb">
+                                                <img
+                                                        th:src="@{/images/nft-item/달러구트꿈백화점.jpg}"
+                                                        alt="nft-img"
+                                                />
+
+                                                <!-- nft countdwon -->
+                                                <!-- <ul class="nft-countdown count-down" data-date="May 05, 2022 21:14:01">
+                                                                                                                        <li>
+                                                                                                                            <span class="days">34</span>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <span class="hours">09</span>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <span class="minutes">32</span>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <span class="seconds">32</span>
+                                                                                                                        </li>
+                                                                                                                    </ul> -->
+                                                <span class="badge rounded-pill position-absolute"
+                                                ><i class="icofont-heart"></i> 1.3k</span
+                                                >
+                                            </div>
+                                            <div class="nft-content">
+                                                <div class="content-title">
+                                                    <h5>
+                                                        <a href="item-details.html"
+                                                        >달러구트 꿈 백화점 &emsp;&emsp;&ensp;&ensp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;이미예</a
+                                                        >
+                                                    </h5>
+                                                </div>
+
+                                                <div
+                                                        class="nft-status d-flex flex-wrap justify-content-between align-items-center"
+                                                >
+                              <span class="nft-view"
+                              ><a href="activity.html"
+                              ><i class="icofont-eye-alt"></i> 한줄평
+                                  감상</a
+                              >
+                              </span>
+                                                    <div class="nft-price d-flex align-items-center">
+                                <span class="currency-img">
+                                  <img
+                                          th:src="@{/images/currency/책장.png}"
+                                          alt="currency img"
+                                  />
+                                </span>
+                                                        <div class="nft-stock">15 in Stock</div>
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                        class="price-like d-flex justify-content-between align-items-center"
+                                                >
+                                                    <div class="nft-price d-flex align-items-center">
+
+                                                        <p>ESTP</p>
+                                                    </div>
+
+                                                    <a href="item-details.html" class="nft-bid"
+                                                    >상세보기</a
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="nft-item">
+                                    <div class="nft-inner">
+                                        <!-- nft top part -->
+                                        <div
+                                                class="nft-item-top d-flex justify-content-between align-items-center"
+                                        >
+                                            <div class="author-part">
+                                                <ul class="author-list d-flex">
+                                                    <li class="single-author">
+                                                        <a href="author.html"
+                                                        ></a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                            <div class="more-part">
+                                                <div class="dropstart">
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- nft-bottom part -->
+                                        <div class="nft-item-bottom">
+                                            <div class="nft-thumb">
+                                                <img
+                                                        th:src="@{/images/nft-item/불편한편의점.jpg}"
+                                                        alt="nft-img"
+                                                />
+
+                                                <!-- nft countdwon -->
+                                                <!-- <ul class="nft-countdown count-down" data-date="May 05, 2022 21:14:01">
+                                                                                                                        <li>
+                                                                                                                            <span class="days">34</span>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <span class="hours">09</span>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <span class="minutes">32</span>
+                                                                                                                        </li>
+                                                                                                                        <li>
+                                                                                                                            <span class="seconds">32</span>
+                                                                                                                        </li>
+                                                                                                                    </ul> -->
+                                                <span class="badge rounded-pill position-absolute"
+                                                ><i class="icofont-heart"></i> 4.3k</span
+                                                >
+                                            </div>
+                                            <div class="nft-content">
+                                                <div class="content-title">
+                                                    <h5>
+                                                        <a href="item-details.html"
+                                                        >불편한 편의점 &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;김호연</a
+                                                        >
+                                                    </h5>
+
+                                                </div>
+
+                                                <div
+                                                        class="nft-status nft-price d-flex flex-wrap justify-content-between align-items-center"
+                                                >
+                              <span class="nft-view"
+                              ><a href="activity.html"
+                              ><i class="icofont-eye-alt"></i> 한줄평 감상</a
+                              >
+                              </span>
+
+
+
+                                                    <div class="nft-price d-flex align-items-center">
+                                <span class="currency-img">
+                                  <img
+                                          th:src="@{/images/currency/책장.png}"
+                                          alt="currency img"
+                                  />
+                                </span>
+                                                        <div class="nft-stock">13 in Stock</div>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                        class="price-like d-flex justify-content-between align-items-center"
+                                                >
+                                                    <div class="nft-price">
+
+                                                        <p>ISTJ</p>
+                                                    </div>
+
+                                                    <a href="item-details.html" class="nft-bid"
+                                                    >상세보기</a
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===============//banner section end here \\================= -->
+
+<!-- ===============>>Catergory section start here <<================= -->
+
+<!-- ===============>>Catergory section end here <<================= -->
+
+<!-- ===============//collection section start here \\================= -->
+
+<!-- ===============//Collection section end here \\================= -->
+
+<!-- ===============//auction section start here \\================= -->
+<section class="auction-section padding-bottom">
+    <div class="container">
+        <div class="section-header">
+            <h3 class="header-title">가장 많이 선택받은 도서</h3>
+            <div class="header-content">
+                <ul class="arrows d-flex flex-wrap align-items-center">
+                    <li class="li arrow-left auction-prev">
+                        <i class="icofont-rounded-left"></i>
+                    </li>
+                    <li class="li arrow-right auction-next">
+                        <i class="icofont-rounded-right"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section-wrapper">
+            <div class="auction-holder">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="nft-item">
+                            <div class="nft-inner">
+                                <!-- nft top part -->
+
+                                <!-- nft-bottom part -->
+                                <div class="nft-item-bottom">
+                                    <a></a>
+                                    <div class="nft-thumb">
+                                        <img
+                                                th:src="@{/images/nft-item/위저드베이커리.jpg}"
+                                                alt="nft-img"
+                                        />
+
+                                        <!-- nft countdwon -->
+
+                                        <span class="badge rounded-pill position-absolute"
+                                        ><i class="icofont-heart"></i> 1.3k</span
+                                        >
+                                    </div>
+                                    <div class="nft-content">
+                                        <div class="content-title">
+                                            <h5>
+                                                <a href="item-details.html">위저드 베이커리</a>
+                                            </h5>
+                                        </div>
+
+                                        <div
+                                                class="nft-status d-flex flex-wrap justify-content-between align-items-center"
+                                        >
+                          <span class="nft-view"
+                          ><a href="activity.html"
+                          ><i class="icofont-eye-alt"></i> View History</a
+                          >
+                          </span>
+                                            <div class="nft-stock">12 in Stock</div>
+                                        </div>
+                                        <div
+                                                class="price-like d-flex justify-content-between align-items-center"
+                                        >
+                                            <div class="nft-price d-flex align-items-center">
+
+                                                <p>ENTJ</p>
+                                            </div>
+
+                                            <a href="item-details.html" class="nft-bid"
+                                            >상세보기</a
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="nft-item">
+                            <div class="nft-inner">
+                                <!-- nft top part -->
+
+                                <!-- nft-bottom part -->
+                                <div class="nft-item-bottom">
+                                    <a></a>
+                                    <div class="nft-thumb">
+                                        <img
+                                                th:src="@{/images/nft-item/불편한편의점.jpg}"
+                                                alt="nft-img"
+                                        />
+
+                                        <!-- nft countdwon -->
+
+                                        <span class="badge rounded-pill position-absolute"
+                                        ><i class="icofont-heart"></i> 1.3k</span
+                                        >
+                                    </div>
+                                    <div class="nft-content">
+                                        <div class="content-title">
+                                            <h5>
+                                                <a href="item-details.html">불편한 편의점 </a>
+                                            </h5>
+                                        </div>
+
+                                        <div
+                                                class="nft-status d-flex flex-wrap justify-content-between align-items-center"
+                                        >
+                          <span class="nft-view"
+                          ><a href="activity.html"
+                          ><i class="icofont-eye-alt"></i> View History</a
+                          >
+                          </span>
+                                            <div class="nft-stock">12 in Stock</div>
+                                        </div>
+                                        <div
+                                                class="price-like d-flex justify-content-between align-items-center"
+                                        >
+                                            <div class="nft-price d-flex align-items-center">
+
+                                                <p>ISTJ</p>
+                                            </div>
+
+                                            <a href="item-details.html" class="nft-bid"
+                                            >상세보기</a
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="nft-item">
+                            <div class="nft-inner">
+                                <!-- nft top part -->
+
+                                <!-- nft-bottom part -->
+                                <div class="nft-item-bottom">
+                                    <a></a>
+                                    <div class="nft-thumb">
+                                        <img
+                                                th:src="@{/images/nft-item/달러구트꿈백화점.jpg}"
+                                                alt="nft-img"
+                                        />
+
+                                        <!-- nft countdwon -->
+
+                                        <span class="badge rounded-pill position-absolute"
+                                        ><i class="icofont-heart"></i> 4.3k</span
+                                        >
+                                    </div>
+                                    <div class="nft-content">
+                                        <div class="content-title">
+                                            <h5>
+                                                <a href="item-details.html">달러구트 꿈 백화점</a>
+                                            </h5>
+                                        </div>
+
+                                        <div
+                                                class="nft-status d-flex flex-wrap justify-content-between align-items-center"
+                                        >
+                          <span class="nft-view"
+                          ><a href="activity.html"
+                          ><i class="icofont-eye-alt"></i> View History</a
+                          >
+                          </span>
+                                            <div class="nft-stock">5 in Stock</div>
+                                        </div>
+                                        <div
+                                                class="price-like d-flex justify-content-between align-items-center"
+                                        >
+                                            <div class="nft-price d-flex align-items-center">
+
+                                                <p>ESTP</p>
+                                            </div>
+
+                                            <a href="item-details.html" class="nft-bid"
+                                            >상세보기</a
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="nft-item">
+                            <div class="nft-inner">
+                                <!-- nft top part -->
+
+                                <!-- nft-bottom part -->
+                                <div class="nft-item-bottom">
+                                    <a> </a>
+                                    <div class="nft-thumb">
+                                        <img
+                                                th:src="@{/images/nft-item/아몬드.jpg}"
+                                                alt="nft-img"
+                                        />
+
+                                        <!-- nft countdwon -->
+
+                                        <span class="badge rounded-pill position-absolute"
+                                        ><i class="icofont-heart"></i> 1.3k</span
+                                        >
+                                    </div>
+                                    <div class="nft-content">
+                                        <div class="content-title">
+                                            <h5>
+
+                                                <a href="item-details.html">아몬드</a>
+                                            </h5>
+                                        </div>
+
+                                        <div
+                                                class="nft-status d-flex flex-wrap justify-content-between align-items-center"
+                                        >
+                          <span class="nft-view"
+                          ><a href="activity.html"
+                          ><i class="icofont-eye-alt"></i> View History</a
+                          >
+                          </span>
+                                            <div class="nft-stock">17 in Stock</div>
+                                        </div>
+                                        <div
+                                                class="price-like d-flex justify-content-between align-items-center"
+                                        >
+                                            <div class="nft-price d-flex align-items-center">
+
+                                                <p>INFJ</p>
+                                            </div>
+
+                                            <a href="item-details.html" class="nft-bid"
+                                            >상세보기</a
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===============//auction section end here \\================= -->
+
+<!-- ===============//seller section start here \\================= -->
+<section class="seller-section pb-100">
+    <div class="container">
+        <div class="section-header">
+            <h3 class="header-title">가장 많이 참여한 MBTI</h3>
+            <div class="header-content">
+                <ul class="filter-group d-flex flex-wrap align-items-center">
+                    <li class="li collection-filter"></li>
+                    <li class="li day-filter">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section-wrapper">
+            <div class="seller-wrapper">
+                <div class="row g-3">
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="seller-item">
+                            <div class="seller-inner">
+                                <div class="seller-part">
+                                    <p class="assets-number">01</p>
+                                    <div class="assets-owner">
+                                        <div class="owner-thumb veryfied">
+                                            <a href="author.html" class=""
+                                            ><img
+                                                    th:src="@{/images/seller/ENTJ.jpg}"
+                                                    alt="seller-img"
+                                            /></a>
+                                        </div>
+                                        <div class="owner-content">
+                                            <h6><a href="author.html">ENTJ</a></h6>
+                                            <p>130권</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill bg-blue">1↑</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="seller-item">
+                            <div class="seller-inner">
+                                <div class="seller-part">
+                                    <p class="assets-number">02</p>
+                                    <div class="assets-owner">
+                                        <div class="owner-thumb veryfied">
+                                            <a href="author.html"
+                                            ><img
+                                                    th:src="@{/images/seller/ENTP.PNG}"
+                                                    alt="seller-img"
+                                            /></a>
+                                        </div>
+                                        <div class="owner-content">
+                                            <h6><a href="author.html">ENTP</a></h6>
+                                            <p>120권</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill bg-orange">-1↓</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="seller-item">
+                            <div class="seller-inner">
+                                <div class="seller-part">
+                                    <p class="assets-number">03</p>
+                                    <div class="assets-owner">
+                                        <div class="owner-thumb veryfied">
+                                            <a href="author.html"
+                                            ><img
+                                                    th:src="@{/images/seller/ENFJ.jpg}"
+                                                    alt="seller-img"
+                                            /></a>
+                                        </div>
+                                        <div class="owner-content">
+                                            <h6><a href="author.html">ENFJ</a></h6>
+                                            <p>110권</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill bg-blue">2↑</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="seller-item">
+                            <div class="seller-inner">
+                                <div class="seller-part">
+                                    <p class="assets-number">04</p>
+                                    <div class="assets-owner">
+                                        <div class="owner-thumb veryfied">
+                                            <a href="author.html"
+                                            ><img
+                                                    th:src="@{/images/seller/INTJ.PNG}"
+                                                    alt="seller-img"
+                                            /></a>
+                                        </div>
+                                        <div class="owner-content">
+                                            <h6><a href="author.html">INTJ</a></h6>
+                                            <p>100권</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill bg-orange"> -1↓</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="seller-item">
+                            <div class="seller-inner">
+                                <div class="seller-part">
+                                    <p class="assets-number">05</p>
+                                    <div class="assets-owner">
+                                        <div class="owner-thumb veryfied">
+                                            <a href="author.html"
+                                            ><img
+                                                    th:src="@{/images/seller/INTP.jpg}"
+                                                    alt="seller-img"
+                                            /></a>
+                                        </div>
+                                        <div class="owner-content">
+                                            <h6><a href="author.html">INTP</a></h6>
+                                            <p>90권</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill bg-blue">5↑</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="seller-item">
+                            <div class="seller-inner">
+                                <div class="seller-part">
+                                    <p class="assets-number">06</p>
+                                    <div class="assets-owner">
+                                        <div class="owner-thumb veryfied">
+                                            <a href="author.html"
+                                            ><img
+                                                    th:src="@{/images/seller/INFJ.png}"
+                                                    alt="seller-img"
+                                            /></a>
+                                        </div>
+                                        <div class="owner-content">
+                                            <h6><a href="#">INFJ</a></h6>
+                                            <p>80권</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill bg-orange">-3↓</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="seller-item">
+                            <div class="seller-inner">
+                                <div class="seller-part">
+                                    <p class="assets-number">07</p>
+                                    <div class="assets-owner">
+                                        <div class="owner-thumb veryfied">
+                                            <a href="author.html"
+                                            ><img
+                                                    th:src="@{/images/seller/INFP.jpg}"
+                                                    alt="seller-img"
+                                            /></a>
+                                        </div>
+                                        <div class="owner-content">
+                                            <h6><a href="author.html">INFP </a></h6>
+                                            <p>70권</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill bg-blue">1↑</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="seller-item">
+                            <div class="seller-inner">
+                                <div class="seller-part">
+                                    <p class="assets-number">08</p>
+                                    <div class="assets-owner">
+                                        <div class="owner-thumb veryfied">
+                                            <a href="author.html"
+                                            ><img
+                                                    th:src="@{/images/seller/ISTJ.png}"
+                                                    alt="seller-img"
+                                            /></a>
+                                        </div>
+                                        <div class="owner-content">
+                                            <h6><a href="author.html">ISTJ</a></h6>
+                                            <p>60권</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill bg-blue">3↑</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="seller-item">
+                            <div class="seller-inner">
+                                <div class="seller-part">
+                                    <p class="assets-number">09</p>
+                                    <div class="assets-owner">
+                                        <div class="owner-thumb veryfied">
+                                            <a href="author.html"
+                                            ><img
+                                                    th:src="@{/images/seller/ISTP.jpg}"
+                                                    alt="seller-img"
+                                            /></a>
+                                        </div>
+                                        <div class="owner-content">
+                                            <h6><a href="#">ISTP</a></h6>
+                                            <p>50권</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill bg-blue">2↑</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===============//seller section end here \\================= -->
+
+<!-- ===============>> Artwork section start here <<================= -->
+
+<!-- ===============>> Artwork section end here <<================= -->
+
+<!-- ===============//blog section start here \\================= -->
+
+<!-- ===============//blog section end here \\================= -->
+
+<!-- ===============//footer section start here \\================= -->
+<footer class="footer-section">
+    <div class="footer-top">
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-center">
+                    <div class="col-lg-6">
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="text-center py-0 mb-0">
+            <a th:href="@{/}">
+                <img
+                        th:src="@{/images/logo/nado_white%20(1).png}"
+                        alt="nado_white"
+                />
+            </a>
+        </div>
+        <div class="container">
+            <p class="text-center py-4 mb-0">
+                All rights reserved &copy; 나만의 도서관
+
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- ===============//footer section end here \\================= -->
+
+<!-- scrollToTop start here -->
+<a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+<!-- scrollToTop ending here -->
+
+<!-- All Scripts -->
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/waypoints.min.js"></script>
+<script src="/js/swiper-bundle.min.js"></script>
+<script src="/js/countdown.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<script src="/js/wow.min.js"></script>
+<script src="/js/jquery.simpleLoadMore.min.js"></script>
+<script src="/js/isotope.pkgd.min.js"></script>
+<script src="/js/functions.js"></script>
+</body>
+</html>
