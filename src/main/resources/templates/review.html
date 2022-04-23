@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" class="no-js" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -16,14 +16,14 @@
     <!-- <meta property="og:image" content=""> -->
 
     <!-- site favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" th:href="@{/images/favicon.png}">
 
     <!-- ====== All css file ========= -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css//icofont.min.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/icofont.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 
     <!-- site title -->
  <title>나만의 도서관- MBTI에 맞는 도서추천 사이트</title>
@@ -46,9 +46,9 @@
     <div class="container-fluid">
       <div class="header__content">
         <div class="header__logo">
-          <a href="../../../../../../Desktop/KH%20파이널%20프로젝트/anftiz%20main%20file%20test0422/anftiz-buyerfile/anftiz-dark/home.html">
+          <a th:href="@{/}">
             <img
-              src="assets/images/logo/nado_white (1).png"
+              th:src="@{/images/logo/nado_white(1).png}"
               alt="nado_white"
             />
           </a>
@@ -59,7 +59,7 @@
              
                <a
                  class="header__nav-link"
-                 href="../../../../../../Desktop/KH%20파이널%20프로젝트/anftiz%20main%20file%20test0422/anftiz-buyerfile/anftiz-dark/home.html"
+                 th:href="@{/}"
                  role="button"
                
                  >Home</a
@@ -81,7 +81,7 @@
 
               <ul class="dropdown-menu header__nav-menu">
                 <li>
-                  <a class="drop-down-item active" href="../../../../../../Desktop/KH%20파이널%20프로젝트/anftiz%20main%20file%20test0422/anftiz-buyerfile/anftiz-dark/recommend.html"
+                  <a class="drop-down-item active" th:href="@{/recommend}"
                     >MBTI별 도서추천</a
                   >
                 </li>
@@ -102,15 +102,15 @@
 
               <ul class="dropdown-menu header__nav-menu">
                 <li>
-                  <a class="drop-down-item" href="../../../../../../Desktop/KH%20파이널%20프로젝트/anftiz%20main%20file%20test0422/anftiz-buyerfile/anftiz-dark/bookshelf.html"
+                  <a class="drop-down-item" th:href="@{/bookshelf}"
                     >내 서재 목록</a
                   >
                 </li>
                 <li>
-                  <a class="drop-down-item" href="passage.html">구절 등록</a>
+                  <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
                 </li>
                 <li>
-                  <a class="drop-down-item" href="review.html"> 한줄평 등록</a>
+                  <a class="drop-down-item" th:href="@{/review}"> 한줄평 등록</a>
                 </li>
               </ul>
             </li>
@@ -128,7 +128,7 @@
 
               <ul class="dropdown-menu header__nav-menu">
                 <li>
-                  <a class="drop-down-item" href="../../../../../../Desktop/KH%20파이널%20프로젝트/anftiz%20main%20file%20test0422/anftiz-buyerfile/anftiz-dark/pboard.html">나만의 구절 작성중</a>
+                  <a class="drop-down-item" th:href="@{/pboard}">나만의 구절 작성중</a>
                 </li>
                
               </ul>
@@ -420,16 +420,16 @@
 
 
     <!-- All Scripts -->
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/countdown.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/jquery.simpleLoadMore.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/functions.js"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/waypoints.min.js}"></script>
+    <script th:src="@{/js/swiper-bundle.min.js}"></script>
+    <script th:src="@{/js/countdown.min.js}"></script>
+    <script th:src="@{/js/jquery.counterup.min.js}"></script>
+    <script th:src="@{/js/wow.min.js}"></script>
+    <script th:src="@{/js/jquery.simpleLoadMore.min.js}"></script>
+    <script th:src="@{/js/isotope.pkgd.min.js}"></script>
+    <script th:src="@{/js/functions.js}"></script>
 </body>
 
 </html>
