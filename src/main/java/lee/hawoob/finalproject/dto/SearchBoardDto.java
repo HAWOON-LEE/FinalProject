@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Column;
 import java.time.LocalDateTime;
 
 @Transactional
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SearchBoardDto extends Board {
-    //implements SearchInterface
+public class SearchBoardDto extends Board{
     private Long boardIndex;
 
     private String title;

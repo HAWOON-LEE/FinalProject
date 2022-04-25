@@ -4,11 +4,11 @@ import lee.hawoob.finalproject.dto.BoardDto;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.form.CreatePostForm;
+import lee.hawoob.finalproject.form.UpdateBoardForm;
 import lee.hawoob.finalproject.repository.BoardRepository;
 import lee.hawoob.finalproject.service.BoardService;
 import lee.hawoob.finalproject.service.UserDetailsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -68,14 +68,16 @@ public class BoardApiController {
     }
 
     @GetMapping("/board/{boardIndex}")
-    public BoardDto detailBoard(@PathVariable Long boardIndex){
+    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav){
         Board board = service.findByIndex(boardIndex).get();
         BoardDto dto =service.getPostDto(board);
-        return dto;
+        mav.setViewName("board/details");
+        mav.addObject("dto", dto);
+        return mav;
     }
 
     @GetMapping("/create")
-    public ModelAndView insert(@ModelAttribute CreatePostForm form, ModelAndView mav){
+    public ModelAndView create(@ModelAttribute CreatePostForm form, ModelAndView mav){
         mav.addObject("form", form);
         mav.setViewName("board/create");
         return mav;
@@ -92,8 +94,14 @@ public class BoardApiController {
 //        service.deleteBoard(boardIndex, custom);
 //    }
 
-//    @PutMapping("board")
-//    public void updateBoard(@PathVariable UpdatePostForm form, BoardDto dto){
-//        service.updateBoard(form.getPostIndex());
-//    }
+    @PutMapping("update/{boardIndex}")
+    public ModelAndView updateBoard(@PathVariable Long boardIndex, UpdateBoardForm form, ModelAndView mav){
+        Board board = service.findByIndex(boardIndex).get();
+
+        service.updateBoard(form.getBoardIndex());
+        mav.setViewName("board/update");
+        mav.addObject("form", form);
+
+        return mav;
+    }
 }

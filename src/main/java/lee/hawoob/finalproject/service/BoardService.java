@@ -1,23 +1,17 @@
 package lee.hawoob.finalproject.service;
 
-//import MBTI.domain.Post;
 import lee.hawoob.finalproject.dto.BoardDto;
 import lee.hawoob.finalproject.entity.Board;
-import lee.hawoob.finalproject.entity.User;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
-//import MBTI.dto.SearchInterface;
 import lee.hawoob.finalproject.form.CreatePostForm;
-import lee.hawoob.finalproject.form.UpdatePostForm;
+import lee.hawoob.finalproject.form.UpdateBoardForm;
 import lee.hawoob.finalproject.repository.BoardRepository;
-//import MBTI.repository.MemberRepository;
-//import MBTI.repository.PostRepository;
-import lee.hawoob.finalproject.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -63,23 +57,19 @@ public class BoardService {
         repository.save(board);
     }
 
-//    public void deleteBoard(Long boardIndex, @AuthenticationPrincipal UserDetailsService custom) {
-//        if (repository.findById(boardIndex).get().getUser().getId().equals(custom.getId())) {
-//            repository.deleteBoardById(boardIndex, custom.getId());
-//        }
-//    }
-
-    public void updateBoard(Long boardIndex){
-        Optional<Board> opBoard = repository.findById(boardIndex);
-        UpdatePostForm form = new UpdatePostForm();
-
-
-        if (opBoard.isPresent()) {
-            Board board = opBoard.get();
-
-            board.setTitle(form.getTitle());
-            board.setContent(form.getContent());
+    public void deleteBoard(Long boardIndex, @AuthenticationPrincipal UserDetailsService custom) {
+        if (repository.findById(boardIndex).get().getUser().getUser_id().equals(custom.getId())) {
+            repository.deleteBoardById(boardIndex, custom.getId());
         }
+    }
+
+    public void updateBoard(@PathVariable Long boardIndex){
+        Optional<Board> opBoard = repository.findById(boardIndex);
+        UpdateBoardForm form = new UpdateBoardForm();
+
+        form.setTitle(form.getTitle());
+        form.setContent(form.getContent());
+
     }
 
 //    @Override
