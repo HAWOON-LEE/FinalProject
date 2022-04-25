@@ -114,30 +114,41 @@
                                 <div class="item-price-field mb-3">
                                     <div class="row g-3">
                                         <div class="col-md-6">
-                                            <div class="form-floating">
-                                                <select class="form-select" id="selectCrypto"
-                                                    aria-label="Floating label select">
-                                                    <option selected>
-                                                        1
-                                                    </option>
-                                                    <option value="1">
-                                                        2
-                                                    </option>
-                                                    <option value="2">3
-                                                    </option>
-                                                    <option value="3">4
-                                                    </option>
-                                                    <option value="4">5
-                                                    </option>
-                                                </select>
-                                                <label for="selectCrypto">별점</label>
+                                            <div class="container">
+                                                <div class="feedback">
+                                                    <div class="rating-1">
+                                                        <input type="radio" name="rating-1" id="rating-5">
+                                                        <label for="rating-5"></label>
+                                                        <input type="radio" name="rating-1" id="rating-4">
+                                                        <label for="rating-4"></label>
+                                                        <input type="radio" name="rating-1" id="rating-3">
+                                                        <label for="rating-3"></label>
+                                                        <input type="radio" name="rating-1" id="rating-2">
+                                                        <label for="rating-2"></label>
+                                                        <input type="radio" name="rating-1" id="rating-1">
+                                                        <label for="rating-1"></label>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control" id="itemPriceInput"
-                                                    placeholder="Item Price">
-                                                <label for="itemPriceInput">페이지 정보</label>
+                                                <select class="form-select" id="selectCrypto"
+                                                        aria-label="Floating label select">
+                                                    <option selected>
+                                                        위저드 베이커리
+                                                    </option>
+                                                    <option value="1">
+                                                        달러구트 꿈 백화점
+                                                    </option>
+                                                    <option value="2">불편한 편의점
+                                                    </option>
+                                                    <option value="3">아몬드
+                                                    </option>
+
+                                                </select>
+                                                <label for="selectCrypto">도서 선택</label>
                                             </div>
                                         </div>
                                     </div>
@@ -167,9 +178,9 @@
             <div class="container">
               <div class="row g-4 align-items-center justify-content-center">
                 <div class="col-lg-6">
-                 
-               
-         
+
+
+
                 </div>
               </div>
             </div>
@@ -187,7 +198,7 @@
           <div class="container">
             <p class="text-center py-4 mb-0">
               All rights reserved &copy; 나만의 도서관
-              
+
             </p>
           </div>
         </div>
@@ -218,6 +229,7 @@
     <script th:src="@{/js/jquery.simpleLoadMore.min.js}"></script>
     <script th:src="@{/js/isotope.pkgd.min.js}"></script>
     <script th:src="@{/js/functions.js}"></script>
+    </section>
 </body>
 
 </html>
