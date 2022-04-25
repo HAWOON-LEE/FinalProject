@@ -1,15 +1,9 @@
 package lee.hawoob.finalproject.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
+
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
-import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Table(name = "BOARD")
@@ -25,15 +19,14 @@ public class Board extends BaseTimeEntity{
     private String title;
 
 //    ERD에 없음(파일첨부)
-    @Column(name = "IMG_URL")
-    private String imgURL;
+//    @Column(name = "IMG_URL")
+//    private String imgURL;
 
     @Column(name = "POST_CONTENT")
     private String content;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "NICKNAME")
-//    @JsonIgnore
     private User user;
 
 //    private LocalDateTime createDate;
@@ -53,8 +46,8 @@ public class Board extends BaseTimeEntity{
         this.content = content;
     }
 
-    public void updateImgURL(String imgURL){
-        this.imgURL = imgURL;
-    }
+//    public void updateImgURL(String imgURL){
+//        this.imgURL = imgURL;
+//    }
 
 }

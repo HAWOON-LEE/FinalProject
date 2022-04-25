@@ -16,11 +16,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/")
-    public String home(){
-        return "/home";
-    }
-
     @GetMapping("/login")
     public String login(){
         return "login";
@@ -42,6 +37,25 @@ public class UserController {
 
         userRepository.update(user.getMbti(), user.getNickname(), user.getEmail());
         return "/home";
+    }
+
+    @GetMapping("/mypage")
+    public String getmypage(Model model,@AuthenticationPrincipal PrincipalDetails principalDetails) {
+        String email = principalDetails.getUser().getEmail();
+        String nickname = principalDetails.getUser().getNickname();
+        String mbti = String.valueOf(principalDetails.getUser().getMbti());
+
+        model.addAttribute("email", email);
+        model.addAttribute("nickname", nickname);
+        model.addAttribute("mbti", mbti);
+        return "/mypage";
+    }
+
+    @PostMapping("/mypage")
+    public String postmypage(UserDto user){
+
+        userRepository.update(user.getMbti(), user.getNickname(), user.getEmail());
+        return "/redirect:/mypage";
     }
 
 }

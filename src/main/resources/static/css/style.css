@@ -473,7 +473,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #00a1fa;
+  color: #fff;
   text-decoration: none;
   outline: none;
 }
@@ -521,9 +521,9 @@ ol {
 }
 /* @@@@@@@@@@@@@  Extend Property CSS start here  @@@@@@@@@@@@@@ */
 .contact-info-wrapper
-  .contact-info-content
-  .contact-info-item
-  .contact-info-inner,
+.contact-info-content
+.contact-info-item
+.contact-info-inner,
 .contact-item,
 .comment-respond .add-comment .comment-form,
 .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags,
@@ -535,24 +535,24 @@ ol {
 .item-details-countdown .item-countdown-list,
 .nft-item-title,
 .item-desc-part
-  .item-desc-content
-  .details-tab
-  .other-info-list
-  .item-other-info,
+.item-desc-content
+.details-tab
+.other-info-list
+.item-other-info,
 .crypto-page,
 .info-card .info-card-content .info-list li,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-contact
-  li
-  a,
+.member-profile
+.profile-item
+.profile-information
+.profile-contact
+li
+a,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-contact,
+.member-profile
+.profile-item
+.profile-information
+.profile-contact,
 .profile-section .member-profile .profile-item .profile-information,
 .header-title,
 .seller-section .seller-wrapper,
@@ -580,37 +580,37 @@ ol {
 .footer-top form,
 .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.video-post
-  .post-item-inner
-  .post-thumb
-  .embed-responsive,
+.main-blog
+.blog-wrapper
+.post-item.video-post
+.post-item-inner
+.post-thumb
+.embed-responsive,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  blockquote
-  p,
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+blockquote
+p,
 .error-section .section-wrapper .error-item .error-thumb,
 .or span,
 .or,
 .item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item,
 .item-desc-part
-  .item-desc-content
-  .details-tab
-  .other-info-list
-  .item-other-info
-  .item-info-title,
+.item-desc-content
+.details-tab
+.other-info-list
+.item-other-info
+.item-info-title,
 .item-desc-part .item-desc-content .nav-tabs .nav-link,
 .help-item.style-2,
 .media-wrapper .tab-content .tab-pane .media-content .album .album-thumb,
@@ -622,20 +622,20 @@ ol {
 .profile-details .profile-nav .nav-tabs .nav-link.active,
 .profile-details .profile-nav .nav-tabs .nav-link .item-number,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic,
+.member-profile
+.profile-item
+.profile-information
+.profile-pic,
 .profile-section .member-profile .profile-item .profile-cover,
 .banner-section.style-1 .banner-wrapper,
 .banner-section,
 .live-icon,
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li
-  a,
+.page-header-content
+.page-header-inner
+.breadcrumb
+li
+a,
 .header__nav-menu a,
 .header__nav-link[data-bs-toggle="dropdown"],
 .header__nav-item,
@@ -658,50 +658,50 @@ ol {
 .footer-link-item .footer-link-list .footer-link:before,
 .footer-top form button,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .tags
-  li
-  span::after,
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.tags
+li
+span::after,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-prev,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-prev,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-next,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-next,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  blockquote
-  p::before,
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+blockquote
+p::before,
 .or::before,
 .or::after,
 .item-desc-part
-  .item-desc-content
-  .history-tab
-  .item-histo-list
-  .histo-item::before,
+.item-desc-content
+.history-tab
+.item-histo-list
+.histo-item::before,
 .item-desc-part
-  .item-desc-content
-  .details-tab
-  .other-info-list
-  .item-other-info
-  .item-info-title:after,
+.item-desc-content
+.details-tab
+.other-info-list
+.item-other-info
+.item-info-title:after,
 .item-desc-part .item-desc-content .nav-tabs .nav-link.active:after,
 .help-item.style-2 span,
 .media-wrapper .tab-content .tab-pane .media-content .album .album-thumb::after,
@@ -710,21 +710,21 @@ ol {
 .media-wrapper .nav-tp-abs .nav-item .nav-link span:before,
 .info-card .info-card-content .info-list li .info-name:after,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic
-  .custom-upload,
+.member-profile
+.profile-item
+.profile-information
+.profile-pic
+.custom-upload,
 .profile-section .member-profile .profile-item .profile-cover .custom-upload,
 .banner_shape__1,
 .banner_shape__2,
 .live-icon svg,
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li
-  a::before,
+.page-header-content
+.page-header-inner
+.breadcrumb
+li
+a::before,
 .header__nav-link[data-bs-toggle="dropdown"]:after,
 .header__nav-link[data-bs-toggle="dropdown"]:before,
 .header__search button,
@@ -749,20 +749,20 @@ ol {
 .comments .comment-list .comment .com-image,
 .comments .comment-list .comment,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.video-post
-  .post-item-inner
-  .post-thumb
-  .embed-responsive,
+.main-blog
+.blog-wrapper
+.post-item.video-post
+.post-item-inner
+.post-thumb
+.embed-responsive,
 .blog-section .post-item-inner .post-thumb,
 .variation-item,
 .media-wrapper .tab-content .tab-pane .media-content .media-thumb,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic,
+.member-profile
+.profile-item
+.profile-information
+.profile-pic,
 .profile-section .member-profile .profile-item .profile-cover,
 .banner-section,
 .hot-section .hot-holder,
@@ -781,13 +781,13 @@ ol {
 .nft-item.blog-item .nft-content h4 a,
 .nft-item .single-author h6 a,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  h3
-  a,
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+h3
+a,
 .blog-section .post-item-inner .post-content h3 > a,
 .blog-section .post-item-inner .post-content h4 > a,
 .widget.widget-post ul.widget-wrapper li .post-content a h6 {
@@ -796,21 +796,21 @@ ol {
 
 .comment-respond .add-comment .comment-form .default-btn,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-prev,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-prev,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-next,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-next,
 .account-form .form-group .checkgroup label,
 .account-form .form-group .checkgroup input[type="checkbox"],
 .account-form .form-group .checkgroup,
@@ -826,20 +826,20 @@ ol {
 .footer-top form input,
 .contact-info-wrapper .contact-info-content .contact-info-item,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.video-post
-  .post-item-inner
-  .post-thumb
-  .embed-responsive
-  iframe,
+.main-blog
+.blog-wrapper
+.post-item.video-post
+.post-item-inner
+.post-thumb
+.embed-responsive
+iframe,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.video-post
-  .post-item-inner
-  .post-thumb
-  .embed-responsive,
+.main-blog
+.blog-wrapper
+.post-item.video-post
+.post-item-inner
+.post-thumb
+.embed-responsive,
 .blog-section .post-item-inner .post-thumb a img,
 .or::before,
 .or::after,
@@ -848,11 +848,11 @@ ol {
 .crypto-page,
 .media-wrapper .tab-content .tab-pane .media-content .album .album-thumb img,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic
-  img,
+.member-profile
+.profile-item
+.profile-information
+.profile-pic
+img,
 .profile-section .member-profile .profile-item .profile-cover img,
 .explore-section .section-header .nft-filter .form-floating,
 .explore-section .section-header .nft-filter h3,
@@ -877,11 +877,11 @@ ol {
 .or::before,
 .or::after,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic
-  img,
+.member-profile
+.profile-item
+.profile-information
+.profile-pic
+img,
 .banner_shape__1 img,
 .banner_shape__2 img,
 .banner_shape__1,
@@ -898,47 +898,47 @@ ol {
 .footer-top form input,
 .comments .comment-list .comment .com-content .com-title .reply a,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.code-post
-  .post-item-inner
-  .post-thumb
-  .code-content
-  p,
+.main-blog
+.blog-wrapper
+.post-item.code-post
+.post-item-inner
+.post-thumb
+.code-content
+p,
 .coming-wrapper .event-count .rounded-circle span,
 .item-desc-part
-  .item-desc-content
-  .history-tab
-  .item-histo-list
-  .histo-item
-  p
-  a,
+.item-desc-content
+.history-tab
+.item-histo-list
+.histo-item
+p
+a,
 .assets-section
-  .section-header
-  .header-content
-  .asset-filter-list
-  .asset-filter-btn,
+.section-header
+.header-content
+.asset-filter-list
+.asset-filter-btn,
 .view-all-btn,
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .page-title
-  .title-text,
+.page-header-content
+.page-header-inner
+.page-title
+.title-text,
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li
-  a {
+.page-header-content
+.page-header-inner
+.breadcrumb
+li
+a {
   font-weight: 700;
 }
 
 .blog-section .post-item-inner .blog-footer .blog-comment,
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li.active {
+.page-header-content
+.page-header-inner
+.breadcrumb
+li.active {
   font-weight: 400;
 }
 
@@ -946,9 +946,9 @@ ol {
 .explore-section .section-header,
 .seller-section .seller-wrapper,
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb,
+.page-header-content
+.page-header-inner
+.breadcrumb,
 .header__search button,
 .widget.widget-tags ul.widget-wrapper,
 .explore-category .excat-item a,
@@ -979,27 +979,27 @@ ol {
 }
 
 .contact-info-wrapper
-  .contact-info-content
-  .contact-info-item
-  .contact-info-inner,
+.contact-info-content
+.contact-info-item
+.contact-info-inner,
 .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags,
 .blog-section .main-blog .blog-wrapper .post-item .tags-section,
 .blog-section .post-item-inner .blog-footer,
 .account-form .form-group .checkgroup,
 .item-desc-part
-  .item-desc-content
-  .details-tab
-  .other-info-list
-  .item-other-info,
+.item-desc-content
+.details-tab
+.other-info-list
+.item-other-info,
 .profile-details .tab-content .activity-page .activity-tab .nav,
 .profile-details .profile-nav .nav-tabs,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-contact
-  li
-  a,
+.member-profile
+.profile-item
+.profile-information
+.profile-contact
+li
+a,
 .profile-section .member-profile .profile-item .profile-information,
 .header-title,
 .auction-section .section-header .header-title,
@@ -1026,12 +1026,12 @@ ol {
 }
 
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.video-post
-  .post-item-inner
-  .post-thumb
-  .embed-responsive,
+.main-blog
+.blog-wrapper
+.post-item.video-post
+.post-item-inner
+.post-thumb
+.embed-responsive,
 .blog-section .post-item-inner .post-content .meta,
 .blog-section .post-item-inner .post-thumb a img,
 .blog-section .post-item-inner .post-thumb a,
@@ -1049,13 +1049,13 @@ ol {
 
 .comments .comment-list .comment .com-content .com-title .com-title-meta span,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li
-  a,
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li
+a,
 .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li a,
 .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span i,
 .account-bottom .social-media li a,
@@ -1074,37 +1074,37 @@ ol {
 }
 
 .media-wrapper
-  .tab-content
-  .tab-pane
-  .media-content
-  .media-upload
-  .upload-now
-  .custom-upload,
+.tab-content
+.tab-pane
+.media-content
+.media-upload
+.upload-now
+.custom-upload,
 .media-wrapper .nav-tp-abs .nav-item .nav-link.active span,
 .media-wrapper .nav-tp-abs .nav-item .nav-link span,
 .media-wrapper .nav-tp-abs .nav-item .nav-link,
 .media-wrapper .nav-tp-abs,
 .info-card,
 .profile-details
-  .tab-content
-  .activity-page
-  .activity-tab
-  .nav
-  .custom-select
-  select,
+.tab-content
+.activity-page
+.activity-tab
+.nav
+.custom-select
+select,
 .profile-details .profile-nav .nav-tabs .nav-link .item-number {
   border-radius: 2px;
 }
 
 /* @@@@@@@@@@@@@  Extend Property CSS Writing Now  @@@@@@@@@@@@@@ */
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  h3
-  a,
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+h3
+a,
 .blog-section .post-item-inner .post-content h3 > a,
 .blog-section .post-item-inner .post-content h4 > a,
 .widget.widget-post ul.widget-wrapper li .post-content a h6 {
@@ -1124,51 +1124,51 @@ ol {
 
 /* @@@@@@@@@@@@@  Extend Property CSS Writing Now  @@@@@@@@@@@@@@ */
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .tags
-  li
-  a:hover,
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.tags
+li
+a:hover,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .tags
-  li
-  span::after,
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.tags
+li
+span::after,
 .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.code-post
-  .post-item-inner
-  .post-thumb,
+.main-blog
+.blog-wrapper
+.post-item.code-post
+.post-item-inner
+.post-thumb,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-prev:hover,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-prev:hover,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-next:hover,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-next:hover,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  blockquote,
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+blockquote,
 .or::before,
 .or::after,
 .or,
@@ -1176,31 +1176,31 @@ ol {
 .crypto-page #cryptoCopy,
 .load-btn .lab-btn,
 .media-wrapper
-  .tab-content
-  .tab-pane
-  .media-content
-  .media-upload
-  .upload-now
-  .custom-upload,
+.tab-content
+.tab-pane
+.media-content
+.media-upload
+.upload-now
+.custom-upload,
 .media-wrapper .nav-tp-abs .nav-item .nav-link.active,
 .media-wrapper .nav-tp-abs .nav-item .nav-link span,
 .profile-details
-  .tab-content
-  .activity-page
-  .activity-tab
-  .nav
-  .nav-item
-  .nav-link.active,
+.tab-content
+.activity-page
+.activity-tab
+.nav
+.nav-item
+.nav-link.active,
 .profile-details .profile-nav .nav-tabs .dropdown ul li .dropdown-item:hover,
 .profile-details .profile-nav .nav-tabs .nav-link .item-number,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-contact
-  li
-  a
-  .icon,
+.member-profile
+.profile-item
+.profile-information
+.profile-contact
+li
+a
+.icon,
 .widget.widget-tags ul.widget-wrapper li a.active,
 .widget.widget-tags ul.widget-wrapper li a:hover,
 .paginations ul li a.active,
@@ -1216,36 +1216,36 @@ ol {
 
 .footer-top .social-list .social-link a,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li
-  a,
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li
+a,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.code-post
-  .post-item-inner
-  .post-thumb
-  .code-content,
+.main-blog
+.blog-wrapper
+.post-item.code-post
+.post-item-inner
+.post-thumb
+.code-content,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-prev,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-prev,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-next,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-next,
 .error-section .section-wrapper .error-item,
 .account-bottom .social-media li a,
 .account-wrapper,
@@ -1255,18 +1255,18 @@ ol {
 .item-desc-part .item-desc-content .bids-tab,
 .load-btn,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-contact
-  li
-  a
-  .icon,
+.member-profile
+.profile-item
+.profile-information
+.profile-contact
+li
+a
+.icon,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-name,
+.member-profile
+.profile-item
+.profile-information
+.profile-name,
 .explore-section .section-header .nft-filter h3,
 .hot-section .section-header .header-content .hot-nav .hot-prev,
 .hot-section .section-header .header-content .hot-nav .hot-next,
@@ -1309,48 +1309,48 @@ ol {
 
 .footer-link-item .footer-link-list,
 .contact-info-wrapper
-  .contact-info-content
-  .contact-info-item
-  .contact-info-inner
-  .contact-info-details
-  p,
+.contact-info-content
+.contact-info-item
+.contact-info-inner
+.contact-info-details
+p,
 .comment-respond h5,
 .comments .comment-list .comment .com-content .com-title .com-title-meta h6,
 .comments .widget-title h5,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.code-post
-  .post-item-inner
-  .post-thumb
-  .code-content
-  p,
+.main-blog
+.blog-wrapper
+.post-item.code-post
+.post-item-inner
+.post-thumb
+.code-content
+p,
 .item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item p,
 .item-desc-part
-  .item-desc-content
-  .details-tab
-  .other-info-list
-  .item-other-info
-  p,
+.item-desc-content
+.details-tab
+.other-info-list
+.item-other-info
+p,
 .wallet-title p,
 .media-wrapper .tab-content .tab-pane .media-title h2,
 .info-card .info-card-content .info-list li p,
 .info-card .info-card-content p,
 .info-card .info-card-title h6,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-contact
-  li
-  a
-  .text
-  p,
+.member-profile
+.profile-item
+.profile-information
+.profile-contact
+li
+a
+.text
+p,
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .page-title
-  p,
+.page-header-content
+.page-header-inner
+.page-title
+p,
 .widget.letest-product .widget-wrapper ul li .product-content p,
 .widget .widget-wrapper,
 .widget .widget-header .title,
@@ -1401,20 +1401,20 @@ ol {
 .contact-info-wrapper .contact-info-title h4,
 .contact-form-wrapper .contact-form h4,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.code-post
-  .post-item-inner
-  .post-thumb
-  .code-content
-  img,
+.main-blog
+.blog-wrapper
+.post-item.code-post
+.post-item-inner
+.post-thumb
+.code-content
+img,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  h3,
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+h3,
 .account-bottom .subtitle,
 .item-details-countdown h4,
 .related-linklist li:not(:last-child),
@@ -1435,10 +1435,10 @@ ol {
 .create-nft .item-category-field h4,
 .item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item,
 .item-desc-part
-  .item-desc-content
-  .details-tab
-  .other-info-list
-  .item-other-info,
+.item-desc-content
+.details-tab
+.other-info-list
+.item-other-info,
 .item-desc-part .item-desc-content .details-tab > p,
 .cant-find-content > p,
 .cant-find-content h4,
@@ -1446,9 +1446,9 @@ ol {
 .banner-content h2,
 .assets-section .nft-item,
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .page-title,
+.page-header-content
+.page-header-inner
+.page-title,
 .header__nav-item,
 .terms-text ul li:not(:last-child),
 .terms-text ol li:not(:last-child),
@@ -1468,19 +1468,19 @@ ol {
 
 .comments,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  blockquote,
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+blockquote,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  p,
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+p,
 .blog-section .main-blog .blog-wrapper .post-item .post-item-inner,
 .error-section .section-wrapper .error-item .error-content p,
 .nft-item-title,
@@ -1503,20 +1503,20 @@ ol {
 }
 
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list {
   margin-top: 0;
 }
 
 .media-wrapper .tab-content .tab-pane,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-name {
+.member-profile
+.profile-item
+.profile-information
+.profile-name {
   margin-top: 10px;
 }
 
@@ -1543,42 +1543,42 @@ ol {
 .media-wrapper .nav-tp-abs .nav-item .nav-link span,
 .profile-details .profile-nav .nav-tabs .nav-link .item-number,
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li.active {
+.page-header-content
+.page-header-inner
+.breadcrumb
+li.active {
   margin-left: 10px;
 }
 
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li:last-child,
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li:last-child,
 .account-bottom .social-media li:last-child,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic
-  .custom-upload
-  .file-btn
-  i,
+.member-profile
+.profile-item
+.profile-information
+.profile-pic
+.custom-upload
+.file-btn
+i,
 .widget.shop-widget .widget-wrapper .shop-menu li.menu-item-has-children {
   margin-right: 0;
 }
 
 .blog-section .post-item-inner .blog-footer .blog-comment i,
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-contact
-  li
-  a
-  .icon,
+.member-profile
+.profile-item
+.profile-information
+.profile-contact
+li
+a
+.icon,
 .wallet-btn a span,
 .header__action--profile .dropdown-toggle span:nth-of-type(1),
 .widget.widget-archive .widget-wrapper li a i,
@@ -1591,12 +1591,12 @@ ol {
 }
 
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li,
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li,
 .account-bottom .social-media li,
 .nft-item-bottom .nft-content .currency-img {
   margin-right: 10px;
@@ -1616,12 +1616,12 @@ ol {
 .comments .comment-list .comment .com-content:last-child,
 .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.video-post
-  .post-item-inner
-  .post-thumb
-  .embed-responsive,
+.main-blog
+.blog-wrapper
+.post-item.video-post
+.post-item-inner
+.post-thumb
+.embed-responsive,
 .page-header-section.style-1,
 .widget.letest-product,
 .widget.shop-widget,
@@ -1640,12 +1640,12 @@ ol {
 }
 
 .profile-details
-  .tab-content
-  .activity-page
-  .activity-tab
-  .nav
-  .custom-select
-  select {
+.tab-content
+.activity-page
+.activity-tab
+.nav
+.custom-select
+select {
   padding: 5px;
 }
 
@@ -1699,9 +1699,9 @@ ol {
 }
 
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb {
+.page-header-content
+.page-header-inner
+.breadcrumb {
   padding-top: 0;
 }
 
@@ -1710,30 +1710,30 @@ ol {
 }
 
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb {
+.page-header-content
+.page-header-inner
+.breadcrumb {
   padding-left: 0;
 }
 
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-next
-  i,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-next
+i,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-prev
-  i {
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-prev
+i {
   padding-left: 5px;
 }
 
@@ -1799,21 +1799,102 @@ ol {
     max-width: 1170px;
   }
 }
-
-.default-btn {
-  text-decoration: none;
-  color: #fff;
-  padding: 0 1.7rem;
-  line-height: 40px;
-  border-radius: 4px;
-  font-size: 1rem;
-  transform-origin: right;
-  transition: all 0.3s ease;
-  background: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
-  font-weight: bold;
+.frame {
+  width: 120%;
+  margin: 40px auto;
+  text-align: center;
 }
+button {
+  margin: 10px;
+}
+.custom-btn {
+  margin: 10px;
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  font-style: normal;
+  text-align: center;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1),
+  0px 1px 3px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+.custom-btn:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+}
+/* 13 */
+.btn-13 {
+  backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  border-color: #111;
+  color: #555;
+  background: linear-gradient(180deg, #555 0%, #222 49%, #000 51%, #222 100%);
+  border-radius: 5px;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5),
+  0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+/*detail btn*/
+.detail-btn {
+  margin: 10px;
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  font-style: normal;
+  text-align: center;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1),
+  0px 1px 3px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+.detail-btn:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+}
+/* 13 */
+.btn-14 {
+  right: -640px;
+  top: -190px;
+  margin: 20px;
+  backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  white-space: nowrap;
+  border-color: #111;
+  color: #555;
+  background: linear-gradient(180deg, #555 0%, #222 49%, #000 51%, #222 100%);
+  border-radius: 5px;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5),
+  0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+/**/
 @media (min-width: 768px) {
   .default-btn {
+    background-color: #555;
     padding: 0 2.25rem;
     line-height: 50px;
   }
@@ -1865,12 +1946,13 @@ ol {
 }
 .default-btn.move-bottom:before {
   content: "";
+  border-color: #000;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  background: #444 100%;
   transition: transform 0.5s;
   transform-origin: bottom;
   transform: scaleY(0);
@@ -2035,12 +2117,12 @@ ol {
   color: #829aa6;
 }
 .nft-item
-  .nft-item-top
-  .more-part
-  .dropstart
-  .dropdown-menu
-  li
-  .dropdown-item:hover {
+.nft-item-top
+.more-part
+.dropstart
+.dropdown-menu
+li
+.dropdown-item:hover {
   background: transparent;
   color: #00a1fa;
 }
@@ -2332,6 +2414,20 @@ ol {
 
 /*--------------------------artwork section end here ----------------------------------*/
 /*--------------------------activity item start here ----------------------------------*/
+.lab-inner2 {
+  width: 110%;
+  height: 350px;
+  background-color: #011e30;
+  border-radius: 24px;
+}
+.lab-content2 {
+  margin-top: 30px;
+  width: 100%-50px;
+}
+.lab-thumb2 {
+  width: 130px;
+  margin-top: -60px;
+}
 .activity-item .lab-inner {
   background-color: #011e30;
   border-radius: 4px;
@@ -3795,27 +3891,27 @@ aside {
   }
 }
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .page-title
-  h2 {
+.page-header-content
+.page-header-inner
+.page-title
+h2 {
   font-weight: 600;
 }
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li {
+.page-header-content
+.page-header-inner
+.breadcrumb
+li {
   margin: 0 5px;
   text-transform: capitalize;
   font-size: 1.125rem;
 }
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li
-  a {
+.page-header-content
+.page-header-inner
+.breadcrumb
+li
+a {
   color: #ebf0ff;
   padding: 0 5px;
   outline: none;
@@ -3824,19 +3920,19 @@ aside {
   transition: all 0.3s ease;
 }
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li
-  a:hover {
+.page-header-content
+.page-header-inner
+.breadcrumb
+li
+a:hover {
   color: #00a1fa;
 }
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li
-  a::before {
+.page-header-content
+.page-header-inner
+.breadcrumb
+li
+a::before {
   background: #829aa6;
   width: 8px;
   height: 1px;
@@ -3848,44 +3944,44 @@ aside {
   transition: all 0.3s ease;
 }
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .breadcrumb
-  li:first-child {
+.page-header-content
+.page-header-inner
+.breadcrumb
+li:first-child {
   margin-left: 0;
 }
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .page-title
-  .title-text {
+.page-header-content
+.page-header-inner
+.page-title
+.title-text {
   font-size: 24px;
   color: #fff;
   text-transform: capitalize;
 }
 @media (min-width: 768px) {
   .page-header-section.style-1
-    .page-header-content
-    .page-header-inner
-    .page-title
-    .title-text {
+  .page-header-content
+  .page-header-inner
+  .page-title
+  .title-text {
     font-size: 3.5rem;
     line-height: 4.125rem;
   }
 }
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .page-title
-  .title-text
-  span {
+.page-header-content
+.page-header-inner
+.page-title
+.title-text
+span {
   color: #00a1fa;
 }
 .page-header-section.style-1
-  .page-header-content
-  .page-header-inner
-  .page-title
-  p {
+.page-header-content
+.page-header-inner
+.page-title
+p {
   color: #fff;
   font-size: 18px;
   text-transform: capitalize;
@@ -3975,15 +4071,15 @@ Home page css start here
   transition: all 0.3s ease;
 }
 .auction-section
-  .section-header
-  .header-content
-  .auction-nav
-  .auction-prev:hover,
+.section-header
+.header-content
+.auction-nav
+.auction-prev:hover,
 .auction-section
-  .section-header
-  .header-content
-  .auction-nav
-  .auction-next:hover {
+.section-header
+.header-content
+.auction-nav
+.auction-next:hover {
   background: #00a1fa;
 }
 .auction-section .auction-holder {
@@ -4052,18 +4148,18 @@ Home page css start here
   }
 }
 .assets-section
-  .section-header
-  .header-content
-  .asset-filter-list
-  .asset-filter-btn {
+.section-header
+.header-content
+.asset-filter-list
+.asset-filter-btn {
   font-size: 16px;
   cursor: pointer;
 }
 .assets-section
-  .section-header
-  .header-content
-  .asset-filter-list
-  .asset-filter-btn.is-checked {
+.section-header
+.header-content
+.asset-filter-list
+.asset-filter-btn.is-checked {
   color: #00a1fa;
 }
 .assets-section .nft-item {
@@ -4354,7 +4450,7 @@ Home page css start here
 
 .banner-image {
   animation: floating 3s cubic-bezier(0.45, -0.36, 0.72, 1.03) infinite
-    alternate;
+  alternate;
 }
 
 @keyframes floating {
@@ -4405,10 +4501,10 @@ Home page css start here
   transition: all 0.3s ease;
 }
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-cover:hover
-  .custom-upload {
+.member-profile
+.profile-item
+.profile-cover:hover
+.custom-upload {
   opacity: 1;
   transform: translateY(0);
 }
@@ -4431,10 +4527,10 @@ Home page css start here
   }
 }
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic {
+.member-profile
+.profile-item
+.profile-information
+.profile-pic {
   width: 140px;
   height: 140px;
   border: 5px solid #001321;
@@ -4443,10 +4539,10 @@ Home page css start here
 }
 @media (min-width: 992px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-pic {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-pic {
     width: auto;
     height: auto;
     border-radius: 15px;
@@ -4457,29 +4553,29 @@ Home page css start here
 }
 @media (min-width: 1200px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-pic {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-pic {
     height: 270px;
     width: 220px;
     transform: translate(20px, 20px);
   }
 }
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic
-  img {
+.member-profile
+.profile-item
+.profile-information
+.profile-pic
+img {
   object-fit: cover;
 }
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic
-  .custom-upload {
+.member-profile
+.profile-item
+.profile-information
+.profile-pic
+.custom-upload {
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%) translateY(5px);
@@ -4495,6 +4591,17 @@ Home page css start here
   transition: all 0.3s ease;
 }
 .profile-section
+.member-profile
+.profile-item
+.profile-information
+.profile-pic
+.custom-upload
+.file-btn
+i {
+  color: #000000;
+}
+@media (min-width: 992px) {
+  .profile-section
   .member-profile
   .profile-item
   .profile-information
@@ -4502,146 +4609,135 @@ Home page css start here
   .custom-upload
   .file-btn
   i {
-  color: #000000;
-}
-@media (min-width: 992px) {
-  .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-pic
-    .custom-upload
-    .file-btn
-    i {
     margin-right: 5px;
   }
 }
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-pic:hover
-  .custom-upload {
+.member-profile
+.profile-item
+.profile-information
+.profile-pic:hover
+.custom-upload {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
 @media (min-width: 992px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-name,
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-name,
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-contact {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-contact {
     transform: translateY(-70px);
   }
 }
 @media (min-width: 1200px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-name,
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-name,
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-contact {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-contact {
     transform: translateY(-50px);
   }
 }
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-name
-  h4 {
+.member-profile
+.profile-item
+.profile-information
+.profile-name
+h4 {
   margin-bottom: 2px;
 }
 @media (min-width: 992px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-name {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-name {
     margin-left: 30px;
   }
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-name
-    p {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-name
+  p {
     margin-bottom: 0;
   }
 }
 @media (min-width: 1200px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-name {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-name {
     margin-left: 45px;
   }
 }
 .profile-section
-  .member-profile
-  .profile-item
-  .profile-information
-  .profile-contact {
+.member-profile
+.profile-item
+.profile-information
+.profile-contact {
   justify-content: space-evenly;
   gap: 15px;
 }
 @media (min-width: 768px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-contact {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-contact {
     margin-left: 20px;
   }
 }
 @media (min-width: 1200px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-contact {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-contact {
     margin-left: 40px;
   }
 }
 @media (max-width: 575px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-contact
-    .crypto-copy {
+  .member-profile
+  .profile-item
+  .profile-information
+  .profile-contact
+  .crypto-copy {
     width: 80%;
     margin-right: 0;
   }
 }
 @media (min-width: 1200px) {
   .profile-section
-    .member-profile
-    .profile-item
-    .profile-information
-    .profile-contact
-    li {
-    margin-right: 25px;
-  }
-}
-.profile-section
   .member-profile
   .profile-item
   .profile-information
   .profile-contact
-  li
-  a
-  .icon {
+  li {
+    margin-right: 25px;
+  }
+}
+.profile-section
+.member-profile
+.profile-item
+.profile-information
+.profile-contact
+li
+a
+.icon {
   height: 30px;
   width: 30px;
   line-height: 30px;
@@ -4770,21 +4866,21 @@ Home page css start here
 }
 @media (min-width: 992px) {
   .profile-details
-    .tab-content
-    .activity-page
-    .activity-tab
-    .nav
-    .nav-item:first-child {
-    margin-left: 13px;
-  }
-}
-.profile-details
   .tab-content
   .activity-page
   .activity-tab
   .nav
-  .nav-item
-  .nav-link {
+  .nav-item:first-child {
+    margin-left: 13px;
+  }
+}
+.profile-details
+.tab-content
+.activity-page
+.activity-tab
+.nav
+.nav-item
+.nav-link {
   padding: 5px 10px;
   border-radius: 5px;
   color: #829aa6;
@@ -4792,22 +4888,22 @@ Home page css start here
 }
 @media (min-width: 576px) {
   .profile-details
-    .tab-content
-    .activity-page
-    .activity-tab
-    .nav
-    .nav-item
-    .nav-link {
-    padding: 10px 18px;
-  }
-}
-.profile-details
   .tab-content
   .activity-page
   .activity-tab
   .nav
   .nav-item
-  .nav-link.active {
+  .nav-link {
+    padding: 10px 18px;
+  }
+}
+.profile-details
+.tab-content
+.activity-page
+.activity-tab
+.nav
+.nav-item
+.nav-link.active {
   color: #fff;
 }
 .profile-details .tab-content .activity-page .activity-tab .nav .custom-select {
@@ -4815,12 +4911,12 @@ Home page css start here
   margin-left: auto;
 }
 .profile-details
-  .tab-content
-  .activity-page
-  .activity-tab
-  .nav
-  .custom-select
-  select {
+.tab-content
+.activity-page
+.activity-tab
+.nav
+.custom-select
+select {
   font-family: "Manrope", sans-serif;
   color: #829aa6;
   outline: none;
@@ -4940,12 +5036,12 @@ Home page css start here
   padding: 5px 20px;
 }
 .media-wrapper
-  .tab-content
-  .tab-pane
-  .media-content
-  .media-upload
-  .upload-now
-  .custom-upload {
+.tab-content
+.tab-pane
+.media-content
+.media-upload
+.upload-now
+.custom-upload {
   padding: 0.5rem 1rem;
 }
 .media-wrapper .tab-content .tab-pane .media-content .media-thumb {
@@ -4981,11 +5077,11 @@ Home page css start here
   border: 4px solid #fff;
 }
 .media-wrapper
-  .tab-content
-  .tab-pane
-  .media-content
-  .album
-  .album-thumb:before {
+.tab-content
+.tab-pane
+.media-content
+.album
+.album-thumb:before {
   height: 170px;
   width: 170px;
   background: #e0043b;
@@ -4998,11 +5094,11 @@ Home page css start here
   -webkit-backface-visibility: hidden;
 }
 .media-wrapper
-  .tab-content
-  .tab-pane
-  .media-content
-  .album
-  .album-thumb::after {
+.tab-content
+.tab-pane
+.media-content
+.album
+.album-thumb::after {
   height: 170px;
   width: 170px;
   background: #ffd900;
@@ -5298,48 +5394,48 @@ Home page css start here
   border: 2px solid rgba(0, 161, 250, 0.3);
 }
 .item-desc-part
+.item-desc-content
+.details-tab
+.other-info-list
+.item-other-info
+.item-info-title {
+  width: 30%;
+}
+@media (min-width: 576px) {
+  .item-desc-part
   .item-desc-content
   .details-tab
   .other-info-list
   .item-other-info
   .item-info-title {
-  width: 30%;
-}
-@media (min-width: 576px) {
-  .item-desc-part
-    .item-desc-content
-    .details-tab
-    .other-info-list
-    .item-other-info
-    .item-info-title {
     width: 35%;
   }
 }
 .item-desc-part
-  .item-desc-content
-  .details-tab
-  .other-info-list
-  .item-other-info
-  .item-info-title:after {
+.item-desc-content
+.details-tab
+.other-info-list
+.item-other-info
+.item-info-title:after {
   content: ":";
   right: 10px;
   top: 0;
 }
 .item-desc-part
+.item-desc-content
+.details-tab
+.other-info-list
+.item-other-info
+.item-info-details {
+  width: 70%;
+}
+@media (min-width: 576px) {
+  .item-desc-part
   .item-desc-content
   .details-tab
   .other-info-list
   .item-other-info
   .item-info-details {
-  width: 70%;
-}
-@media (min-width: 576px) {
-  .item-desc-part
-    .item-desc-content
-    .details-tab
-    .other-info-list
-    .item-other-info
-    .item-info-details {
     width: 65%;
   }
 }
@@ -5369,10 +5465,10 @@ Home page css start here
   border-left: 1px dashed #00a1fa;
 }
 .item-desc-part
-  .item-desc-content
-  .history-tab
-  .item-histo-list
-  .histo-item::before {
+.item-desc-content
+.history-tab
+.item-histo-list
+.histo-item::before {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -5381,11 +5477,11 @@ Home page css start here
   top: 5px;
 }
 .item-desc-part
-  .item-desc-content
-  .history-tab
-  .item-histo-list
-  .histo-item
-  time {
+.item-desc-content
+.history-tab
+.item-histo-list
+.histo-item
+time {
   font-size: 14px;
 }
 
@@ -5924,37 +6020,50 @@ Home page css start here
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner:hover
-  .post-content
-  h3
-  a {
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner:hover
+.post-content
+h3
+a {
   color: #00a1fa;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  h3
-  a {
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+h3
+a {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  blockquote {
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+blockquote {
   padding: 35px;
 }
 .blog-section
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+blockquote
+p {
+  margin-bottom: 0 !important;
+  color: #fff;
+  padding-top: 50px;
+}
+@media (min-width: 768px) {
+  .blog-section
   .main-blog
   .blog-wrapper
   .post-item
@@ -5962,31 +6071,18 @@ Home page css start here
   .post-content
   blockquote
   p {
-  margin-bottom: 0 !important;
-  color: #fff;
-  padding-top: 50px;
-}
-@media (min-width: 768px) {
-  .blog-section
-    .main-blog
-    .blog-wrapper
-    .post-item
-    .post-item-inner
-    .post-content
-    blockquote
-    p {
     padding-left: 60px;
     padding-top: 0;
   }
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .post-content
-  blockquote
-  p::before {
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.post-content
+blockquote
+p::before {
   content: url(../../assets/images/blog/icon/b-code.png);
   left: 50%;
   top: 7px;
@@ -5994,13 +6090,13 @@ Home page css start here
 }
 @media (min-width: 768px) {
   .blog-section
-    .main-blog
-    .blog-wrapper
-    .post-item
-    .post-item-inner
-    .post-content
-    blockquote
-    p::before {
+  .main-blog
+  .blog-wrapper
+  .post-item
+  .post-item-inner
+  .post-content
+  blockquote
+  p::before {
     left: 0px;
     top: 7px;
     transform: translateX(0%);
@@ -6008,23 +6104,23 @@ Home page css start here
 }
 @media (max-width: 575px) {
   .blog-section
-    .main-blog
-    .blog-wrapper
-    .post-item
-    .post-item-inner
-    .blog-footer
-    .right {
-    margin-top: 10px;
-  }
-}
-.blog-section
   .main-blog
   .blog-wrapper
   .post-item
   .post-item-inner
   .blog-footer
-  .right
-  .blog-heart {
+  .right {
+    margin-top: 10px;
+  }
+}
+.blog-section
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.blog-footer
+.right
+.blog-heart {
   padding: 0 20px;
   color: #829aa6;
   -webkit-transition: all 0.3s ease;
@@ -6033,17 +6129,29 @@ Home page css start here
 }
 @media (max-width: 575px) {
   .blog-section
-    .main-blog
-    .blog-wrapper
-    .post-item
-    .post-item-inner
-    .blog-footer
-    .right
-    .blog-heart {
+  .main-blog
+  .blog-wrapper
+  .post-item
+  .post-item-inner
+  .blog-footer
+  .right
+  .blog-heart {
     padding-left: 0;
   }
 }
 .blog-section
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.blog-footer
+.right
+.blog-heart
+i {
+  padding: 0 5px;
+}
+@media (max-width: 575px) {
+  .blog-section
   .main-blog
   .blog-wrapper
   .post-item
@@ -6052,56 +6160,44 @@ Home page css start here
   .right
   .blog-heart
   i {
-  padding: 0 5px;
-}
-@media (max-width: 575px) {
-  .blog-section
-    .main-blog
-    .blog-wrapper
-    .post-item
-    .post-item-inner
-    .blog-footer
-    .right
-    .blog-heart
-    i {
     padding-left: 0;
   }
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .post-item-inner
-  .blog-footer
-  .right
-  .blog-heart:hover {
+.main-blog
+.blog-wrapper
+.post-item
+.post-item-inner
+.blog-footer
+.right
+.blog-heart:hover {
   color: #00a1fa;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner:hover
-  .post-thumb
-  img {
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner:hover
+.post-thumb
+img {
   transform: scale(1);
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-prev,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-prev,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-next {
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-next {
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -6116,45 +6212,56 @@ Home page css start here
   color: #ebf0ff;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-prev:hover,
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-prev:hover,
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-next:hover {
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-next:hover {
   color: #fff;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-prev {
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-prev {
   left: 20px;
   transform: rotate(180deg) translateY(50%);
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.post-slider
-  .post-item-inner
-  .post-thumb
-  .blog-slider
-  .blog-slider-next {
+.main-blog
+.blog-wrapper
+.post-item.post-slider
+.post-item-inner
+.post-thumb
+.blog-slider
+.blog-slider-next {
   right: 20px;
 }
 .blog-section
+.main-blog
+.blog-wrapper
+.post-item.video-post
+.post-item-inner
+.post-thumb
+.embed-responsive
+iframe {
+  height: 170px;
+}
+@media (min-width: 576px) {
+  .blog-section
   .main-blog
   .blog-wrapper
   .post-item.video-post
@@ -6162,70 +6269,59 @@ Home page css start here
   .post-thumb
   .embed-responsive
   iframe {
-  height: 170px;
-}
-@media (min-width: 576px) {
-  .blog-section
-    .main-blog
-    .blog-wrapper
-    .post-item.video-post
-    .post-item-inner
-    .post-thumb
-    .embed-responsive
-    iframe {
     height: 250px;
   }
 }
 @media (min-width: 768px) {
   .blog-section
-    .main-blog
-    .blog-wrapper
-    .post-item.video-post
-    .post-item-inner
-    .post-thumb
-    .embed-responsive
-    iframe {
+  .main-blog
+  .blog-wrapper
+  .post-item.video-post
+  .post-item-inner
+  .post-thumb
+  .embed-responsive
+  iframe {
     height: 335px;
   }
 }
 @media (min-width: 1200px) {
   .blog-section
-    .main-blog
-    .blog-wrapper
-    .post-item.video-post
-    .post-item-inner
-    .post-thumb
-    .embed-responsive
-    iframe {
+  .main-blog
+  .blog-wrapper
+  .post-item.video-post
+  .post-item-inner
+  .post-thumb
+  .embed-responsive
+  iframe {
     height: 360px;
   }
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.code-post
-  .post-item-inner:hover
-  .post-thumb
-  .code-content
-  img {
+.main-blog
+.blog-wrapper
+.post-item.code-post
+.post-item-inner:hover
+.post-thumb
+.code-content
+img {
   transform: scale(1);
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.code-post
-  .post-item-inner
-  .post-thumb {
+.main-blog
+.blog-wrapper
+.post-item.code-post
+.post-item-inner
+.post-thumb {
   padding: 40px;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item.code-post
-  .post-item-inner
-  .post-thumb
-  .code-content
-  p {
+.main-blog
+.blog-wrapper
+.post-item.code-post
+.post-item-inner
+.post-thumb
+.code-content
+p {
   color: #fff;
   font-style: italic;
   line-height: 30px;
@@ -6243,13 +6339,13 @@ Home page css start here
   color: #fff;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .tags
-  li
-  span::after {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.tags
+li
+span::after {
   top: 50%;
   right: 0;
   transform: rotate(45deg) translateY(-50%);
@@ -6257,14 +6353,14 @@ Home page css start here
   height: 15px;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .tags
-  li
-  span
-  i {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.tags
+li
+span
+i {
   transform: rotate(90deg);
 }
 .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li a {
@@ -6281,32 +6377,32 @@ Home page css start here
   border-radius: 3px;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .tags
-  li
-  a:hover {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.tags
+li
+a:hover {
   color: #fff;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li {
   padding: 5px 0;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li
-  a {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li
+a {
   background-color: #00a1fa;
   color: #fff;
   height: 40px;
@@ -6315,53 +6411,53 @@ Home page css start here
   border-radius: 3px;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li
-  a.facebook {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li
+a.facebook {
   background: #3b5998;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li
-  a.dribble {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li
+a.dribble {
   background: #ea4c89;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li
-  a.twitter {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li
+a.twitter {
   background: #55acee;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li
-  a.linkedin {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li
+a.linkedin {
   background: #007bb5;
 }
 .blog-section
-  .main-blog
-  .blog-wrapper
-  .post-item
-  .tags-section
-  .social-link-list
-  li
-  a:hover {
+.main-blog
+.blog-wrapper
+.post-item
+.tags-section
+.social-link-list
+li
+a:hover {
   border-radius: 50%;
   color: #fff;
 }
@@ -6415,13 +6511,13 @@ Home page css start here
   color: #ebf0ff;
 }
 .comments
-  .comment-list
-  .comment
-  .com-content
-  .com-title
-  .com-title-meta
-  h6
-  a:hover {
+.comment-list
+.comment
+.com-content
+.com-title
+.com-title-meta
+h6
+a:hover {
   color: #00a1fa;
 }
 .comments .comment-list .comment .com-content .com-title .reply a {
@@ -6590,19 +6686,19 @@ Home page css start here
   margin-bottom: 0;
 }
 .contact-info-wrapper
-  .contact-info-content
-  .contact-info-item
-  .contact-info-inner
-  .contact-info-thumb {
+.contact-info-content
+.contact-info-item
+.contact-info-inner
+.contact-info-thumb {
   margin-bottom: 0;
   margin-right: 15px;
 }
 .contact-info-wrapper
-  .contact-info-content
-  .contact-info-item
-  .contact-info-inner
-  .contact-info-details
-  span {
+.contact-info-content
+.contact-info-item
+.contact-info-inner
+.contact-info-details
+span {
   color: #ebf0ff;
 }
 /*=======  Footer section  css start here =========*/
@@ -6887,7 +6983,7 @@ c:hover:after {
   box-shadow: 0 0 8px #fff;
 
   -webkit-box-reflect: below 10px
-    linear-gradient(transparent, transparent, #0005);
+  linear-gradient(transparent, transparent, #0005);
 }
 
 #drag-container img:hover,
@@ -6897,7 +6993,7 @@ c:hover:after {
   box-shadow: 0 0 15px #fffd;
 
   -webkit-box-reflect: below 10px
-    linear-gradient(transparent, transparent, #0007);
+  linear-gradient(transparent, transparent, #0007);
 }
 
 #drag-container p {
@@ -6932,10 +7028,10 @@ c:hover:after {
   transform: translate(-50%, -50%) rotateX(90deg);
 
   background: -webkit-radial-gradient(
-    center center,
-    farthest-side,
-    #9993,
-    transparent
+          center center,
+          farthest-side,
+          #9993,
+          transparent
   );
 }
 
@@ -6991,17 +7087,14 @@ c:hover:after {
   }
 }
 
-
-/*
-*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body {
+html2,
+body2 {
   width: 100%;
   height: 100%;
 }
@@ -7011,12 +7104,11 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  align-self: flex-end;
 }
 
 .heart-button {
-  left: -100px;
-  bottom: -20px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -7042,10 +7134,10 @@ body {
   pointer-events: none;
 }
 .heart-button + .number {
-  position: absolute;
+  position: relative;
   top: 50%;
-  left: 33%;
-  margin-top: -8px;
+  left: 50%;
+  margin-top: -10px;
   height: 20px;
   line-height: 20px;
   padding-left: 30px;
@@ -7167,4 +7259,134 @@ body {
     transform: rotate(0deg);
     opacity: 1;
   }
+}
+
+/*리뷰
+*/
+htm2,
+body2 {
+  height: 100%;
+}
+
+body1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+#wrap {
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  position: relative;
+  padding: 55px 0;
+}
+
+.review-title {
+  margin-bottom: 50px;
+}
+
+.review {
+  margin-bottom: 35px;
+}
+.review__view-more {
+  background-color: #ccc;
+  padding: 6px 15px;
+  margin-top: 15px;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+.review__view-more i {
+  vertical-align: middle;
+}
+.review__head .profile-img {
+  margin-bottom: 10px;
+  left: 70px;
+  max-width: 110px;
+  display: block;
+}
+.review__body {
+  position: relative;
+  margin-left: -110px;
+  border-bottom: 1px solid #cdcdcd;
+  padding-bottom: 15px;
+}
+@media (max-width: 767px) {
+  .review__body {
+    padding-top: 10px;
+    text-align: center;
+  }
+}
+.review__body .author-name,
+.review__body .rating {
+  display: block;
+}
+.review__body .author-name {
+  font-size: 18px;
+}
+.review__body .rating li {
+  margin: 0 -2px;
+  padding: 0;
+}
+.review__body .rating li i {
+  font-size: 25px;
+}
+
+/*별점
+*/
+* {
+  box-sizing: border-box;
+}
+
+.container1 {
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png");
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.rating-1 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: row-reverse;
+  height: 50px;
+  position: relative;
+}
+
+.rating-0 {
+  filter: grayscale(100%);
+}
+
+.rating-1 > input {
+  display: none;
+}
+
+.rating-1 > label {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-top: auto;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 76%;
+  transition: 0.3s;
+}
+
+.rating-1 > input:checked ~ label,
+.rating-1 > input:checked ~ label ~ label {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+}
+
+.rating-1 > input:not(:checked) ~ label:hover,
+.rating-1 > input:not(:checked) ~ label:hover ~ label {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
 }

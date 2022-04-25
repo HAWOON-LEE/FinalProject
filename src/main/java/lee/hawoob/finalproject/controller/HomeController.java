@@ -22,4 +22,6 @@ public class HomeController {
 
     @GetMapping("/recommend")
     public String gotorecommend(){ return "/recommend"; }
+
+
 }

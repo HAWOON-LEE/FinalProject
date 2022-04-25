@@ -15,11 +15,9 @@ import java.util.List;
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
-//    @Modifying(clearAutomatically = true)
-    @Query(value = "select b.boardIndex as no, b.title as title, b.user.nickname as nickname, b.createdDate as date from Board b where b.title like %:keyword% or b.content like %:keyword% ")
-    List<Board> findByBoardTitleAndPostContentContaining(@Param("keyword") String keyword);
-//    List<Board> findByBoardTitleAndPostContentContaining(@Param("keyword") String keyword);
-//    안될경우 인수에 @Param("keyword"), String keyword
+    @Query(value = "select b from Board b where b.title like %:keyword% or b.content like %:keyword% or b.user.nickname like %:keyword% ")
+    List<Board> findByBoardTitleAndPostContentContaining(String keyword);
+
 
 
     @Query(value = "delete b from board b where b.user.id = :id and b.boardIndex = :boardIndex", nativeQuery = true)

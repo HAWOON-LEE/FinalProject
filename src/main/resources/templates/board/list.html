@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko" class="no-js" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Labartisan">
+    <meta name="description"
+        content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ====****>  Meta tags for Social Media(Better SEO)  <****==== -->
+    <!-- <meta property="og:title" content=""> -->
+    <!-- <meta property="og:type" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="../../static/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/icofont.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- site title -->
+    <title>Anftiz- NFT Marketplace HTML Template</title>
+</head>
+
+<body>
+    <!-- preloader start here -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- preloader ending here -->
+
+    <!-- ===============// header section start here \\================= -->
+    <header class="header" th:replace="fragment/common::header">
+    </header>
+
+    <section class="ranking-section padding-top padding-bottom">
+        <div class="container">
+            <div class="section-header">
+                <div class="nft-filter d-flex flex-wrap align-items-center justify-content-center  gap-15">
+                    <h3>게시판</h3>
+                </div>
+                <div class="nft-search">
+                    <form class="form-floating nft-search-input" th:action="@{/board/search}" method="get" th:object="${boardList}">
+                        <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력하세요.">
+                        <button type="submit"> <i class="icofont-search-1"></i></button>
+
+                    </form>
+                </div>
+            </div>
+            <div class="ranking-wrapper table-responsive">
+                <table class="table table-hover rank-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">제목</th>
+                            <th scope="col">작성자</th>
+                            <th scope="col">등록일</th>
+                        </tr>
+                    </thead>
+                    <tbody th:if="${boardList.size() >= 0}">
+                        <tr th:each="board: ${boardList}">
+                            <th scope="row" class="rank-sl" th:text="${board.boardIndex}"></th>
+                            <td class="rank-collection" >
+                                <a th:href="@{/board/board/{boardIndex}(boardIndex=${board.boardIndex})}" th:text="${board.title}"></a>
+                            </td>
+                            <td class="rank-vol" th:text="${board.user.nickname}">
+                            </td>
+                            <td class="rank-hour text-success" th:text="${#temporals.format(board.createDate, 'yyyy MM dd HH:mm')}"></td>
+                        </tr>
+
+                    </tbody>
+                    <div>
+                        <a th:href="@{/board/create}">글 작성</a>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+
+
+
+    <!-- All Scripts -->
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/swiper-bundle.min.js"></script>
+    <script src="/js/countdown.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/jquery.simpleLoadMore.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/functions.js"></script>
+</body>
+
+</html>

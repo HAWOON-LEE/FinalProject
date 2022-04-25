@@ -16,12 +16,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SearchBoardDto extends Board {
-//implements SearchInterface
+    //implements SearchInterface
     private Long boardIndex;
 
     private String title;
 
-    @Nullable
     private User user;
 
     private String content;
@@ -33,7 +32,8 @@ public class SearchBoardDto extends Board {
         this.boardIndex = board.getBoardIndex();
         this.title = board.getTitle();
         this.user = board.getUser();
-        this.createDate = board.getCreatedDate();
+        this.content = board.getContent();
+        this.createDate = board.getCreateDate();
     }
 
 }

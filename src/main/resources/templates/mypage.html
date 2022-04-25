@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" class="no-js">
+<html lang="ko" class="no-js" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -84,15 +84,17 @@
             <div class="col-lg-5">
                 <div class="account-wrapper">
                     <h3 class="title">회원정보</h3>
-                    <form class="account-form">
+                    <form class="account-form" method="post" th:action="@{/mypage}">
                         <div class="form-floating mb-3">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="이메일" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control" placeholder="이메일" aria-label="Recipient's username"
+                                       name="email" th:value="${email}" aria-describedby="basic-addon2">
                             </div>
                         </div>
                         <div class="form-floating mb-3">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="닉네임" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control" placeholder="닉네임" aria-label="Recipient's username"
+                                       name="nickname" th:value="${nickname}" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="submit">중복검사</button>
                                 </div>
@@ -105,7 +107,7 @@
                                 </div>
                             </div>
                             <div class="select-box">
-                                <select class="form-select form-select-lg mb-3" id="mbti" name="mbti">
+                                <select class="form-select form-select-lg mb-3" id="mbti" name="mbti" th:value="${mbti}">
                                     <option value="INTJ">INTJ</option>
                                     <option value="INTP">INTP</option>
                                     <option value="INFJ">INFJ</option>

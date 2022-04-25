@@ -39,7 +39,7 @@ public class BoardApiController {
     public ModelAndView list(ModelAndView mav){
         List<SearchBoardDto> boardList = service.findAll();
         mav.addObject("boardList", boardList);
-        mav.setViewName("board/rank");
+        mav.setViewName("board/list");
 
         return mav;
     }
@@ -64,7 +64,7 @@ public class BoardApiController {
         model.getAttribute("keyword");
         model.addAttribute("boardList", boardList);
 
-        return "list";
+        return "board/list";
     }
 
     @GetMapping("/board/{boardIndex}")
@@ -84,13 +84,13 @@ public class BoardApiController {
     @PostMapping("/create")
     public String createBoard(@ModelAttribute CreatePostForm form, UserDetailsService custom){
         service.createBoard(form, custom);
-        return "redirect:/board/rank";
+        return "redirect:/board/list";
     }
 
-    @DeleteMapping("board/{boardIndex}")
-    public void deleteBoard(@PathVariable Long boardIndex, @AuthenticationPrincipal UserDetailsService custom){
-        service.deleteBoard(boardIndex, custom);
-    }
+//    @DeleteMapping("board/{boardIndex}")
+//    public void deleteBoard(@PathVariable Long boardIndex, @AuthenticationPrincipal UserDetailsService custom){
+//        service.deleteBoard(boardIndex, custom);
+//    }
 
 //    @PutMapping("board")
 //    public void updateBoard(@PathVariable UpdatePostForm form, BoardDto dto){
