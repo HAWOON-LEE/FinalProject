@@ -26,16 +26,6 @@ import java.util.Optional;
 public class BoardApiController {
 
     private final BoardService service;
-    private final BoardRepository repository;
-
-//    @GetMapping("/list")
-//    public List<SearchBoardDto> findAll(){
-//        List<Board> list = new ArrayList<>();
-//        list = service.findAll();
-//        List<SearchBoardDto> dto = list.stream().map(l -> new SearchBoardDto(l)).collect(Collectors.toList());
-//        return dto;
-//
-//    }
 
     @GetMapping("/list")
     public ModelAndView list(ModelAndView mav){
