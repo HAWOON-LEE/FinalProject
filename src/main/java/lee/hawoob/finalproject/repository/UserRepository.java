@@ -9,13 +9,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByEmail(String email);
 
     @Modifying
     @Transactional
-    @Query("update User m set m.mbti = :mbti, m.nickname = :nickname where m.email = :email")
+    @Query("update User m set m.mbti.name = :mbti, m.nickname = :nickname where m.email = :email")
     public void update(@Param("mbti")String mbti, @Param("nickname")String nickname,
                        @Param("email")String email);
 }

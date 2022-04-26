@@ -2,6 +2,8 @@ package lee.hawoob.finalproject.form;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 public class UpdateBoardForm {
 
@@ -12,4 +14,6 @@ public class UpdateBoardForm {
 //    private String imgURL;
 
     private String content;
+
+    private LocalDateTime date;
 }

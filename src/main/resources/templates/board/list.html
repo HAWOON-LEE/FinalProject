@@ -63,7 +63,7 @@
                 <table class="table table-hover rank-table">
                     <thead>
                         <tr>
-                            <th scope="col">No</th>
+                            <th scope="col">번호</th>
                             <th scope="col">제목</th>
                             <th scope="col">작성자</th>
                             <th scope="col">등록일</th>
@@ -77,7 +77,7 @@
                             </td>
                             <td class="rank-vol" th:text="${board.user.nickname}">
                             </td>
-                            <td class="rank-hour text-success" th:text="${#temporals.format(board.createDate, 'MM/dd HH:mm')}"></td>
+                            <td class="rank-hour text-success" th:text="${#temporals.format(board.createDate, 'yy.MM.dd HH:mm')}"></td>
                         </tr>
 
                     </tbody>

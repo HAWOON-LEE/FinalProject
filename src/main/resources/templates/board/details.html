@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="www.thymeleaf.org">
+<html lang="ko" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>게시글 상세보기</title>
@@ -16,9 +16,8 @@
         <h3>글 상세보기</h3>
     </div>
 </div>
-
-<a th:href="@{/board/update/{boardIndex?}(boardIndex=${board.boardIndex})}"><input type="submit" value="수정"></a>
-<a th:href="@{/board/delete/{boardIndex?}(boardIndex=${board.boardIndex})}"><input type="submit" value="삭제"></a>
+<a th:href="@{/board/update/{boardIndex}(boardIndex=${dto.boardIndex})}"><input type="submit" value="수정"></a>
+<a th:href="@{/board/delete/{boardIndex}(boardIndex=${dto.boardIndex})}"><input type="submit" value="삭제"></a>-->
 
 <table border = 1 >
     <tr>

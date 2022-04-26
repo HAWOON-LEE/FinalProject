@@ -19,7 +19,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID")
-    private Integer user_id;
+    private Long user_id;
 
     @Column(name = "EMAIL")
     private String email;
