@@ -1,14 +1,13 @@
 package lee.hawoob.finalproject.controller;
 
+import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.BoardDto;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.form.CreatePostForm;
-import lee.hawoob.finalproject.repository.BoardRepository;
+import lee.hawoob.finalproject.form.UpdateBoardForm;
 import lee.hawoob.finalproject.service.BoardService;
-import lee.hawoob.finalproject.service.UserDetailsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -24,16 +24,6 @@ import java.util.List;
 public class BoardApiController {
 
     private final BoardService service;
-    private final BoardRepository repository;
-
-//    @GetMapping("/list")
-//    public List<SearchBoardDto> findAll(){
-//        List<Board> list = new ArrayList<>();
-//        list = service.findAll();
-//        List<SearchBoardDto> dto = list.stream().map(l -> new SearchBoardDto(l)).collect(Collectors.toList());
-//        return dto;
-//
-//    }
 
     @GetMapping("/list")
     public ModelAndView list(ModelAndView mav){
@@ -44,20 +34,6 @@ public class BoardApiController {
         return mav;
     }
 
-
-    //    @GetMapping
-//    public List<SearchBoardDto> searchBoard(String keyword){
-//        List<SearchBoardDto> searchPost = null;
-//        if(keyword == null){
-//            searchPost = service.findAll();
-//        } else{
-//            searchPost = service.searchBoard(keyword);
-//        }
-//
-//
-//        List<SearchBoardDto>dto = searchPost.stream().map(b -> new SearchBoardDto(b)).collect(Collectors.toList());
-//        return dto;
-//    }
     @GetMapping("search")
     public String searchBoard(@RequestParam("keyword") String keyword, Model model){
         List<SearchBoardDto> boardList = service.searchBoard(keyword);
@@ -67,33 +43,56 @@ public class BoardApiController {
         return "board/list";
     }
 
-    @GetMapping("/board/{boardIndex}")
-    public BoardDto detailBoard(@PathVariable Long boardIndex){
-        Board board = service.findByIndex(boardIndex).get();
-        BoardDto dto =service.getPostDto(board);
-        return dto;
+    @GetMapping("/detail/{boardIndex}")
+    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav){
+        Optional<Board> board = service.findByIndex(boardIndex);
+        BoardDto dto =service.getBoardDto(board.get());
+        mav.setViewName("board/details");
+        mav.addObject("dto", dto);
+        return mav;
     }
 
     @GetMapping("/create")
-    public ModelAndView insert(@ModelAttribute CreatePostForm form, ModelAndView mav){
+    public ModelAndView create(@ModelAttribute CreatePostForm form, ModelAndView mav){
         mav.addObject("form", form);
         mav.setViewName("board/create");
         return mav;
     }
 
     @PostMapping("/create")
-    public String createBoard(@ModelAttribute CreatePostForm form, UserDetailsService custom){
+    public String createBoard(@ModelAttribute CreatePostForm form, PrincipalDetails custom){
         service.createBoard(form, custom);
         return "redirect:/board/list";
     }
 
-//    @DeleteMapping("board/{boardIndex}")
-//    public void deleteBoard(@PathVariable Long boardIndex, @AuthenticationPrincipal UserDetailsService custom){
-//        service.deleteBoard(boardIndex, custom);
-//    }
+    @RequestMapping("/delete/{boardIndex}")
+    public String deleteBoard(@PathVariable Long boardIndex){
+        service.deleteBoard(boardIndex);
 
-//    @PutMapping("board")
-//    public void updateBoard(@PathVariable UpdatePostForm form, BoardDto dto){
-//        service.updateBoard(form.getPostIndex());
-//    }
+        return "redirect:/board/list";
+    }
+
+    @GetMapping("update/{boardIndex}")
+    public ModelAndView updateBoard(@PathVariable Long boardIndex, ModelAndView mav){
+        Optional<Board> board = service.findByIndex(boardIndex);
+        UpdateBoardForm form = new UpdateBoardForm();
+
+        form.setBoardIndex(board.get().getBoardIndex());
+        form.setTitle(board.get().getTitle());
+        form.setContent(board.get().getContent());
+        form.setDate(board.get().getCreateDate());
+
+        mav.setViewName("/board/update");
+        mav.addObject("form", form);
+
+        return mav;
+    }
+
+    @PostMapping("/update")
+    public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav){
+        service.updateBoard(form);
+
+        mav = new ModelAndView("redirect:/board/list");
+        return mav;
+    }
 }
