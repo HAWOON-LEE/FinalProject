@@ -158,42 +158,9 @@
 
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="author.html"
-                                ><span class="me-1"><i class="icofont-options"></i></span>
-                                    Edit Profile</a
-                                >
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="activity.html"
-                                ><span class="me-1"
-                                ><i class="icofont-lightning-ray"></i
-                                ></span>
-                                    Activity</a
-                                >
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="signup.html"
-                                ><span class="me-1"
-                                ><i class="icofont-space-shuttle"></i
-                                ></span>
-                                    Sign Up</a
-                                >
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="signin.html"
-                                ><span class="me-1"><i class="icofont-login"></i></span>
-                                    Sign In</a
-                                >
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Sign Out
-                                    <span class="ms-1"><i class="icofont-logout"></i></span
-                                    ></a>
+                                <a class="dropdown-item" th:href="@{/mypage}">
+                                <span class="me-1"><i class="icofont-options"></i></span>
+                                    My Page</a>
                             </li>
                         </ul>
                     </div>
@@ -203,6 +170,8 @@
                     ><span><i class="icofont-wallet" data-blast="color"></i></span>
                         <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
                         <span class="d-none d-md-inline"><a href="/logout" th:href="@{/logout}">Logout</a></span>
+                        <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                        </div>
                     </a>
                 </div>
             </div>
