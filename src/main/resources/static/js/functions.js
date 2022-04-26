@@ -54,7 +54,7 @@ document.addEventListener("readystatechange", (event) => {
       countDownDate[i] = new Array();
       countDownDate[i]["el"] = clockdiv[i];
       countDownDate[i]["time"] = new Date(
-        clockdiv[i].getAttribute("data-date")
+          clockdiv[i].getAttribute("data-date")
       ).getTime();
       countDownDate[i]["days"] = 0;
       countDownDate[i]["hours"] = 0;
@@ -68,13 +68,13 @@ document.addEventListener("readystatechange", (event) => {
         var distance = countDownDate[i]["time"] - now;
         countDownDate[i]["days"] = Math.floor(distance / (1000 * 60 * 60 * 24));
         countDownDate[i]["hours"] = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         );
         countDownDate[i]["minutes"] = Math.floor(
-          (distance % (1000 * 60 * 60)) / (1000 * 60)
+            (distance % (1000 * 60 * 60)) / (1000 * 60)
         );
         countDownDate[i]["seconds"] = Math.floor(
-          (distance % (1000 * 60)) / 1000
+            (distance % (1000 * 60)) / 1000
         );
 
         if (distance < 0) {
@@ -84,13 +84,13 @@ document.addEventListener("readystatechange", (event) => {
           countDownDate[i]["el"].querySelector(".seconds").innerHTML = 0;
         } else {
           countDownDate[i]["el"].querySelector(".days").innerHTML =
-            countDownDate[i]["days"];
+              countDownDate[i]["days"];
           countDownDate[i]["el"].querySelector(".hours").innerHTML =
-            countDownDate[i]["hours"];
+              countDownDate[i]["hours"];
           countDownDate[i]["el"].querySelector(".minutes").innerHTML =
-            countDownDate[i]["minutes"];
+              countDownDate[i]["minutes"];
           countDownDate[i]["el"].querySelector(".seconds").innerHTML =
-            countDownDate[i]["seconds"];
+              countDownDate[i]["seconds"];
         }
       }
     }, 1000);
@@ -113,7 +113,7 @@ $(window).on("load", function () {
       showCounter: true,
       counterText: "Showing {showing} out of {total}",
       btnHTML:
-        '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
+          '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
       btnWrapper: "",
       btnWrapperClass: "text-center w-100",
       showCounter: true,
@@ -128,7 +128,7 @@ $(window).on("load", function () {
       easing: "slide",
       easingDuration: 400,
       btnHTML:
-        '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
+          '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
       btnWrapper: "",
       btnWrapperClass: "text-center mt-5 w-100",
       showCounter: true,
@@ -143,7 +143,7 @@ $(window).on("load", function () {
       easing: "slide",
       easingDuration: 400,
       btnHTML:
-        '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
+          '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
       btnWrapper: "",
       btnWrapperClass: "text-center mt-5 w-100",
       showCounter: true,
@@ -158,7 +158,7 @@ $(window).on("load", function () {
       easing: "slide",
       easingDuration: 400,
       btnHTML:
-        '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
+          '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
       btnWrapper: "",
       btnWrapperClass: "text-center mt-5 w-100",
       showCounter: true,
@@ -173,7 +173,7 @@ $(window).on("load", function () {
       easing: "slide",
       easingDuration: 400,
       btnHTML:
-        '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
+          '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
       btnWrapper: "",
       btnWrapperClass: "text-center mt-5 w-100",
       showCounter: true,
@@ -187,7 +187,7 @@ $(window).on("load", function () {
       easing: "slide",
       easingDuration: 400,
       btnHTML:
-        '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
+          '<a href="#" class="default-btn move-bottom"><span>View More</span></a>',
       btnWrapper: "",
       btnWrapperClass: "text-center mt-5 w-100",
       showCounter: true,
@@ -243,10 +243,10 @@ $(document).ready(function () {
   });
 
   $(".header__search .close, .header__action--search button").on(
-    "click",
-    function () {
-      $(".header__search").toggleClass("header__search--active");
-    }
+      "click",
+      function () {
+        $(".header__search").toggleClass("header__search--active");
+      }
   );
 
   //--*Fixed header on scroll
@@ -264,14 +264,14 @@ $(document).ready(function () {
     =======================*/
 
   document
-    .querySelectorAll(".button")
-    .forEach(
-      (button) =>
-        (button.innerHTML =
-          "<div><span>" +
-          button.textContent.trim().split("").join("</span><span>") +
-          "</span></div>")
-    );
+      .querySelectorAll(".button")
+      .forEach(
+          (button) =>
+              (button.innerHTML =
+                  "<div><span>" +
+                  button.textContent.trim().split("").join("</span><span>") +
+                  "</span></div>")
+      );
 
   /*====================================
     All slider
@@ -402,9 +402,9 @@ $(document).ready(function () {
       element.addClass("activefollow");
       element.siblings(".follow-part").removeClass("activefollow");
       element
-        .siblings(".follow-part")
-        .find(".follow-part")
-        .removeClass("activefollow");
+          .siblings(".follow-part")
+          .find(".follow-part")
+          .removeClass("activefollow");
     }
   });
 
@@ -429,10 +429,10 @@ $(document).ready(function () {
     //Click event to scroll to top
     $(".scrollToTop").on("click", function () {
       $("html, body").animate(
-        {
-          scrollTop: 0,
-        },
-        500
+          {
+            scrollTop: 0,
+          },
+          500
       );
       return false;
     });
@@ -465,31 +465,31 @@ $(document).ready(function () {
         url: $(form).attr("action"),
         data: formData,
       })
-        .done(function (response) {
-          // Make sure that the formMessages div has the 'success' class.
-          $(formMessages).removeClass("error");
-          $(formMessages).addClass("success");
+          .done(function (response) {
+            // Make sure that the formMessages div has the 'success' class.
+            $(formMessages).removeClass("error");
+            $(formMessages).addClass("success");
 
-          // Set the message text.
-          $(formMessages).text(response);
+            // Set the message text.
+            $(formMessages).text(response);
 
-          // Clear the form.
-          $("#contact-form input, #contact-form textarea").val("");
-        })
-        .fail(function (data) {
-          // Make sure that the formMessages div has the 'error' class.
-          $(formMessages).removeClass("success");
-          $(formMessages).addClass("error");
+            // Clear the form.
+            $("#contact-form input, #contact-form textarea").val("");
+          })
+          .fail(function (data) {
+            // Make sure that the formMessages div has the 'error' class.
+            $(formMessages).removeClass("success");
+            $(formMessages).addClass("error");
 
-          // Set the message text.
-          if (data.responseText !== "") {
-            $(formMessages).text(data.responseText);
-          } else {
-            $(formMessages).text(
-              "Oops! An error occured and your message could not be sent."
-            );
-          }
-        });
+            // Set the message text.
+            if (data.responseText !== "") {
+              $(formMessages).text(data.responseText);
+            } else {
+              $(formMessages).text(
+                  "Oops! An error occured and your message could not be sent."
+              );
+            }
+          });
     });
   });
 });
@@ -510,8 +510,8 @@ function copyToClipboard(e) {
   // alert('this function was triggered');
   // find target element
   var t = e.target,
-    c = t.dataset.copytarget,
-    inp = c ? document.querySelector(c) : null;
+      c = t.dataset.copytarget,
+      inp = c ? document.querySelector(c) : null;
   console.log(inp);
   // check if input element exist and if it's selectable
   if (inp && inp.select) {
@@ -537,7 +537,7 @@ function copyToClipboard(e) {
 //-------------- tool tips
 
 var tooltipTriggerList = [].slice.call(
-  document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
 );
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
@@ -556,7 +556,7 @@ var imgHeight = 170; // height of images (unit: px)
 
 // Link of background music - set 'null' if you dont want to play background music
 var bgMusicURL =
-  "https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a";
+    "https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a";
 var bgMusicControls = true; // Show UI music control
 
 /*
@@ -589,11 +589,11 @@ ground.style.height = radius * 3 + "px";
 function init(delayTime) {
   for (var i = 0; i < aEle.length; i++) {
     aEle[i].style.transform =
-      "rotateY(" +
-      i * (360 / aEle.length) +
-      "deg) translateZ(" +
-      radius +
-      "px)";
+        "rotateY(" +
+        i * (360 / aEle.length) +
+        "deg) translateZ(" +
+        radius +
+        "px)";
     aEle[i].style.transition = "transform 1s";
     aEle[i].style.transitionDelay = delayTime || (aEle.length - i) / 4 + "s";
   }
@@ -613,19 +613,19 @@ function playSpin(yes) {
 }
 
 var sX,
-  sY,
-  nX,
-  nY,
-  desX = 0,
-  desY = 0,
-  tX = 0,
-  tY = 10;
+    sY,
+    nX,
+    nY,
+    desX = 0,
+    desY = 0,
+    tX = 0,
+    tY = 10;
 
 // auto spin
 if (autoRotate) {
   var animationName = rotateSpeed > 0 ? "spin" : "spinRevert";
   ospin.style.animation = `${animationName} ${Math.abs(
-    rotateSpeed
+      rotateSpeed
   )}s infinite linear`;
 }
 
@@ -634,12 +634,12 @@ document.getElementById("drag-container").onpointerdown = function (e) {
   clearInterval(odrag.timer);
   e = e || window.event;
   var sX = e.clientX,
-    sY = e.clientY;
+      sY = e.clientY;
 
   this.onpointermove = function (e) {
     e = e || window.event;
     var nX = e.clientX,
-      nY = e.clientY;
+        nY = e.clientY;
     desX = nX - sX;
     desY = nY - sY;
     tX += desX * 0.1;

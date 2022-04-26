@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko" class="no-js" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Labartisan">
+    <meta name="description"
+          content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta tags for Social Media(Better SEO) -->
+    <!-- <meta property="og:title" content=""> -->
+    <!-- <meta property="og:type" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/icofont.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- site title -->
+    <title>Anftiz- NFT Marketplace HTML Template</title>
+</head>
+<script>
+    $(document).ready(function() {
+        $("#mbti").change(function(){
+            var mbti = $("#mbti option:selected").val();
+            var src = "static/images/mbti/" + mbti + ".png";
+            $("#mbtiImg").attr("src", src);
+        });
+    });
+
+</script>
+<body>
+<!-- preloader start here -->
+<div class="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- preloader ending here -->
+
+<!-- ===============// header section start here \\================= -->
+<header class="header">
+
+</header>
+<!-- ===============//header section end here \\================= -->
+
+
+
+<!-- ==========Page Header Section Start Here========== -->
+<section class="page-header-section style-1">
+    <div class="container">
+        <div class="page-header-content">
+            <div class="page-header-inner">
+                <div class="page-title">
+                    <h2>My Page </h2>
+                </div>
+                <ol class="breadcrumb">
+                    <li>Home</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ==========Page Header Section Ends Here========== -->
+
+
+<!-- ==========login Section start Here========== -->
+<div class="login-section padding-top padding-bottom">
+    <div class="container">
+        <div class="row g-5 align-items-center flex-md-row-reverse">
+            <div class="col-lg-5">
+                <div class="account-wrapper">
+                    <h3 class="title">회원정보</h3>
+                    <form class="account-form" method="post" th:action="@{/mypage}">
+                        <div class="form-floating mb-3">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="이메일" aria-label="Recipient's username"
+                                       name="email" th:value="${email}" aria-describedby="basic-addon2">
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="닉네임" aria-label="Recipient's username"
+                                       name="nickname" th:value="${nickname}" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit">중복검사</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-floating mb-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                </div>
+                            </div>
+                            <div class="select-box">
+                                <select class="form-select form-select-lg mb-3" id="mbti" name="mbti" th:value="${mbti}">
+                                    <option value="INTJ">INTJ</option>
+                                    <option value="INTP">INTP</option>
+                                    <option value="INFJ">INFJ</option>
+                                    <option value="INFP">INFP</option>
+                                    <option value="ISTJ">ISTJ</option>
+                                    <option value="ISFJ">ISFJ</option>
+                                    <option value="ISTP">ISTP</option>
+                                    <option value="ISFP">ISFP</option>
+                                    <option value="ENTJ">ENTJ</option>
+                                    <option value="ENTP">ENTP</option>
+                                    <option value="ENFJ">ENFJ</option>
+                                    <option value="ENFP">ENFP</option>
+                                    <option value="ESTJ">ESTJ</option>
+                                    <option value="ESFJ">ESFJ</option>
+                                    <option value="ESTP">ESTP</option>
+                                    <option value="ESFP">ESFP</option>
+                            </div>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="d-block default-btn move-top"><span>회원정보 수정</span></button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="account-img">
+                <img id="mbtiImg" src="static/images/mbti/INTJ.png" alt="shape-image">
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<!-- ==========Login Section ends Here========== -->
+
+
+
+<!-- ===============//footer section start here \\================= -->
+
+
+
+
+
+<!-- All Scripts -->
+<script src="static/js/jquery-3.6.0.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/waypoints.min.js"></script>
+<script src="static/js/swiper-bundle.min.js"></script>
+<script src="static/js/countdown.min.js"></script>
+<script src="static/js/jquery.counterup.min.js"></script>
+<script src="static/js/wow.min.js"></script>
+<script src="static/js/jquery.simpleLoadMore.min.js"></script>
+<script src="static/js/isotope.pkgd.min.js"></script>
+<script src="static/js/functions.js"></script>
+</body>
+
+</html>

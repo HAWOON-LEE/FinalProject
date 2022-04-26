@@ -66,9 +66,8 @@
 
                     <ul class="dropdown-menu header__nav-menu">
                         <li>
-                            <a class="drop-down-item" href="bookshelf.html"
-                            >내 서재 목록(작성중)</a
-                            >
+                            <a class="drop-down-item" th:href="@{/bookshelf}"
+                            >내 서재 목록(작성중)</a>
                         </li>
                         <li>
                             <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
@@ -79,9 +78,8 @@
                     </ul>
                 </li>
                 <li class="header__nav-item">
-                    <a
-                            class="header__nav-link"
-                            th:href="@{#}"
+                    <a class="header__nav-link"
+                            th:href="@{/pboard}"
                     >나만의 구절</a
                     >
 <!--                            role="button"-->

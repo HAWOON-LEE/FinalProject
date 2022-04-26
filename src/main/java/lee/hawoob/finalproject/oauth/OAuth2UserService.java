@@ -33,7 +33,6 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
         }
 
         String nickname = oAuth2UserInfo.getEmail().substring(0,oAuth2UserInfo.getEmail().indexOf('@'));
-
         String email = oAuth2UserInfo.getEmail();
         String role = "ROLE_USER";
 
