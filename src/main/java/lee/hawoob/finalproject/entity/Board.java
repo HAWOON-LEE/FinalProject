@@ -26,7 +26,7 @@ public class Board extends BaseTimeEntity{
     private String content;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "NICKNAME")
+    @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME")
     private User user;
 
 //    private LocalDateTime createDate;

@@ -1,13 +1,14 @@
 package lee.hawoob.finalproject.service;
 
 //import MBTI.domain.Post;
+import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.BoardDto;
 import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.entity.User;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
 //import MBTI.dto.SearchInterface;
 import lee.hawoob.finalproject.form.CreatePostForm;
-import lee.hawoob.finalproject.form.UpdatePostForm;
+import lee.hawoob.finalproject.form.UpdateBoardForm;
 import lee.hawoob.finalproject.repository.BoardRepository;
 //import MBTI.repository.MemberRepository;
 //import MBTI.repository.PostRepository;
@@ -17,7 +18,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,6 +29,8 @@ public class BoardService {
 
     private final BoardRepository repository;
 
+    private final UserRepository userRepository;
+
     public List<SearchBoardDto> findAll(){
         List<SearchBoardDto> dto = repository.findAll().stream().map(b -> new SearchBoardDto(b)).collect(Collectors.toList());
         return dto;
@@ -39,9 +41,9 @@ public class BoardService {
         return dto;
     }
 
-
-    public BoardDto getPostDto(Board board) {
+    public BoardDto getBoardDto(Board board) {
         BoardDto dto = new BoardDto();
+        dto.setBoardIndex(board.getBoardIndex());
         dto.setTitle(board.getTitle());
         dto.setContent(board.getContent());
         dto.setUser(board.getUser());
@@ -53,45 +55,34 @@ public class BoardService {
         return repository.findById(boardIndex);
     }
 
-    public void createBoard(CreatePostForm form, @AuthenticationPrincipal UserDetailsService custom) {
+    public void createBoard(CreatePostForm form, @AuthenticationPrincipal PrincipalDetails custom) {
         Board board = new Board();
-//        User user = userRepository.findById(custom.getId()).get();
+        User user = userRepository.findById(custom.getUser().getUser_id()).get();
         board.setTitle(form.getTitle());
         board.setContent(form.getContent());
-//        board.setUser(user);
+        board.setUser(user);
 
         repository.save(board);
     }
 
-//    public void deleteBoard(Long boardIndex, @AuthenticationPrincipal UserDetailsService custom) {
-//        if (repository.findById(boardIndex).get().getUser().getId().equals(custom.getId())) {
-//            repository.deleteBoardById(boardIndex, custom.getId());
-//        }
-//    }
+    public void deleteBoard(Long boardIndex) {
+//        Board board = new Board();
+//        board.getBoardIndex();
 
-    public void updateBoard(Long boardIndex){
-        Optional<Board> opBoard = repository.findById(boardIndex);
-        UpdatePostForm form = new UpdatePostForm();
-
-
-        if (opBoard.isPresent()) {
-            Board board = opBoard.get();
-
-            board.setTitle(form.getTitle());
-            board.setContent(form.getContent());
-        }
+        repository.deleteById(boardIndex);
     }
 
-//    @Override
-//    public void save(CreateBoardDto dto){
-//        Post post = dto.toEntity();
-//
-//        post.confirmWriter(memberRepository.findByNickname(SecurityUtil.getLoginUsername())
-//                .orElseThrow(() -> new MemberException(MemberExceptionType.NOT_FOUND_MEMBER)));
-//
-//        postRepository.save(post);
-//    }
+    public void updateBoard(UpdateBoardForm form){
+        Optional<Board> opBoard = repository.findById(form.getBoardIndex());
 
+        Board board = opBoard.get();
+
+        board.setBoardIndex(form.getBoardIndex());
+        board.setTitle(form.getTitle());
+        board.setContent(form.getContent());
+
+        repository.save(board);
+    }
 
 }
 

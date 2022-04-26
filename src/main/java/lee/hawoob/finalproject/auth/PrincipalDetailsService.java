@@ -18,7 +18,7 @@ public class PrincipalDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
         User userEntity = userService.findEmail(email);
-        if(userEntity!=null){
+        if(userEntity == null){
             return new PrincipalDetails(userEntity);
         }
         return null;
