@@ -7,8 +7,6 @@ import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.User;
 import lee.hawoob.finalproject.form.CreatePostForm;
 import lee.hawoob.finalproject.form.UpdateBoardForm;
-//import lee.hawoob.finalproject.oauth.OAuth2UserService;
-import lee.hawoob.finalproject.oauth.OAuth2UserService;
 import lee.hawoob.finalproject.repository.BoardRepository;
 import lee.hawoob.finalproject.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +36,6 @@ public class BoardService {
         return dto;
     }
 
-
     public BoardDto getBoardDto(Board board) {
         BoardDto dto = new BoardDto();
         dto.setBoardIndex(board.getBoardIndex());
@@ -65,14 +62,8 @@ public class BoardService {
     }
 
     public void deleteBoard(Long boardIndex) {
-//        if (repository.findById(boardIndex).get().getUser().getUser_id().equals(custom.getId())) {
-//            repository.deleteBoardById(boardIndex);
-//            , custom.getId()
-        Board board = new Board();
-        board.getBoardIndex();
-
         repository.deleteById(boardIndex);
-//        }
+
     }
 
     public void updateBoard(UpdateBoardForm form){
@@ -86,17 +77,6 @@ public class BoardService {
 
         repository.save(board);
     }
-
-//    @Override
-//    public void save(CreateBoardDto dto){
-//        Post post = dto.toEntity();
-//
-//        post.confirmWriter(memberRepository.findByNickname(SecurityUtil.getLoginUsername())
-//                .orElseThrow(() -> new MemberException(MemberExceptionType.NOT_FOUND_MEMBER)));
-//
-//        postRepository.save(post);
-//    }
-
 
 }
 

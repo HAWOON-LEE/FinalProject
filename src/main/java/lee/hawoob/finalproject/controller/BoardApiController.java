@@ -6,8 +6,6 @@ import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.form.CreatePostForm;
 import lee.hawoob.finalproject.form.UpdateBoardForm;
-import lee.hawoob.finalproject.oauth.OAuth2UserService;
-import lee.hawoob.finalproject.repository.BoardRepository;
 import lee.hawoob.finalproject.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -36,20 +34,6 @@ public class BoardApiController {
         return mav;
     }
 
-
-    //    @GetMapping
-//    public List<SearchBoardDto> searchBoard(String keyword){
-//        List<SearchBoardDto> searchPost = null;
-//        if(keyword == null){
-//            searchPost = service.findAll();
-//        } else{
-//            searchPost = service.searchBoard(keyword);
-//        }
-//
-//
-//        List<SearchBoardDto>dto = searchPost.stream().map(b -> new SearchBoardDto(b)).collect(Collectors.toList());
-//        return dto;
-//    }
     @GetMapping("search")
     public String searchBoard(@RequestParam("keyword") String keyword, Model model){
         List<SearchBoardDto> boardList = service.searchBoard(keyword);
@@ -58,8 +42,7 @@ public class BoardApiController {
 
         return "board/list";
     }
-
-    @GetMapping("/board/{boardIndex}")
+    @GetMapping("/detail/{boardIndex}")
     public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav){
         Optional<Board> board = service.findByIndex(boardIndex);
         BoardDto dto =service.getBoardDto(board.get());
@@ -106,11 +89,8 @@ public class BoardApiController {
 
     @PostMapping("/update")
     public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav){
-
-//        mav.addObject("form", form);
         service.updateBoard(form);
 
-//        mav.setViewName("redirect:board/list");
         mav = new ModelAndView("redirect:/board/list");
         return mav;
     }

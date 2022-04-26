@@ -23,22 +23,9 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     @Query(value = "select b from Board b where b.title like %:keyword% or b.content like %:keyword% or b.user.nickname like %:keyword% ")
     List<Board> findByBoardTitleAndPostContentContaining(String keyword);
 
-
-
-//    @Query(value = "delete b from board b where b.user.id = :id and b.boardIndex = :boardIndex", nativeQuery = true)
-//    Board deleteBoardById(@Param("id") Long boardIndex, @Param("id") Long id);
-
     @Query(value = "delete from board b where b.boardIndex = :boardIndex", nativeQuery = true)
     List<Board> deleteBoardById(Long boardIndex);
 
-
-
-//     Optional<Board> findById(Long postIndex);
-//    void save(CreateBoardDto dto) throws Exception;
-
-//    void updateBoard();
-
-//    void delete(Long boardIndex);
 
 
 }
