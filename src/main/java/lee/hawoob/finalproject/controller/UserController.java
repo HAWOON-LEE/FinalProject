@@ -10,11 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private HttpSession httpSession;
 
     @GetMapping("/login")
     public String login(){
@@ -34,9 +39,10 @@ public class UserController {
 
     @PostMapping("/signup")
     public String postSignup(UserDto user){
+        System.out.println(user);
 
         userRepository.update(user.getMbti(), user.getNickname(), user.getEmail());
-        return "/home";
+        return "redirect:/";
     }
 
     @GetMapping("/mypage")
