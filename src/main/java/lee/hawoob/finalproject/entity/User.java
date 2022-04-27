@@ -24,6 +24,9 @@ public class User implements Serializable {
     @Column(name = "EMAIL")
     private String email;
 
+    @Column(name = "KEYID")
+    private String keyID;
+
     @Column(name = "NICKNAME", nullable = false, unique = true)
     private String nickname;
 

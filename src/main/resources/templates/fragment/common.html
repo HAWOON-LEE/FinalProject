@@ -54,7 +54,10 @@
                             >내 서재 목록(작성중)</a>
                         </li>
                         <li>
-                            <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
+                                <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
+                            <div th:unless="${#authorization.expr('isAuthenticated()')}"></div>
+                                <a th:href="@{/message}"></a>
                         </li>
                         <li>
                             <a class="drop-down-item" th:href="@{/review}">한줄평</a>
@@ -110,8 +113,11 @@
                             <span><i class="icofont-user"></i></span>
                             <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
                             <span class="d-none d-md-inline" th:text="${#authentication.getName()}"></span>
+                            <div th:if="${#authorization.expr('isAnonymous()')}"></div>
                             <div th:unless="${#authorization.expr('isAuthenticated()')}">
-                                <a href="/login" th:href="@{/login}">Login</a>
+                                <a href="/oauth2/authorization/naver">Login</a>
+
+<!--                                <a href="/login" th:href="@{/login}">Login</a>-->
                             </div>
                         </a>
 
@@ -125,8 +131,7 @@
                     </div>
                 </div>
                 <div class="wallet-btn">
-                    <a href="wallet.html"
-                    ><span><i class="icofont-wallet" data-blast="color"></i></span>
+                    <a><span><i class="icofont-wallet" data-blast="color"></i></span>
                         <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
                         <span class="d-none d-md-inline"><a href="/logout" th:href="@{/logout}">Logout</a></span>
                         <div th:unless="${#authorization.expr('isAuthenticated()')}">
