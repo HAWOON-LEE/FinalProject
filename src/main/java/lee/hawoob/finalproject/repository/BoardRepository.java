@@ -15,10 +15,12 @@ import java.util.List;
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
-
     @Query(value = "select b from Board b where b.title like %:keyword% or b.content like %:keyword% or b.user.nickname like %:keyword% ")
     List<Board> findByBoardTitleAndPostContentContaining(String keyword);
 
-//    @Query(value = "delete from board b where b.boardIndex = :boardIndex", nativeQuery = true)
-//    List<Board> deleteBoardById(Long boardIndex);
+
+
+//    @Query(value = "delete b from board b where b.boardIndex = :boardIndex", nativeQuery = true)
+//    Board deleteBoardById(@Param("id") Long boardIndex);
+
 }

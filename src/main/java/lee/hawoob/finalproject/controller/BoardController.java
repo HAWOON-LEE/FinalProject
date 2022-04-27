@@ -21,7 +21,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping("board")
 @Transactional
-public class BoardApiController {
+public class BoardController {
 
     private final BoardService service;
 
@@ -46,7 +46,7 @@ public class BoardApiController {
     @GetMapping("/detail/{boardIndex}")
     public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav){
         Optional<Board> board = service.findByIndex(boardIndex);
-        BoardDto dto =service.getBoardDto(board.get());
+        BoardDto dto = service.getBoardDto(board.get());
         mav.setViewName("board/details");
         mav.addObject("dto", dto);
         return mav;
@@ -90,8 +90,11 @@ public class BoardApiController {
 
     @PostMapping("/update")
     public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav){
+
+//        mav.addObject("form", form);
         service.updateBoard(form);
 
+//        mav.setViewName("redirect:board/list");
         mav = new ModelAndView("redirect:/board/list");
         return mav;
     }

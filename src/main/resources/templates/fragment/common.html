@@ -34,22 +34,6 @@
                 <a class="header__nav-link" th:href="@{/recommend}" >
                     도서추천
                 </a>
-<!--                        href="#"-->
-<!--                        role="button"-->
-<!--                        data-bs-toggle="dropdown"-->
-<!--                        aria-haspopup="true"-->
-<!--                        aria-expanded="false"-->
-<!--                        data-bs-offset="0,10"-->
-
-
-<!--                <ul class="dropdown-menu header__nav-menu">-->
-<!--                    <li>-->
-<!--                        <a class="drop-down-item active"-->
-
-<!--                        >MBTI별 도서추천</a-->
-<!--                        >-->
-<!--                    </li>-->
-<!--                </ul>-->
                 </li>
 
                 <li class="header__nav-item">
@@ -77,36 +61,11 @@
                         </li>
                     </ul>
                 </li>
+<!--                <li class="header__nav-item">-->
+<!--                    <a class="header__nav-link" th:href="@{/pboard}">나만의 구절</a>-->
+<!--                </li>-->
                 <li class="header__nav-item">
-                    <a class="header__nav-link"
-                            th:href="@{/pboard}"
-                    >나만의 구절</a
-                    >
-<!--                            role="button"-->
-<!--                            data-bs-toggle="dropdown"-->
-<!--                            aria-haspopup="true"-->
-<!--                            aria-expanded="false"-->
-<!--                            data-bs-offset="0,10"-->
-
-
-<!--                    <ul class="dropdown-menu header__nav-menu">-->
-<!--                        <li>-->
-<!--                            <a class="drop-down-item" href="pboard.html">나만의 구절 작성중</a>-->
-<!--                        </li>-->
-
-<!--                    </ul>-->
-                </li>
-                <li class="header__nav-item">
-                    <a
-                            class="header__nav-link"
-                            th:href="@{/board/list}">토론장</a
-                    >
-<!--                            role="button"-->
-<!--                            data-bs-toggle="dropdown"-->
-<!--                            aria-haspopup="true"-->
-<!--                            aria-expanded="false"-->
-<!--                            data-bs-offset="0,10"-->
-
+                    <a class="header__nav-link" th:href="@{/board/list}">토론장</a>
                 </li>
                 <li class="header__nav-item">
 
@@ -169,7 +128,7 @@
                     <a href="wallet.html"
                     ><span><i class="icofont-wallet" data-blast="color"></i></span>
                         <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
-                        <span class="d-none d-md-inline"><a th:href="@{/}">Logout</a></span>
+                        <span class="d-none d-md-inline"><a href="/logout" th:href="@{/logout}">Logout</a></span>
                         <div th:unless="${#authorization.expr('isAuthenticated()')}">
                         </div>
                     </a>

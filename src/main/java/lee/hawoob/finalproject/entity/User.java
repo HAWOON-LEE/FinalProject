@@ -35,6 +35,7 @@ public class User implements Serializable {
     @Column(name = "C_DATE")
     private Timestamp c_date;
 
+    @Column(name = "ROLE")
     private String role;
 
     public User(String nickname, Mbti mbti) {
