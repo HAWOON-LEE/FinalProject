@@ -27,8 +27,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping("board")
 @Transactional
-public class BoardApiController implements WebMvcConfigurer {
-
+public class BoardController implements WebMvcConfigurer {
     private final BoardService service;
     private final BoardRepository boardRepository;
 
@@ -145,8 +144,11 @@ public class BoardApiController implements WebMvcConfigurer {
 
     @PostMapping("/update")
     public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav){
+
+//        mav.addObject("form", form);
         service.updateBoard(form);
 
+//        mav.setViewName("redirect:board/list");
         mav = new ModelAndView("redirect:/board/list");
         return mav;
     }

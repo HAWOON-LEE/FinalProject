@@ -67,8 +67,10 @@ public class BoardService {
         return dto;
     }
 
+
     public BoardDto getBoardDto(Board board) {
         BoardDto dto = new BoardDto();
+
         dto.setBoardIndex(board.getBoardIndex());
         dto.setTitle(board.getTitle());
         dto.setContent(board.getContent());
@@ -98,6 +100,7 @@ public class BoardService {
         repository.deleteById(boardIndex);
 
     }
+
 
     public void updateBoard(UpdateBoardForm form){
         Optional<Board> opBoard = repository.findById(form.getBoardIndex());

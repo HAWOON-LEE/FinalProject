@@ -1,5 +1,6 @@
 package lee.hawoob.finalproject.repository;
 
+import lee.hawoob.finalproject.dto.UserDto;
 import lee.hawoob.finalproject.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,10 +13,18 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
     public User findByEmail(String email);
+
+    Optional<User> findByKeyID(String keyed);
+
+    @Query("select email, keyID, nickname, mbti from User where keyID= keyID")
+    String findAllByLogininfo(String keyID);
 
     @Modifying
     @Transactional

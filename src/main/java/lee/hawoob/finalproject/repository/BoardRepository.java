@@ -24,13 +24,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     @Query("update Board b set b.view = b.view + 1 where b.boardIndex = :boardIndex")
     int updateView(Long boardIndex);
 
-
     @Query(value = "select b from Board b where b.title like %:keyword% or b.content like %:keyword% or b.user.nickname like %:keyword% ")
     Page<Board> findByBoardTitleAndPostContentContaining(String keyword, Pageable pageable);
-
-//    @Query(value = "delete from board b where b.boardIndex = :boardIndex", nativeQuery = true)
-//    List<Board> deleteBoardById(Long boardIndex);
-
-
 
 }

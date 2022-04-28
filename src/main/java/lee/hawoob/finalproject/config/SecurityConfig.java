@@ -22,18 +22,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/").authenticated()
-                //임시로 제한을 풀어놓음
-                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/css/**", "/font/**", "/images/**", "/js/**", "/").permitAll()
+                .antMatchers("/create", "/passage","/bookshelf","/review", "/mypage").hasRole("USER")
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
+                .loginPage("/")
+                .loginProcessingUrl("/")
                 .defaultSuccessUrl("/")
                 .and()
                 .oauth2Login()
-                .loginPage("/login")
+                .loginPage("/")
                 .defaultSuccessUrl("/signup")
                 .userInfoEndpoint()
                 .userService(userService);

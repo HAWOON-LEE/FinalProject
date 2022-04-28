@@ -20,14 +20,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private HttpSession httpSession;
-
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
-
     @GetMapping("/signup")
     public String signup(Model model,
                          @AuthenticationPrincipal PrincipalDetails principalDetails){
@@ -56,6 +48,7 @@ public class UserController {
         model.addAttribute("email", email);
         model.addAttribute("nickname", nickname);
         model.addAttribute("mbti", mbti);
+
         return "/mypage";
     }
 
