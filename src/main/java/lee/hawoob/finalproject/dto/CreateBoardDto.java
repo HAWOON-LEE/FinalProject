@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CreateBoardDto {
 
+    private Long boardIndex;
 
     private String title;
 

@@ -4,6 +4,7 @@ import lee.hawoob.finalproject.entity.BaseTimeEntity;
 import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.entity.User;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+//@Builder
 public class SearchBoardDto extends Board{
     private Long boardIndex;
 
@@ -23,9 +25,13 @@ public class SearchBoardDto extends Board{
 
     private User user;
 
+    private String nickname;
+
     private String content;
 
     private LocalDateTime createDate;
+
+    private Long view;
 
 
     public SearchBoardDto(Board board){
@@ -34,6 +40,17 @@ public class SearchBoardDto extends Board{
         this.user = board.getUser();
         this.content = board.getContent();
         this.createDate = board.getCreateDate();
+        this.view = board.getView();
     }
+
+//    public static SearchBoardDto from(Board board){
+//        return SearchBoardDto.builder()
+//                .boardIndex(board.getBoardIndex())
+//                .nickname(board.getUser().getNickname())
+//                .title(board.getTitle())
+//                .content(board.getContent())
+//                .view(board.getView())
+//                .build();
+//    }
 
 }
