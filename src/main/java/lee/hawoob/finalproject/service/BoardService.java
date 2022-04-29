@@ -102,14 +102,17 @@ public class BoardService {
     }
 
 
-    public void updateBoard(UpdateBoardForm form){
+    public void updateBoard(UpdateBoardForm form, PrincipalDetails principal){
         Optional<Board> opBoard = repository.findById(form.getBoardIndex());
+        User user = new User();
+        user.setUser_id(principal.getUser().getUser_id());
 
         Board board = opBoard.get();
 
         board.setBoardIndex(form.getBoardIndex());
         board.setTitle(form.getTitle());
         board.setContent(form.getContent());
+        board.setUser(user);
 
         repository.save(board);
     }
