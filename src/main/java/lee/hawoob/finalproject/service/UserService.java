@@ -5,6 +5,7 @@ import lee.hawoob.finalproject.entity.User;
 import lee.hawoob.finalproject.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -26,10 +27,23 @@ public class UserService {
         return userRepository.findByKeyID(keyed);
     }
 
+    public User findNickname(String nickname){
+        return userRepository.findByNickname(nickname);
+    }
+
+    public User findMbti(String mbti){
+        return userRepository.findByMbti(mbti);
+    }
+
     public String logininfo(String keyID){
         return userRepository.findAllByLogininfo(keyID);
     }
+
 }
+
+
+
+
 
 
 

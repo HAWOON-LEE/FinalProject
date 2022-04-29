@@ -34,6 +34,22 @@
                 <a class="header__nav-link" th:href="@{/recommend}" >
                     도서추천
                 </a>
+<!--                        href="#"-->
+<!--                        role="button"-->
+<!--                        data-bs-toggle="dropdown"-->
+<!--                        aria-haspopup="true"-->
+<!--                        aria-expanded="false"-->
+<!--                        data-bs-offset="0,10"-->
+
+
+<!--                <ul class="dropdown-menu header__nav-menu">-->
+<!--                    <li>-->
+<!--                        <a class="drop-down-item active"-->
+
+<!--                        >MBTI별 도서추천</a-->
+<!--                        >-->
+<!--                    </li>-->
+<!--                </ul>-->
                 </li>
 
                 <li class="header__nav-item">
@@ -54,21 +70,52 @@
                             >내 서재 목록(작성중)</a>
                         </li>
                         <li>
-                            <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
-                            <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
-                            <div th:unless="${#authorization.expr('isAuthenticated()')}"></div>
-                            <a th:href="@{/message}"></a>
+                            <th:block>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}">
+                                <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
+                            </div>
+                            </th:block>
+                            <th:block>
+                            <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                                <a th:href="@{/message}">구절등록</a>
+                            </div>
+                            </th:block>
                         </li>
                         <li>
                             <a class="drop-down-item" th:href="@{/review}">한줄평</a>
                         </li>
                     </ul>
                 </li>
-                <!--                <li class="header__nav-item">-->
-                <!--                    <a class="header__nav-link" th:href="@{/pboard}">나만의 구절</a>-->
-                <!--                </li>-->
                 <li class="header__nav-item">
-                    <a class="header__nav-link" th:href="@{/board/list}">토론장</a>
+                    <a class="header__nav-link"
+                            th:href="@{/pboard}"
+                    >나만의 구절</a
+                    >
+<!--                            role="button"-->
+<!--                            data-bs-toggle="dropdown"-->
+<!--                            aria-haspopup="true"-->
+<!--                            aria-expanded="false"-->
+<!--                            data-bs-offset="0,10"-->
+
+
+<!--                    <ul class="dropdown-menu header__nav-menu">-->
+<!--                        <li>-->
+<!--                            <a class="drop-down-item" href="pboard.html">나만의 구절 작성중</a>-->
+<!--                        </li>-->
+
+<!--                    </ul>-->
+                </li>
+                <li class="header__nav-item">
+                    <a
+                            class="header__nav-link"
+                            th:href="@{/board/list}">토론장</a
+                    >
+<!--                            role="button"-->
+<!--                            data-bs-toggle="dropdown"-->
+<!--                            aria-haspopup="true"-->
+<!--                            aria-expanded="false"-->
+<!--                            data-bs-offset="0,10"-->
+
                 </li>
                 <li class="header__nav-item">
 
@@ -101,6 +148,7 @@
                 </div>
 
                 <div class="header__action header__action--profile">
+                    <span><i class="icofont-user"></i></span>
                     <div class="dropdown">
                         <a
                                 class="dropdown-toggle"
@@ -110,21 +158,23 @@
                                 aria-expanded="false"
                                 data-bs-offset="-100,10"
                         >
-                            <span><i class="icofont-user"></i></span>
-                            <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
+                            <th:block>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}">
                             <span class="d-none d-md-inline" th:text="${#authentication.getName()}"></span>
-                            <div th:if="${#authorization.expr('isAnonymous()')}"></div>
+                            </div>
+                            </th:block>
+                            <th:block>
                             <div th:unless="${#authorization.expr('isAuthenticated()')}">
                                 <a href="/oauth2/authorization/naver">Login</a>
-
-                                <!--                                <a href="/login" th:href="@{/login}">Login</a>-->
+<!--                                <a href="/login" th:href="@{/login}">Login</a>-->
                             </div>
+                            </th:block>
                         </a>
 
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item" th:href="@{/mypage}">
-                                    <span class="me-1"><i class="icofont-options"></i></span>
+                                <span class="me-1"><i class="icofont-options"></i></span>
                                     My Page</a>
                             </li>
                         </ul>
