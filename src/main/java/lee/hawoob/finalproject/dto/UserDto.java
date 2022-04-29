@@ -8,7 +8,6 @@ import lombok.Setter;
 @Setter
 public class UserDto {
 
-
     private String nickname;
     private String mbti;
     private String email;
