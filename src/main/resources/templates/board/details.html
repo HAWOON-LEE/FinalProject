@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>게시글 상세보기</title>
+    <title>상세보기</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
@@ -16,7 +16,7 @@
             <h3>글 상세보기</h3>
         </div>
     </div>
-    <a th:href="@{/board/update/{boardIndex}(boardIndex=${dto.boardIndex})}"><input type="submit" value="수정"></a>
+<a th:href="@{/board/update/{boardIndex}(boardIndex=${dto.boardIndex})}"><input type="submit" value="수정"></a>
     <a th:href="@{/board/delete/{boardIndex}(boardIndex=${dto.boardIndex})}"><input type="submit" value="삭제"></a>-->
 
     <table border = 1 >
@@ -33,7 +33,6 @@
             <td th:text="${dto.content}"></td><br>
         </tr>
     </table>
-
     <footer>
         <div class="container">
             <h4>&copy;2022 KH semi-project(YS). All Right Reserved.</h4>

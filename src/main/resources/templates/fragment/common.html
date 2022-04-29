@@ -55,18 +55,18 @@
                         </li>
                         <li>
                             <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
-                                <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
+                            <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
                             <div th:unless="${#authorization.expr('isAuthenticated()')}"></div>
-                                <a th:href="@{/message}"></a>
+                            <a th:href="@{/message}"></a>
                         </li>
                         <li>
                             <a class="drop-down-item" th:href="@{/review}">한줄평</a>
                         </li>
                     </ul>
                 </li>
-<!--                <li class="header__nav-item">-->
-<!--                    <a class="header__nav-link" th:href="@{/pboard}">나만의 구절</a>-->
-<!--                </li>-->
+                <!--                <li class="header__nav-item">-->
+                <!--                    <a class="header__nav-link" th:href="@{/pboard}">나만의 구절</a>-->
+                <!--                </li>-->
                 <li class="header__nav-item">
                     <a class="header__nav-link" th:href="@{/board/list}">토론장</a>
                 </li>
@@ -117,14 +117,14 @@
                             <div th:unless="${#authorization.expr('isAuthenticated()')}">
                                 <a href="/oauth2/authorization/naver">Login</a>
 
-<!--                                <a href="/login" th:href="@{/login}">Login</a>-->
+                                <!--                                <a href="/login" th:href="@{/login}">Login</a>-->
                             </div>
                         </a>
 
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item" th:href="@{/mypage}">
-                                <span class="me-1"><i class="icofont-options"></i></span>
+                                    <span class="me-1"><i class="icofont-options"></i></span>
                                     My Page</a>
                             </li>
                         </ul>
