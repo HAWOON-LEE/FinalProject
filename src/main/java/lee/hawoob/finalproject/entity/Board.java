@@ -1,13 +1,19 @@
 package lee.hawoob.finalproject.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "BOARD")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Board extends BaseTimeEntity{
 
     @Id
@@ -23,15 +29,18 @@ public class Board extends BaseTimeEntity{
 //    private String imgURL;
 
     @Column(name = "POST_CONTENT")
+    @Lob
     private String content;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME")
     private User user;
 
-//    private LocalDateTime createDate;
-//    @OneToMany(mappedBy = "post", cascade = ALL, orphanRemoval = true)
-//    private List<Comment> commentList = new ArrayList<>();
+    @Column(name = "VIEW", columnDefinition = "integer default 0", nullable = false)
+    private Long view;
+
+//    @OneToMany(mappedBy = "Board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+//    private List<Comment> comments;
 
 //    public void addComment(Comment comment){
 //        commentList.add(comment);
@@ -49,5 +58,12 @@ public class Board extends BaseTimeEntity{
 //    public void updateImgURL(String imgURL){
 //        this.imgURL = imgURL;
 //    }
+
+    @Builder
+    public Board(String title, User user, Long view){
+        this.title = title;
+        this.user = user;
+        this.view = view;
+    }
 
 }

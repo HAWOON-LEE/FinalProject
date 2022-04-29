@@ -3,14 +3,18 @@ package lee.hawoob.finalproject.controller;
 import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.UserDto;
 import lee.hawoob.finalproject.repository.UserRepository;
+import lee.hawoob.finalproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.awt.print.Pageable;
 
 @Controller
 public class UserController {
@@ -19,12 +23,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @Autowired
-    private HttpSession httpSession;
-
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
+    private UserService userService;
 
     @GetMapping("/signup")
     public String signup(Model model,
@@ -54,14 +53,30 @@ public class UserController {
         model.addAttribute("email", email);
         model.addAttribute("nickname", nickname);
         model.addAttribute("mbti", mbti);
+
         return "/mypage";
+    }
+
+    @GetMapping("/duplication/{nickname}")
+    public String duplicationtest(Model model, @PathVariable String nickname){
+
+        if(userService.findNickname(nickname)!=null){
+            System.out.println("사용중");
+            model.addAttribute("message", "사용중인 닉네임입니다.");
+
+        }else {
+            System.out.println("새 닉네임");
+            model.addAttribute("message", "사용가능한 닉네임입니다.");
+        }
+
+        return "redirect:/mypage";
     }
 
     @PostMapping("/mypage")
     public String postmypage(UserDto user){
 
         userRepository.update(user.getMbti(), user.getNickname(), user.getEmail());
-        return "/redirect:/mypage";
+        return "redirect:/";
     }
 
 }

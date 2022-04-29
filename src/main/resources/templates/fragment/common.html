@@ -70,7 +70,16 @@
                             >내 서재 목록(작성중)</a>
                         </li>
                         <li>
-                            <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
+                            <th:block>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}">
+                                <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
+                            </div>
+                            </th:block>
+                            <th:block>
+                            <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                                <a th:href="@{/message}">구절등록</a>
+                            </div>
+                            </th:block>
                         </li>
                         <li>
                             <a class="drop-down-item" th:href="@{/review}">한줄평</a>
@@ -149,11 +158,17 @@
                                 data-bs-offset="-100,10"
                         >
                             <span><i class="icofont-user"></i></span>
-                            <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
+                            <th:block>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}">
                             <span class="d-none d-md-inline" th:text="${#authentication.getName()}"></span>
-                            <div th:unless="${#authorization.expr('isAuthenticated()')}">
-                                <a href="/login" th:href="@{/login}">Login</a>
                             </div>
+                            </th:block>
+                            <th:block>
+                            <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                                <a href="/oauth2/authorization/naver">Login</a>
+<!--                                <a href="/login" th:href="@{/login}">Login</a>-->
+                            </div>
+                            </th:block>
                         </a>
 
                         <ul class="dropdown-menu">
@@ -166,10 +181,9 @@
                     </div>
                 </div>
                 <div class="wallet-btn">
-                    <a href="wallet.html"
-                    ><span><i class="icofont-wallet" data-blast="color"></i></span>
+                    <a><span><i class="icofont-wallet" data-blast="color"></i></span>
                         <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
-                        <span class="d-none d-md-inline"><a th:href="@{/}">Logout</a></span>
+                        <span class="d-none d-md-inline"><a href="/logout" th:href="@{/logout}">Logout</a></span>
                         <div th:unless="${#authorization.expr('isAuthenticated()')}">
                         </div>
                     </a>

@@ -33,11 +33,10 @@
     $(document).ready(function() {
         $("#mbti").change(function(){
             var mbti = $("#mbti option:selected").val();
-            var src = "static/images/mbti/" + mbti + ".png";
+            var src = "/images/mbti/" + mbti + ".png";
             $("#mbtiImg").attr("src", src);
         });
     });
-
 </script>
 <body>
 <!-- preloader start here -->
@@ -52,28 +51,27 @@
 <!-- preloader ending here -->
 
 <!-- ===============// header section start here \\================= -->
-<header class="header">
-
+<header class="header" th:replace="fragment/common::header">
 </header>
 <!-- ===============//header section end here \\================= -->
 
 
 
 <!-- ==========Page Header Section Start Here========== -->
-<section class="page-header-section style-1">
-    <div class="container">
-        <div class="page-header-content">
-            <div class="page-header-inner">
-                <div class="page-title">
-                    <h2>My Page </h2>
-                </div>
-                <ol class="breadcrumb">
-                    <li>Home</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section class="page-header-section style-1">-->
+<!--    <div class="container">-->
+<!--        <div class="page-header-content">-->
+<!--            <div class="page-header-inner">-->
+<!--                <div class="page-title">-->
+<!--                    <h2>My Page </h2>-->
+<!--                </div>-->
+<!--                <ol class="breadcrumb">-->
+<!--                    <li>Home</li>-->
+<!--                </ol>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 <!-- ==========Page Header Section Ends Here========== -->
 
 
@@ -88,7 +86,7 @@
                         <div class="form-floating mb-3">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="이메일" aria-label="Recipient's username"
-                                       name="email" th:value="${email}" aria-describedby="basic-addon2">
+                                       name="email" th:value="${email}" aria-describedby="basic-addon2" readonly>
                             </div>
                         </div>
                         <div class="form-floating mb-3">
@@ -96,7 +94,7 @@
                                 <input type="text" class="form-control" placeholder="닉네임" aria-label="Recipient's username"
                                        name="nickname" th:value="${nickname}" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">중복검사</button>
+                                    <a th:href="@{/duplication/{nickname}}" class="btn btn-outline-secondary nickCheck">중복검사</a>
                                 </div>
                             </div>
 
@@ -137,7 +135,7 @@
         </div>
         <div class="col-lg-7">
             <div class="account-img">
-                <img id="mbtiImg" src="static/images/mbti/INTJ.png" alt="shape-image">
+                <img id="mbtiImg" src="/images/mbti/INTJ.png" alt="shape-image">
             </div>
         </div>
     </div>
@@ -155,16 +153,16 @@
 
 
 <!-- All Scripts -->
-<script src="static/js/jquery-3.6.0.min.js"></script>
-<script src="static/js/bootstrap.bundle.min.js"></script>
-<script src="static/js/waypoints.min.js"></script>
-<script src="static/js/swiper-bundle.min.js"></script>
-<script src="static/js/countdown.min.js"></script>
-<script src="static/js/jquery.counterup.min.js"></script>
-<script src="static/js/wow.min.js"></script>
-<script src="static/js/jquery.simpleLoadMore.min.js"></script>
-<script src="static/js/isotope.pkgd.min.js"></script>
-<script src="static/js/functions.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/waypoints.min.js"></script>
+<script src="/js/swiper-bundle.min.js"></script>
+<script src="/js/countdown.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<script src="/js/wow.min.js"></script>
+<script src="/js/jquery.simpleLoadMore.min.js"></script>
+<script src="/js/isotope.pkgd.min.js"></script>
+<script src="/js/functions.js"></script>
 </body>
 
 </html>

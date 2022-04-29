@@ -1,5 +1,6 @@
 package lee.hawoob.finalproject.form;
 
+import lee.hawoob.finalproject.entity.User;
 import lombok.Data;
 
 @Data

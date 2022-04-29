@@ -24,6 +24,9 @@ public class User implements Serializable {
     @Column(name = "EMAIL")
     private String email;
 
+    @Column(name = "KEYID")
+    private String keyID;
+
     @Column(name = "NICKNAME", nullable = false, unique = true)
     private String nickname;
 
@@ -35,10 +38,19 @@ public class User implements Serializable {
     @Column(name = "C_DATE")
     private Timestamp c_date;
 
+    @Column(name = "ROLE")
     private String role;
 
     public User(String nickname, Mbti mbti) {
         this.nickname = nickname;
         this.mbti = mbti;
+    }
+
+    public static User createUser(){
+        return User.builder()
+                .user_id(1L)
+                .email("")
+                .nickname("")
+                .build();
     }
 }
