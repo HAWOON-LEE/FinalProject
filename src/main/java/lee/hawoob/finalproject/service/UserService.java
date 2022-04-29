@@ -31,6 +31,10 @@ public class UserService {
         return userRepository.findByNickname(nickname);
     }
 
+    public User findMbti(String mbti){
+        return userRepository.findByMbti(mbti);
+    }
+
     public String logininfo(String keyID){
         return userRepository.findAllByLogininfo(keyID);
     }

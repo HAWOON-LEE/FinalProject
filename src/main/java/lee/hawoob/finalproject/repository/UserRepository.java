@@ -28,6 +28,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //닉네임 찾기
     User findByNickname(String nickname);
 
+    User findByMbti(String mbti);
 
     //가입했던 로그인 정보 불러오기
     @Query("select email, keyID, nickname, mbti from User where keyID= keyID")

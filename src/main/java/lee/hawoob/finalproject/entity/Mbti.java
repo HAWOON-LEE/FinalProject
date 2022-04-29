@@ -13,6 +13,4 @@ public class Mbti {
     @Column(name = "MBTI_NAME")
     private String name;
 
-    @Column(name = "MBTI_DESC")
-    private String desc;
 }

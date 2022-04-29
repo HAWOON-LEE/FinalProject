@@ -28,11 +28,8 @@ public class UserController {
     @GetMapping("/signup")
     public String signup(Model model,
                          @AuthenticationPrincipal PrincipalDetails principalDetails){
-        System.out.println(principalDetails);
         String email = principalDetails.getUser().getEmail();
-        System.out.println(email);
         model.addAttribute("email", email);
-
         return "/signup";
     }
 
