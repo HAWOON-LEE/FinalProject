@@ -30,7 +30,7 @@ public class User implements Serializable {
     @Column(name = "NICKNAME", nullable = false, unique = true)
     private String nickname;
 
-    @JoinColumn(name = "MBTI_NAME")
+    @JoinColumn(name = "MBTI")
     @OneToOne(fetch = FetchType.EAGER)
     private Mbti mbti;
 
