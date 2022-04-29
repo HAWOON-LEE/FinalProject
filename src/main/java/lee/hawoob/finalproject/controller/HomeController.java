@@ -16,7 +16,10 @@ public class HomeController {
         return "/home";
     }
     @GetMapping("/passage")
-    public String gotopassge() { return "/passage"; }
+    public String gotopassge(){
+
+        return "/passage";
+    }
 
     @GetMapping("/review")
     public String gotoreview(){
@@ -29,13 +32,11 @@ public class HomeController {
     @GetMapping("/recommend")
     public String gotorecommend(){ return "/recommend"; }
 
-
     @GetMapping("/message")
-    public ModelAndView message(ModelAndView model){
-        model.addObject("message", "로그인 후 이용가능합니다.");
-        model.addObject("searchUrl", "/");
-        model.setViewName("/message");
+    public String message(Model model){
 
-        return model;
+        model.addAttribute("message", "로그인 후 이용가능합니다.");
+        model.addAttribute("url", "/oauth2/authorization/naver");
+        return "/message";
     }
 }
