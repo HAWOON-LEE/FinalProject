@@ -148,6 +148,7 @@
                 </div>
 
                 <div class="header__action header__action--profile">
+                    <span><i class="icofont-user"></i></span>
                     <div class="dropdown">
                         <a
                                 class="dropdown-toggle"
@@ -157,7 +158,6 @@
                                 aria-expanded="false"
                                 data-bs-offset="-100,10"
                         >
-                            <span><i class="icofont-user"></i></span>
                             <th:block>
                             <div th:if="${#authorization.expr('isAuthenticated()')}">
                             <span class="d-none d-md-inline" th:text="${#authentication.getName()}"></span>
