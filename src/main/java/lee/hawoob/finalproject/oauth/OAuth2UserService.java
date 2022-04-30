@@ -66,12 +66,14 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
                     .keyID(keyID)
                     .build();
             userRepository.save(userEntity);
+            httpSession.setAttribute("user", userEntity.getMbti());
         }else if(userEntity != null){
 //            userService.logininfo(String.valueOf(userKey));
             System.out.println("로그인 한 적이 있습니다.");
+            httpSession.setAttribute("user", userEntity.getMbti());
+
         }
-//
-//        httpSession.setAttribute("user", userKey);
+
         return new PrincipalDetails(userEntity, oAuth2User.getAttributes());
     }
 }

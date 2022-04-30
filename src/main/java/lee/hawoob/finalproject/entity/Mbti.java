@@ -11,6 +11,6 @@ public class Mbti {
 
     @Id
     @Column(name = "MBTI")
-    private String name;
-
+    private String mbti;
+  
 }
