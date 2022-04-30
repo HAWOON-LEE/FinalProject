@@ -18,9 +18,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -30,12 +28,6 @@ public class BoardService {
     private final BoardRepository repository;
     private final UserRepository userRepository;
 
-
-//    public List<SearchBoardDto> findAll(){
-//        List<SearchBoardDto> dto = repository.findAll().stream().map(b -> new SearchBoardDto(b)).collect(Collectors.toList());
-//        return dto;
-//    }
-
     public Page<SearchBoardDto> getBoardList(Pageable pageable){
         int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
         pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "boardIndex")); // <- Sort 추가
@@ -43,15 +35,6 @@ public class BoardService {
 
         return dto;
     }
-
-
-//    public Page<Board> getBoardList1(Pageable pageable) {
-//        int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
-//        pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "boardIndex")); // <- Sort 추가
-//
-//        return repository.findAll(pageable);
-//    }
-
 
     @Transactional
     public int updateView(Long boardIndex) {
@@ -62,7 +45,6 @@ public class BoardService {
         int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
         pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "boardIndex")); // <- Sort 추가
         Page<SearchBoardDto> dto = repository.findByBoardTitleAndPostContentContaining(keyword, pageable).map(b -> new SearchBoardDto(b));
-
 
         return dto;
     }
@@ -101,18 +83,13 @@ public class BoardService {
 
     }
 
-
-    public void updateBoard(UpdateBoardForm form, PrincipalDetails principal){
+    public void updateBoard(UpdateBoardForm form){
         Optional<Board> opBoard = repository.findById(form.getBoardIndex());
-        User user = new User();
-        user.setUser_id(principal.getUser().getUser_id());
-
         Board board = opBoard.get();
 
         board.setBoardIndex(form.getBoardIndex());
         board.setTitle(form.getTitle());
         board.setContent(form.getContent());
-        board.setUser(user);
 
         repository.save(board);
     }

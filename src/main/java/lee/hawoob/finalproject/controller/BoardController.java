@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -41,11 +42,13 @@ public class BoardController {
 
         return "board/list";
     }
+
     @GetMapping("/detail/{boardIndex}")
-    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav){
+    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav, @AuthenticationPrincipal PrincipalDetails custom){
         Optional<Board> board = service.findByIndex(boardIndex);
         BoardDto dto =service.getBoardDto(board.get());
         service.updateView(boardIndex); // views ++
+
         mav.setViewName("board/details");
         mav.addObject("dto", dto);
         return mav;
@@ -59,7 +62,7 @@ public class BoardController {
     }
 
     @PostMapping("/create")
-    public String createBoard(@ModelAttribute CreatePostForm form, PrincipalDetails custom, Model model){
+    public String createBoard(@ModelAttribute CreatePostForm form,@AuthenticationPrincipal PrincipalDetails custom, Model model){
         model.addAttribute("form", form);
         service.createBoard(form, custom);
         return "redirect:/board/list";
@@ -89,11 +92,11 @@ public class BoardController {
 }
 
     @PostMapping("/update")
-    public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav,PrincipalDetails principal){
+    public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav){
 
         mav.setViewName("board/update");
         mav.addObject("form", form);
-        service.updateBoard(form, principal);
+        service.updateBoard(form);
 
 
         mav = new ModelAndView("redirect:/board/list");

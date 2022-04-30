@@ -38,6 +38,6 @@ public class Book {
     private String bookDesc;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MBTI_NAME", nullable = false)
+    @JoinColumn(name = "MBTI", nullable = false)
     private Mbti mbti;
 }

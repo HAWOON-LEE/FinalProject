@@ -36,8 +36,10 @@ public class Board extends BaseTimeEntity{
     @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME")
     private User user;
 
+
+
     @Column(name = "VIEW", columnDefinition = "integer default 0", nullable = false)
-    private Long view;
+    private int view;
 
 //    @OneToMany(mappedBy = "Board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 //    private List<Comment> comments;
@@ -60,7 +62,7 @@ public class Board extends BaseTimeEntity{
 //    }
 
     @Builder
-    public Board(String title, User user, Long view){
+    public Board(String title, User user, int view){
         this.title = title;
         this.user = user;
         this.view = view;
