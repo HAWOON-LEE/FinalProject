@@ -31,7 +31,7 @@ public class SearchBoardDto extends Board{
 
     private LocalDateTime createDate;
 
-    private Long view;
+    private int view;
 
 
     public SearchBoardDto(Board board){

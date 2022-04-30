@@ -31,7 +31,7 @@ public class User implements Serializable {
     private String nickname;
 
     @JoinColumn(name = "MBTI")
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     private Mbti mbti;
 
     @CreationTimestamp
