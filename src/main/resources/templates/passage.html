@@ -66,8 +66,7 @@
                                 </div>
                                 <!-- item-description -->
                                 <div class="form-floating item-desc-field mb-30">
-                                    <textarea class="form-control" placeholder="Item Description"
-                                        id="itemDesc" name="sub"></textarea>
+                                    <textarea class="form-control" id="itemDesc" name="sub"></textarea>
                                     <label for="itemDesc">감상이나 추가 설명이 있을 경우 입력해주세요.</label>
                                 </div>
 
@@ -85,36 +84,16 @@
 
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <select class="form-select" id="lib"
-                                                        aria-label="Floating label select"
-                                                        >
-<!--                                                    th:field="${libs.of(1)}"-->
-<!--                                                    <label for="itemPriceInput"></label>-->
+                                                <select class="form-select" aria-label="Floating label select">
                                                     <option value="">도서 선택</option>
-                                                    <option th:each="lib: ${libs}"
-                                                            th:if="${lib.user.nickname == #authentication.name}"
-                                                            th:value="${lib.book.isbn}"
-                                                            th:utext="${lib.book.title}">
-                                                        철학은 어떻게 삶의 무기가 되는가
-                                                    </option>
-                                                </select >
+                                                    <th:block th:each="lib: ${libs}">
+                                                        <option th:each="lib: ${libs}"
+                                                                th:value="${lib.book.isbn}"
+                                                                th:text="${lib.book.title}">
+                                                        </option>
+                                                    </th:block>
 
-<!--                                                <select class="form-select"-->
-<!--                                                        aria-label="Floating label select"-->
-<!--                                                        th:value="libs"-->
-<!--                                                >-->
-
-<!--                                                    <option value="">도서 선택</option>-->
-<!--                                                    <th:block th:each="lib: ${libs}">-->
-<!--                                                        <option th:each="lib: ${libs}"-->
-<!--                                                                th:value="${lib.book.isbn}"-->
-<!--                                                                th:utext="${lib.book.title}">-->
-<!--                                                            &lt;!&ndash;                                                                th:selected="${lib.book.title[0]}"&ndash;&gt;-->
-<!--                                                            &lt;!&ndash;                                                    == #authentication.getName()&ndash;&gt;-->
-<!--                                                        </option>-->
-<!--                                                    </th:block>-->
-
-<!--                                                </select>-->
+                                                </select>
 
                                             </div>
                                         </div>

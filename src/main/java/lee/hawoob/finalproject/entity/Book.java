@@ -1,6 +1,7 @@
 package lee.hawoob.finalproject.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "BOOK_INFO")
 @Data
+@NoArgsConstructor
 public class Book {
 
     @Id

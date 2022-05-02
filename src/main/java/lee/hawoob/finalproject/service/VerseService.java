@@ -31,20 +31,35 @@ public class VerseService {
 
     private final UserRepository userRepository;
 
-    public List<LibDto> findAll(@AuthenticationPrincipal PrincipalDetails custom){
-        List<LibDto> libDtoList = libRepository.findAll().stream().map(L -> new LibDto(L)).collect(Collectors.toList());
-//        LibDto dto = new LibDto();
-        User user = userRepository.findById(custom.getUser().getUser_id()).get();
+//    public List<LibDto> findAll(@AuthenticationPrincipal PrincipalDetails custom){
+//        List<LibDto> libDtoList = libRepository.findAll().stream().map(L -> new LibDto(L)).collect(Collectors.toList());
+////        LibDto dto = new LibDto();
+//        User user = userRepository.findById(custom.getUser().getUser_id()).get();
+//
+//        List<LibDto> libs = new ArrayList<>();
+//        for(int i=0; i >= libDtoList.size(); i++){
+//            if(libDtoList.get(i).getUser().getNickname() == user.getNickname()){
+//                libs.add(libDtoList.get(i));
+//            }
+//        }
+//        System.out.println(libs);
+//        return libs;
+//    }
+    public List<LibDto> findByNickname(@AuthenticationPrincipal PrincipalDetails custom){
+//        List<LibDto> libList = libRepository.findAll().stream().map(L -> new LibDto()).collect(Collectors.toList());
+        List<Lib> libList = libRepository.findAll();
+        User user = userRepository.findByNickname(custom.getUsername());
 
         List<LibDto> libs = new ArrayList<>();
-        for(int i=0; i >= libDtoList.size(); i++){
-            if(libDtoList.get(i).getUser().getNickname() == user.getNickname()){
-                libs.add(libDtoList.get(i));
+        for(int i=0; i < libList.size(); i++){
+            if(libList.get(i).getUser().getNickname() == user.getNickname()){
+                libs.add(libList.get(i));
             }
         }
-        System.out.println(libs);
+        System.out.println(libs.size());
         return libs;
     }
+
 
     public void saveVerse(VerseDto verseDto,LibDto libDto, @AuthenticationPrincipal PrincipalDetails custom){
         Verse verse = new Verse();

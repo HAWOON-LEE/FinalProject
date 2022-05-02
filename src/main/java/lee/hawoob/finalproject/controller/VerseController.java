@@ -22,24 +22,37 @@ public class VerseController {
     private final VerseService service;
 
 //    @GetMapping("list")
-    public ModelAndView addVerse(@ModelAttribute("libs") VerseDto dto, Model model, ModelAndView mav,@RequestParam(value = "custom", required = false) @AuthenticationPrincipal PrincipalDetails custom){
-        mav.setViewName("passage");
-        mav.addObject("dto", dto);
-
-        List<LibDto> libs = service.findAll(custom);
-
-        model.addAttribute("libs", libs);
-        return mav;
-    }
+//    public ModelAndView addVerse(@ModelAttribute("libs") VerseDto dto, Model model, ModelAndView mav,@RequestParam(value = "custom", required = false) @AuthenticationPrincipal PrincipalDetails custom){
+//        mav.setViewName("passage");
+//        mav.addObject("dto", dto);
+//
+//        List<LibDto> libs = service.findAll(custom);
+//
+//        model.addAttribute("libs", libs);
+//        return mav;
+//    }
+//    @GetMapping("list")
+//    public ModelAndView verse(VerseDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
+////        model.addAttribute("dto", dto);
+//        List<LibDto> libs = service.findAll(custom);
+//        ModelAndView mav = new ModelAndView();
+//        mav.addObject("libs", libs);
+//        mav.setViewName("passage");
+//        return mav;
+//    }
     @GetMapping("list")
     public ModelAndView verse(VerseDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
-//        model.addAttribute("dto", dto);
-        List<LibDto> libs = service.findAll(custom);
+        model.addAttribute("dto", dto);
+        List<LibDto> libs = service.findByNickname(custom);
+
         ModelAndView mav = new ModelAndView();
         mav.addObject("libs", libs);
         mav.setViewName("passage");
+
         return mav;
     }
+
+
 
     @PostMapping("enroll")
     public String addVerse(@ModelAttribute VerseDto verseDto, LibDto libDto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
