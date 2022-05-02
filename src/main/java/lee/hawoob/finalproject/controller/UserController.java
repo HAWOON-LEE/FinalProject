@@ -2,19 +2,20 @@ package lee.hawoob.finalproject.controller;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.UserDto;
+import lee.hawoob.finalproject.entity.User;
 import lee.hawoob.finalproject.repository.UserRepository;
 import lee.hawoob.finalproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.awt.print.Pageable;
+import java.util.HashMap;
 
 @Controller
 public class UserController {
@@ -27,22 +28,43 @@ public class UserController {
 
     @GetMapping("/signup")
     public String signup(Model model,
-                         @AuthenticationPrincipal PrincipalDetails principalDetails){
+                         @AuthenticationPrincipal PrincipalDetails principalDetails) {
         String email = principalDetails.getUser().getEmail();
         model.addAttribute("email", email);
         return "/signup";
     }
 
+    @GetMapping("/nicknameCheck1")
+    public String nicknameCheck1(UserDto user, Model model) {
+
+        String nickname = user.getNickname();
+        boolean result = userService.nicknameOverlap(nickname);
+
+        if (result) {
+            System.out.println("사용중");
+            model.addAttribute("message", "사용중인 닉네임입니다.");
+            model.addAttribute("url", "/signup");
+            return "/message";
+
+        } else {
+            System.out.println("새 닉네임");
+            model.addAttribute("message", "사용가능한 닉네임입니다.");
+            model.addAttribute("url", "/signup");
+            return "/message";
+        }
+
+    }
+
     @PostMapping("/signup")
-    public String postSignup(UserDto user){
-        System.out.println(user);
+    public String postSignup(UserDto user) {
 
         userRepository.update(user.getMbti(), user.getNickname(), user.getEmail());
         return "redirect:/";
     }
 
     @GetMapping("/mypage")
-    public String getmypage(Model model,@AuthenticationPrincipal PrincipalDetails principalDetails) {
+    public String getmypage(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
+
         String email = principalDetails.getUser().getEmail();
         String nickname = principalDetails.getUser().getNickname();
         String mbti = String.valueOf(principalDetails.getUser().getMbti());
@@ -54,26 +76,32 @@ public class UserController {
         return "/mypage";
     }
 
-    @GetMapping("/duplication/{nickname}")
-    public String duplicationtest(Model model, @PathVariable String nickname){
+    @GetMapping("/nicknameCheck2")
+    public String nicknameCheck2(UserDto user, Model model) {
 
-        if(userService.findNickname(nickname)!=null){
+        String nickname = user.getNickname();
+        boolean result = userService.nicknameOverlap(nickname);
+
+        if (result) {
             System.out.println("사용중");
             model.addAttribute("message", "사용중인 닉네임입니다.");
+            model.addAttribute("url", "/mypage");
+            return "/message";
 
-        }else {
+        } else {
             System.out.println("새 닉네임");
             model.addAttribute("message", "사용가능한 닉네임입니다.");
+            model.addAttribute("url", "/mypage");
+            return "/message";
         }
 
-        return "redirect:/mypage";
     }
 
     @PostMapping("/mypage")
-    public String postmypage(UserDto user){
+    public String postmypage(UserDto user) {
 
         userRepository.update(user.getMbti(), user.getNickname(), user.getEmail());
-        return "redirect:/";
+        return "redirect:/mypage";
     }
-
 }
+

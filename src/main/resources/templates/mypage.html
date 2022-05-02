@@ -37,6 +37,7 @@
             $("#mbtiImg").attr("src", src);
         });
     });
+
 </script>
 <body>
 <!-- preloader start here -->
@@ -92,13 +93,13 @@
                         <div class="form-floating mb-3">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="닉네임" aria-label="Recipient's username"
-                                       name="nickname" th:value="${nickname}" aria-describedby="basic-addon2">
+                                       name="nickname" id="nickname" th:value="${nickname}" aria-describedby="basic-addon2"/>
                                 <div class="input-group-append">
-                                    <a th:href="@{/duplication/{nickname}}" class="btn btn-outline-secondary nickCheck">중복검사</a>
+                                    <a th:href="@{/nicknameCheck2}" class="btn btn-outline-secondary">중복검사</a>
                                 </div>
                             </div>
-
                         </div>
+
                         <div class="form-floating mb-3">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
