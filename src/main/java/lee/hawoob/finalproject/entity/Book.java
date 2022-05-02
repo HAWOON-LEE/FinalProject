@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @Column(name = "ISBN", nullable = false)
+    @Column(name = "BOOK_ISBN", nullable = false)
     private String isbn;
 
     @Column(name = "TITLE", nullable = false)

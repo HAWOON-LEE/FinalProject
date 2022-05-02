@@ -89,7 +89,7 @@ public class BoardController {
         mav.addObject("form", form);
 
         return mav;
-}
+    }
 
     @PostMapping("/update")
     public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav){

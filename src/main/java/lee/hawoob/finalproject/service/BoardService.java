@@ -61,8 +61,8 @@ public class BoardService {
         return dto;
     }
 
-    
-    
+
+
     public Optional<Board> findByIndex(Long boardIndex){
         return repository.findById(boardIndex);
     }
