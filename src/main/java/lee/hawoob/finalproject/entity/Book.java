@@ -3,6 +3,9 @@ package lee.hawoob.finalproject.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "BOOK_INFO")
@@ -10,7 +13,7 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @Column(name = "ISBN", nullable = false)
+    @Column(name = "BOOK_ISBN", nullable = false)
     private String isbn;
 
     @Column(name = "TITLE", nullable = false)
@@ -40,4 +43,8 @@ public class Book {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MBTI", nullable = false)
     private Mbti mbti;
+
+
+//    @OneToMany(mappedBy = "isbn", cascade = CascadeType.ALL)
+//    List<Lib> isbnList = new ArrayList<>();
 }

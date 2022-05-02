@@ -49,7 +49,7 @@ public class BoardController {
         BoardDto dto =service.getBoardDto(board.get());
         service.updateView(boardIndex); // views ++
 
-        mav.setViewName("board/details");
+        mav.setViewName("board/detailsPost");
         mav.addObject("dto", dto);
         return mav;
     }
@@ -57,7 +57,7 @@ public class BoardController {
     @GetMapping("/create")
     public ModelAndView create(@ModelAttribute CreatePostForm form, ModelAndView mav){
         mav.addObject("form", form);
-        mav.setViewName("board/create");
+        mav.setViewName("board/createPost");
         return mav;
     }
 
@@ -85,7 +85,7 @@ public class BoardController {
         form.setContent(board.get().getContent());
         form.setDate(board.get().getCreateDate());
 
-        mav.setViewName("/board/update");
+        mav.setViewName("/board/updatePost");
         mav.addObject("form", form);
 
         return mav;
@@ -94,7 +94,7 @@ public class BoardController {
     @PostMapping("/update")
     public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav){
 
-        mav.setViewName("board/update");
+        mav.setViewName("board/updatePost");
         mav.addObject("form", form);
         service.updateBoard(form);
 
