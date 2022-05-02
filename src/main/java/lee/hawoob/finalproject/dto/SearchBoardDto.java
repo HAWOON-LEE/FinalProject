@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 //@Builder
-public class SearchBoardDto extends Board{
+public class SearchBoardDto {
     private Long boardIndex;
 
     private String title;

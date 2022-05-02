@@ -16,6 +16,8 @@ public class PrincipalDetails implements OAuth2User, UserDetails {
 
     private User user;
 
+//    private static final long serialVersionUID = 174726374856727L;
+
     private Map<String, Object> attributes;
 
     public PrincipalDetails(User user, Map<String, Object> attributes) {
