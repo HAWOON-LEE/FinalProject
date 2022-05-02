@@ -28,6 +28,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //닉네임 찾기
     User findByNickname(String nickname);
 
+    boolean existsByNickname(String nickaname);
+
+    //MBTI 찾기
     User findByMbti(String mbti);
 
     //가입했던 로그인 정보 불러오기
@@ -37,7 +40,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //사용자 정보 업데이트
     @Modifying
     @Transactional
-    @Query("update User m set m.mbti = :mbti, m.nickname = :nickname where m.email = :email")
+    @Query("update User m set m.mbti.mbti = :mbti, m.nickname = :nickname where m.email = :email")
     public void update(@Param("mbti")String mbti, @Param("nickname")String nickname,
                        @Param("email")String email);
 
