@@ -57,8 +57,11 @@ public class HomeController {
     @GetMapping("/bookshelf")
     public String gotobookshelf(){ return "/bookshelf"; }
 
-    @GetMapping("/recommend")
-    public String gotorecommend(){ return "/recommend"; }
+    @GetMapping("/detail")
+    public String gotodetail() { return "/detail"; }
+
+//    @GetMapping("/recommend")
+//    public String gotorecommend(){ return "/recommend"; }
 
     @GetMapping("/message")
     public String message(Model model){

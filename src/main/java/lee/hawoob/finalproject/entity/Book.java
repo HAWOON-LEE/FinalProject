@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @Column(name = "ISBN", nullable = false)
+    @Column(name = "BOOK_ISBN", nullable = false)
     private String isbn;
 
     @Column(name = "TITLE", nullable = false)
@@ -38,6 +38,6 @@ public class Book {
     private String bookDesc;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MBTI_NAME", nullable = false)
+    @JoinColumn(name = "MBTI", nullable = false)
     private Mbti mbti;
 }
