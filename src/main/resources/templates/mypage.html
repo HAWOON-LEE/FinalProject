@@ -33,11 +33,10 @@
     $(document).ready(function() {
         $("#mbti").change(function(){
             var mbti = $("#mbti option:selected").val();
-            var src = "static/images/mbti/" + mbti + ".png";
+            var src = "/images/mbti/" + mbti + ".png";
             $("#mbtiImg").attr("src", src);
         });
     });
-
 </script>
 <body>
 <!-- preloader start here -->
@@ -95,7 +94,7 @@
                                 <input type="text" class="form-control" placeholder="닉네임" aria-label="Recipient's username"
                                        name="nickname" th:value="${nickname}" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">중복검사</button>
+                                    <a th:href="@{/duplication/{nickname}}" class="btn btn-outline-secondary nickCheck">중복검사</a>
                                 </div>
                             </div>
 
@@ -136,7 +135,7 @@
         </div>
         <div class="col-lg-7">
             <div class="account-img">
-                <img id="mbtiImg" src="static/images/mbti/INTJ.png" alt="shape-image">
+                <img id="mbtiImg" src="/images/mbti/INTJ.png" alt="shape-image">
             </div>
         </div>
     </div>

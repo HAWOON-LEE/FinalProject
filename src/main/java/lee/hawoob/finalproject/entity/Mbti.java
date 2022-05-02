@@ -10,7 +10,9 @@ import javax.persistence.*;
 public class Mbti {
 
     @Id
-    @Column
-    private String mbti;
+    @Column(name = "MBTI_NAME")
+    private String name;
 
+    @Column(name = "MBTI_DESC")
+    private String desc;
 }

@@ -20,7 +20,7 @@ public class BoardResponseDto {
     private String nickname;
     private String content;
     private String createdDate, modifiedDate;
-    private Long view;
+    private int view;
     private Long userId;
 //    private List<CommentResponseDto> comments;
 
