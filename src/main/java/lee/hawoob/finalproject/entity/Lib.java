@@ -1,10 +1,7 @@
 package lee.hawoob.finalproject.entity;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lee.hawoob.finalproject.dto.LibDto;
+import lombok.*;
 import javax.persistence.*;
 
 @Entity
@@ -12,16 +9,17 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Lib {
+public class Lib extends LibDto {
 
     @EmbeddedId
     private LibId libId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "BOOK_ISBN", nullable = false)
+    @JoinColumn(name = "BOOK_ISBN", insertable = false, updatable = false)
     private Book book;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "NICKNAME", nullable = false)
+    @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME", insertable = false, updatable = false)
     private User user;
+
 }

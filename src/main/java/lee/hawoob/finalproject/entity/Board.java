@@ -32,7 +32,7 @@ public class Board extends BaseTimeEntity{
     @Lob
     private String content;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME")
     private User user;
 

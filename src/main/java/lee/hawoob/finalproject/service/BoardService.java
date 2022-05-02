@@ -56,6 +56,7 @@ public class BoardService {
         dto.setBoardIndex(board.getBoardIndex());
         dto.setTitle(board.getTitle());
         dto.setContent(board.getContent());
+        dto.setDate(board.getCreateDate());
         dto.setUser(board.getUser());
 
         return dto;
@@ -93,7 +94,6 @@ public class BoardService {
 
         repository.save(board);
     }
-
 }
 
 

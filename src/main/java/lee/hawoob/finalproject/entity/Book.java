@@ -1,12 +1,17 @@
 package lee.hawoob.finalproject.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "BOOK_INFO")
 @Data
+@NoArgsConstructor
 public class Book {
 
     @Id
@@ -40,4 +45,8 @@ public class Book {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MBTI", nullable = false)
     private Mbti mbti;
+
+
+//    @OneToMany(mappedBy = "isbn", cascade = CascadeType.ALL)
+//    List<Lib> isbnList = new ArrayList<>();
 }
