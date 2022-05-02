@@ -14,6 +14,6 @@ public class Lib {
     private Book isbn;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", nullable = false)
+    @JoinColumn(name = "NICKNAME", nullable = false)
     private User user;
 }
