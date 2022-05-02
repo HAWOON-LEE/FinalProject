@@ -27,8 +27,10 @@ public class RecommendController {
     @GetMapping
     public String showList(Model model) {
         Iterable<Mbti> list = mbtiService.selectAll();
+        List<Book> bookList = bookService.findAllByMbti("enfj");
 
         model.addAttribute("list", list);
+        model.addAttribute("bookList", bookList);
         return "recommend";
     }
 
