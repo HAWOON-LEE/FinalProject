@@ -18,7 +18,7 @@ public class Verse {
     private Book book;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", nullable = false)
+    @JoinColumn(name = "NICKNAME", nullable = false)
     private User user;
 
     @Column(name = "PICKED_VERSE", nullable = false)
