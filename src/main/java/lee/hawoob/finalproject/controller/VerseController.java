@@ -4,6 +4,7 @@ import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.LibDto;
 import lee.hawoob.finalproject.dto.VerseDto;
 import lee.hawoob.finalproject.entity.Lib;
+import lee.hawoob.finalproject.form.VerseForm;
 import lee.hawoob.finalproject.service.VerseService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -55,10 +56,10 @@ public class VerseController {
 
 
     @PostMapping("enroll")
-    public String addVerse(@ModelAttribute VerseDto verseDto, LibDto libDto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
-        model.addAttribute("dto", verseDto);
-        model.addAttribute("libs", libDto);
-        service.saveVerse(verseDto, libDto,custom);
+    public String addVerse(@ModelAttribute VerseForm form, @AuthenticationPrincipal PrincipalDetails custom, Model model){
+        model.addAttribute("dto", form);
+        model.addAttribute("libs", form);
+        service.saveVerse(form, custom);
 
 
         return "redirect:/verse";
