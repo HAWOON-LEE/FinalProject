@@ -61,33 +61,39 @@
                         </div>
                     </div>
                     <div class="activity-wrapper">
-                        <div class="row gy-3">
+                        <div class="row gy-3" th:each="obj: ${book}">
                             <div class="col-12">
                                 <div class="activity-item">
                                     <div class="lab-inner2 d-flex flex-wrap align-items-center p-3 p-md-4">
                                         <div class="lab-thumb2 me-3 me-md-4">
-                                            <img src="assets/images/activity/달러구트꿈백화점.jpg" alt="img">
+                                            <img th:src="${obj.imageUrl}" alt="img">
                                         </div>
                                         <div class="lab-content2">
-                                            <h4>달러구트 꿈 백화점
-                                            </h4>
+                                            <h4 th:text="${obj.title}">도서명</h4>
                                             <div><a></a></div>
 
-                                            <p class="mb-2">이미예 | 팩토리나인 | 2021.12.25 | 12,600 원
+                                            <p class="mb-2" th:text="${obj.author}">저자</p>
+                                            <p class="mb-2" th:text="${obj.publisher}">출판사</p>
+                                            <p class="mb-2" th:text="${obj.pubDate}">출판일</p>
+                                            <p class="mb-2" th:text="${obj.price}">가격</p>
+
                                             <div><a></a></div>
 
                                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span> |
 
-                                            <img
-                                                    src="assets/images/currency/책장.png"
-                                                    alt="currency img" /><span>누적 보관 13권</span>
+                                            <img src="/images/currency/책장.png" alt="currency img" />
+                                            <span>누적 보관 13권</span>
 
                                             <div><a></a></div>
 
-                                            <h6>“이 이야기는 책장을 덮은 뒤, 오늘 밤 당신의 꿈으로 이어집니다.”
-                                                《달러구트 꿈 백화점》 100만 부 돌파 특별 합본호 출간</h6>
-                                            <a href="bookshelf.html" class="detail-btn btn-14">내 서재 보관</i></a>
-                                            <a href="https://book.naver.com/bookdb/book_detail.naver?bid=21344649" class="detail-btn btn-14">구매 링크</i></a>
+                                            <h6 th:text="${obj.bookDesc}">Description</h6>
+                                            <form method="post" th:action="@{/detail/insert}">
+                                                <button type="submit" name="isbn" th:value="${obj.isbn}" class="detail-btn btn-14">
+                                                    내 서재 보관</i>
+                                                </button>
+                                            </form>
+                                            <a th:href="${obj.link}" target="_blank" class="detail-btn btn-14">구매 링크</i></a>
+
                                         </div>
                                     </div>
                                     </p>
