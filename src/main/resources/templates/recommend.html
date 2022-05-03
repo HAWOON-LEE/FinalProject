@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="activity-wrapper activity-loadmore">
-                        <div class="row gy-3">
+                        <div class="row gy-3" >
                             <div class="col-12" th:each="books: ${bookList}">
                                 <div class="activity-item">
                                     <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
@@ -92,24 +92,10 @@
                                     </div>
                                 </div>
                             </div>
-
-
-                            <ul class="widget-wrapper justify-content-start" th:each="lists: ${list}" style="display: flex">
-                                <li><a th:href="@{/recommend/{mbti}(mbti=${lists.mbti})}" th:text="${lists.mbti}">ENTJ</a></li>
-<!--                                <li><a href="#">ENTP</a></li>-->
-<!--                                <li><a href="#">ENFJ</a></li>-->
-<!--                                <li><a href="#">ENFP</a></li>-->
-<!--                                <li><a href="#">ESTJ</a></li>-->
-<!--                                <li><a href="#">ESFJ</a></li>-->
-<!--                                <li><a href="#">ESFP</a></li>-->
-<!--                                <li><a href="#">INTJ</a></li>-->
-<!--                                <li><a href="#">INTP</a></li>-->
-<!--                                <li><a href="#">INFJ</a></li>-->
-<!--                                <li><a href="#">INFP</a></li>-->
-<!--                                <li><a href="#">ISTJ</a></li>-->
-<!--                                <li><a href="#">ISFJ</a></li>-->
-<!--                                <li><a href="#">ISTP</a></li>-->
-<!--                                <li><a href="#">ISFP</a></li>-->
+                            <ul class="widget-wrapper justify-content-start" >
+                                <li th:each="lists: ${list}">
+                                    <a th:href="@{/recommend/{mbti}(mbti=${lists.mbti})}" th:text="${lists.mbti}">MBTI</a>
+                                </li>
                             </ul>
                         </div>
                     </aside>
