@@ -19,6 +19,9 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    @Query("select m FROM User m where m.email = :email")
+    User mypage(String email);
+
     //이메일 찾기
     User findByEmail(String email);
 
@@ -28,13 +31,14 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //닉네임 찾기
     User findByNickname(String nickname);
 
+    //닉네임 중복 검사
     boolean existsByNickname(String nickaname);
 
     //MBTI 찾기
     User findByMbti(String mbti);
 
     //가입했던 로그인 정보 불러오기
-    @Query("select email, keyID, nickname, mbti from User where keyID= keyID")
+    @Query("select email, keyID, nickname, mbti.mbti from User where keyID= keyID")
     String findAllByLogininfo(String keyID);
 
     //사용자 정보 업데이트

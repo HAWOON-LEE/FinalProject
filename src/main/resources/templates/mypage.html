@@ -106,7 +106,8 @@
                                 </div>
                             </div>
                             <div class="select-box">
-                                <select class="form-select form-select-lg mb-3" id="mbti" name="mbti" th:value="${mbti}">
+                                <select class="form-select form-select-lg mb-3" id="mbti" name="mbti" >
+                                    <option th:text="${mbti}" selected></option>
                                     <option value="INTJ">INTJ</option>
                                     <option value="INTP">INTP</option>
                                     <option value="INFJ">INFJ</option>
