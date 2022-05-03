@@ -18,8 +18,4 @@ public class LibDto {
 
     private User user;
 
-//    public LibDto(Lib lib){
-//        this.user = lib.getUser();
-//        this.book = lib.getBook();
-//    }
 }

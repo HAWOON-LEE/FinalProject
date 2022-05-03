@@ -31,12 +31,4 @@ public class VerseDto extends Verse {
     private String sub;
 
     private int page;
-
-//    public VerseDto(Book book, User user, String verse, String sub, int page) {
-//        this.book = book;
-//        this.user = user;
-//        this.verse = verse;
-//        this.sub = sub;
-//        this.page = page;
-//    }
 }

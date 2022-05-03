@@ -17,18 +17,8 @@ public class BoardUpdateDto {
 
     private String title;
 
-//    private String user;
-
     private String content;
 
     private LocalDateTime date;
-
-
-    public BoardUpdateDto(Board board){
-        title = board.getTitle();
-//        user = board.getUser().getNickname();
-        content = board.getContent();
-    }
-
 
 }
