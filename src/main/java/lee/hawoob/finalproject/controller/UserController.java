@@ -51,9 +51,9 @@ public class UserController {
     public String getmypage(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
 
         String email = principalDetails.getUser().getEmail();
-        String nickname = principalDetails.getUser().getNickname();
-        String mbti = principalDetails.getUser().getMbti().getMbti();
-
+        User user = userService.mypageData(email);
+        String nickname = user.getNickname();
+        String mbti = user.getMbti().getMbti();
         model.addAttribute("email", email);
         model.addAttribute("nickname", nickname);
         model.addAttribute("mbti", mbti);

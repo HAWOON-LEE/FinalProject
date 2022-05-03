@@ -15,9 +15,9 @@ import java.util.Optional;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
 public class UserService {
 
+    @Autowired
     UserRepository userRepository;
 
     public User findEmail(String email) {

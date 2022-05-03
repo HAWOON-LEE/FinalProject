@@ -2,13 +2,9 @@ package lee.hawoob.finalproject.repository;
 
 import lee.hawoob.finalproject.dto.UserDto;
 import lee.hawoob.finalproject.entity.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +28,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByNickname(String nickname);
 
     //닉네임 중복 검사
-    boolean existsByNickname(String nickaname);
+    boolean existsByNickname(String nickname);
 
     //MBTI 찾기
     User findByMbti(String mbti);
