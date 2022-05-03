@@ -57,7 +57,6 @@
                     <div class="section-header">
                         <h3>MBTI별 도서추천</h3>
                         <div class="nft-filter d-flex flex-wrap justify-content-center gap-15">
-
                         </div>
                     </div>
                     <div class="activity-wrapper activity-loadmore">
@@ -69,7 +68,7 @@
                                             <img th:src="${books.imageUrl}" alt="img">
                                         </div>
                                         <div class="lab-content">
-                                            <h4><a href="nft-single.html" th:text="${books.title}">도서명</a></h4>
+                                            <h4><a th:href="@{/detail/{id}(id=${books.isbn})}" th:text="${books.title}">도서명</a></h4>
                                             <p class="mb-2" th:text="${books.author}">저자</p>
                                             <p class="mb-2" th:text="${books.publisher}">출판사</p>
                                         </div>

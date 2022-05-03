@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "MY_LIBRARY")
 @Data
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 public class Lib extends LibDto {
 

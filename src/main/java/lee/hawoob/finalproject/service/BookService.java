@@ -29,6 +29,9 @@ public class BookService {
     @Autowired
     private LibRepository libRepository;
 
+//    @Autowired
+//    private LibRepository libRepository;
+
     // mbti로 도서목록 찾기기
    public List<Book> findAllByMbti(String mbti) {
         List<Book> books = bookRepository.findAllByMbti_Mbti(mbti);
@@ -43,20 +46,23 @@ public class BookService {
         return books;
     }
 
-    public int cntByIsbn(String isbn){
-        Book book = new Book();
-        List<Lib> lib = libRepository.findAll();
-        List<LibDto> bookCnt = new ArrayList<>();
-
-        for(int i = 0; i < lib.size(); i++){
-            if(lib.get(i).getBook().getIsbn().equals(book.getIsbn())){
-                bookCnt.add(lib.get(i));
-            }
-        }
-
-        System.out.println(bookCnt.size());
-        return bookCnt.size();
-    }
+//    public int cntByIsbn(String isbn){
+//        Book book = new Book();
+//
+//        book.setIsbn("1130605213 9791130605210");
+//
+//        List<Lib> lib = libRepository.findAll();
+//        List<LibDto> bookCnt = new ArrayList<>();
+//
+//        for(int i = 0; i < lib.size(); i++){
+//            if(lib.get(i).getBook().getIsbn().equals(book.getIsbn())){
+//                bookCnt.add(lib.get(i));
+//            }
+//        }
+//
+//        System.out.println(bookCnt.size());
+//        return bookCnt.size();
+//    }
 
 //    public Book selectTop1() {
 //        List<Book> books = bookRepository.selectTop3();
