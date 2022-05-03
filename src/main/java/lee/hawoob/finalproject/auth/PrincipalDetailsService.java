@@ -22,6 +22,7 @@ public class PrincipalDetailsService implements UserDetailsService {
 
         User userEntity = userService.findEmail(user);
         Optional<User> userKey = userService.findKey(user);
+
         if(userKey.isEmpty()) {
             return new PrincipalDetails(userEntity);
         }

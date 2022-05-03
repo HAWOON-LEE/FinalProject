@@ -2,6 +2,7 @@ package lee.hawoob.finalproject.controller;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.UserDto;
+import lee.hawoob.finalproject.entity.Mbti;
 import lee.hawoob.finalproject.entity.User;
 import lee.hawoob.finalproject.repository.UserRepository;
 import lee.hawoob.finalproject.service.UserService;
@@ -15,7 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.awt.print.Pageable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -65,10 +68,11 @@ public class UserController {
     @GetMapping("/mypage")
     public String getmypage(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
 
-        String email = principalDetails.getUser().getEmail();
-        String nickname = principalDetails.getUser().getNickname();
-        String mbti = String.valueOf(principalDetails.getUser().getMbti());
 
+        String email = principalDetails.getUser().getEmail();
+        User user = userService.mypageData(email);
+        String nickname = user.getNickname();
+        String mbti = user.getMbti().getMbti();
         model.addAttribute("email", email);
         model.addAttribute("nickname", nickname);
         model.addAttribute("mbti", mbti);
@@ -101,7 +105,7 @@ public class UserController {
     public String postmypage(UserDto user) {
 
         userRepository.update(user.getMbti(), user.getNickname(), user.getEmail());
-        return "redirect:/mypage";
+        return "redirect:/";
     }
 }
 
