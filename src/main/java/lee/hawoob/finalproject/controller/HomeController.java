@@ -6,6 +6,7 @@ import lee.hawoob.finalproject.entity.Book;
 import lee.hawoob.finalproject.entity.Mbti;
 import lee.hawoob.finalproject.service.BookService;
 import lee.hawoob.finalproject.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,12 +17,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
+
 @Controller
 public class HomeController {
 
+
     @Autowired
     private UserService userService;
-
     @Autowired
     private HttpSession httpSession;
 

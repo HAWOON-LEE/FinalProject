@@ -9,6 +9,7 @@ import lee.hawoob.finalproject.entity.Verse;
 import lee.hawoob.finalproject.form.VerseForm;
 import lee.hawoob.finalproject.service.VerseService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ import java.util.List;
 @AllArgsConstructor
 public class VerseController {
 
+    @Autowired
     private final VerseService service;
 
     @GetMapping("list")
