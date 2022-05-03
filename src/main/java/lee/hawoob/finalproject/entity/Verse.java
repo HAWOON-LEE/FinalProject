@@ -23,7 +23,7 @@ public class Verse{
     private Book book;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "NICKNAME" )
+    @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME")
     private User user;
 
     @Column(name = "VERSE", nullable = false)
