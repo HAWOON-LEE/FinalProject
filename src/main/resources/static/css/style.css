@@ -1878,16 +1878,18 @@ button {
 /* 13 */
 .btn-14 {
   right: -640px;
-  top: -190px;
+  top: -290px;
   margin: 20px;
   backface-visibility: hidden;
   position: relative;
   cursor: pointer;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   white-space: nowrap;
   border-color: #111;
-  color: #555;
-  background: linear-gradient(180deg, #555 0%, #222 49%, #000 51%, #222 100%);
+  color: #fff;
+  background: #464964;
   border-radius: 5px;
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5),
   0px 1px 3px rgba(0, 0, 0, 0.3);
@@ -2422,17 +2424,35 @@ li
 /*--------------------------activity item start here ----------------------------------*/
 .lab-inner2 {
   width: 110%;
-  height: 350px;
+  height: 470px;
   background-color: #011e30;
   border-radius: 24px;
 }
 .lab-content2 {
-  margin-top: 30px;
-  width: 100%-50px;
+  margin-left: 150px;
+  margin-top: 20px;
+  width: 70%;
 }
 .lab-thumb2 {
   width: 130px;
-  margin-top: -60px;
+  margin-top: 0px;
+}
+.lab-thumb2 > img {
+  position: absolute;
+  width: 10%;
+  /* height: 100%; */
+  top: 55%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+}
+.h7{
+  overflow: hidden;
+
+  box-sizing: border-box;
+  width: 10%;
+}
+.h7:hover{
+  overflow: visible;
 }
 .activity-item .lab-inner {
   background-color: #011e30;
@@ -4418,6 +4438,11 @@ Home page css start here
   margin-top: -370px;
   margin-left: -300px;
 }
+.mb-15 {
+
+  margin-bottom: 0.5rem !important;
+}
+
 .mb-11 {
   align-content: space-around;
   margin-bottom: 400px;
@@ -7297,13 +7322,14 @@ body1 {
   margin-bottom: 35px;
 }
 .review__view-more {
-  background-color: #ccc;
-  padding: 6px 15px;
-  margin-top: 15px;
+  margin: 20px;
+  background: #00a1fa;
+  border: none;
   color: #fff;
+  padding: 1.125rem 2rem;
   border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 .review__view-more i {
   vertical-align: middle;

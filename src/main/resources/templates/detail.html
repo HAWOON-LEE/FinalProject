@@ -72,10 +72,10 @@
                                             <h4 th:text="${obj.title}">도서명</h4>
                                             <div><a></a></div>
 
-                                            <p class="mb-2" th:text="${obj.author}">저자</p>
-                                            <p class="mb-2" th:text="${obj.publisher}">출판사</p>
-                                            <p class="mb-2" th:text="${obj.pubDate}">출판일</p>
-                                            <p class="mb-2" th:text="${obj.price}">가격</p>
+                                            <p class="mb-15" th:text="${obj.author}">저자</p>
+                                            <p class="mb-15" th:text="${obj.publisher}">출판사</p>
+                                            <p class="mb-15" th:text="${obj.pubDate}">출판일</p>
+                                            <p class="mb-15" th:text="${obj.price}">가격</p>
 
                                             <div><a></a></div>
 
@@ -86,7 +86,7 @@
 
                                             <div><a></a></div>
 
-                                            <h6 th:text="${obj.bookDesc}">Description</h6>
+                                            <h7 th:text="${obj.bookDesc}">Description</h7>
                                             <form method="post" th:action="@{/detail/insert}">
                                                 <button type="submit" name="isbn" th:value="${obj.isbn}" class="detail-btn btn-14">
                                                     내 서재 보관</i>
