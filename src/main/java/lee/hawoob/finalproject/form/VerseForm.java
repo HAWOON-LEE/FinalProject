@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class VerseForm {
 
-    private Long index;
+//    private Long index;
 
     private String nickname;
 
@@ -17,7 +17,9 @@ public class VerseForm {
 
     private int page;
 
-    private Book book;
+    private String isbn;
 
     private User user;
+
+    private Book book;
 }
