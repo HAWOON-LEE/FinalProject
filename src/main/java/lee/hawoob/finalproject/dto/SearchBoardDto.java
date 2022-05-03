@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-//@Builder
 public class SearchBoardDto {
     private Long boardIndex;
 
@@ -33,7 +32,6 @@ public class SearchBoardDto {
 
     private int view;
 
-
     public SearchBoardDto(Board board){
         this.boardIndex = board.getBoardIndex();
         this.title = board.getTitle();
@@ -42,15 +40,5 @@ public class SearchBoardDto {
         this.createDate = board.getCreateDate();
         this.view = board.getView();
     }
-
-//    public static SearchBoardDto from(Board board){
-//        return SearchBoardDto.builder()
-//                .boardIndex(board.getBoardIndex())
-//                .nickname(board.getUser().getNickname())
-//                .title(board.getTitle())
-//                .content(board.getContent())
-//                .view(board.getView())
-//                .build();
-//    }
 
 }

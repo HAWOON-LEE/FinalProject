@@ -24,14 +24,4 @@ public class BoardDto {
     private User user;
 
     private LocalDateTime date;
-
-
-    public BoardDto(Board board){
-        this.boardIndex = board.getBoardIndex();
-        this.title = board.getTitle();
-//        this.imgURL = board.getImgURL();
-        this.content = board.getContent();
-        this.user = board.getUser();
-        this.date = board.getCreateDate();
-    }
 }

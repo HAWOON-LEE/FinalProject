@@ -2,7 +2,9 @@ package lee.hawoob.finalproject.controller;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.UserDto;
+import lee.hawoob.finalproject.entity.Book;
 import lee.hawoob.finalproject.entity.Mbti;
+import lee.hawoob.finalproject.service.BookService;
 import lee.hawoob.finalproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -25,7 +27,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String gotohome() {
-
         return "/home";
     }
 

@@ -33,8 +33,8 @@ public class BookShelfController {
             String isbn = books.get(i).getBook().getIsbn();
             isbns.add(isbn);
         }
-        System.out.println(isbns);
 
+        int cnt = isbns.size();
         model.addAttribute("books", books);
         return "bookshelf";
     }

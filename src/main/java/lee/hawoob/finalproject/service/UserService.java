@@ -18,7 +18,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserService {
 
-    @Autowired
     UserRepository userRepository;
 
     public User findEmail(String email) {
