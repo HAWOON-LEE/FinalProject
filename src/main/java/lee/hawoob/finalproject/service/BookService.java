@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -17,8 +18,16 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public List<Book> findAllByMbti(String mbti) {
+    // mbti로 도서목록 찾기기
+   public List<Book> findAllByMbti(String mbti) {
         List<Book> books = bookRepository.findAllByMbti_Mbti(mbti);
+
+        return books;
+    }
+
+    // isbn넘버로 데이터 찾기
+    public List<Book> findByIsbn(String isbn) {
+        List<Book> books = bookRepository.findByIsbn(isbn);
 
         return books;
     }

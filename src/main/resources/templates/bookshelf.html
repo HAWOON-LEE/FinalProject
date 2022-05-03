@@ -64,39 +64,38 @@
         </div>
         <div class="collection-single-wrapper">
             <div class="row g-4">
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="nft-item">
+                <div class="col-xl-3 col-lg-4 col-md-6" th:each="obj : ${books}">
+                    <div class="nft-item" >
                         <div class="nft-inner">
                             <!-- nft top part -->
                             <div class="nft-item-top d-flex justify-content-between align-items-center">
                                 <div class="more-part">
-                                    <a>
-                                    </a>
+                                    <a></a>
                                 </div>
                             </div>
                             <!-- nft-bottom part -->
                             <div class="nft-item-bottom">
                                 <div class="nft-thumb">
-                                    <img src="/images/nft-item/03.gif" alt="nft-img">
+                                    <img th:src="${obj.book.imageUrl}" alt="nft-img">
                                     <!-- nft countdwon -->
                                 </div>
                                 <div class="nft-content">
                                     <div class="content-title">
                                         <h5>
-                                            <a href="item-details.html">위저드 베이커리</a>
+                                            <a th:text="${obj.book.title}" href="item-details.html">도서명</a>
                                         </h5>
                                     </div>
                                     <div class="nft-status d-flex flex-wrap justify-content-between align-items-center">
-                                          <span class="nft-view"><a href="activity.html">
-                                              <i class="icofont-eye-alt"></i> View History</a>
+                                          <span class="nft-view">
+                                              <a href="activity.html" th:text="${obj.book.author}">저자</a>
                                           </span>
-                                        <div class="nft-stock">12 in Stock</div>
+                                        <div class="nft-stock" th:text="${sum}">12 in Stock</div>
                                     </div>
                                     <div class="price-like d-flex justify-content-between align-items-center">
                                         <div class="nft-price d-flex align-items-center">
-                                            <p>ENTJ</p>
+                                            <p th:text="${obj.book.mbti.mbti}">MBTI</p>
                                         </div>
-                                        <a href="item-details.html" class="nft-bid">상세보기</a>
+                                        <a class="nft-bid" th:href="@{/detail/{id}(id=${obj.book.isbn})}">상세보기</a>
                                     </div>
                                 </div>
                             </div>
