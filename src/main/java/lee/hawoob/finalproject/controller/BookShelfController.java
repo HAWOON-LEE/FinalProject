@@ -1,7 +1,6 @@
 package lee.hawoob.finalproject.controller;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
-import lee.hawoob.finalproject.entity.Book;
 import lee.hawoob.finalproject.entity.Lib;
 import lee.hawoob.finalproject.service.BookService;
 import lee.hawoob.finalproject.service.LibService;
@@ -12,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,10 +25,14 @@ public class BookShelfController {
     private LibService libService;
 
     @GetMapping
-    public String showMyList(Model model, List<Book> books, @AuthenticationPrincipal PrincipalDetails principalDetails) {
+    public String showMyList(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
+        List<Lib> books = libService.findAllByNickname(principalDetails);
 
-        String nickname = principalDetails.getUser().getNickname();
-        List<Lib> isbns = libService.findAllByNickname(nickname);
+        List<String> isbns = new ArrayList<>();
+        for(int i=0; i<books.size(); i++) {
+            String isbn = books.get(i).getBook().getIsbn();
+            isbns.add(isbn);
+        }
         System.out.println(isbns);
 
         model.addAttribute("books", books);
