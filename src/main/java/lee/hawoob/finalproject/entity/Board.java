@@ -48,15 +48,6 @@ public class Board extends BaseTimeEntity{
 //        commentList.add(comment);
 //    }
 
-
-    public void updateTitle(String title){
-        this.title = title;
-    }
-
-    public void updateContent(String content){
-        this.content = content;
-    }
-
 //    public void updateImgURL(String imgURL){
 //        this.imgURL = imgURL;
 //    }

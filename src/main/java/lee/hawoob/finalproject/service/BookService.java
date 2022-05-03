@@ -1,22 +1,33 @@
 package lee.hawoob.finalproject.service;
 
+import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.BookDto;
+import lee.hawoob.finalproject.dto.LibDto;
 import lee.hawoob.finalproject.entity.Book;
+import lee.hawoob.finalproject.entity.Lib;
 import lee.hawoob.finalproject.entity.Mbti;
 import lee.hawoob.finalproject.repository.BookRepository;
+import lee.hawoob.finalproject.repository.LibRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 @Transactional
 public class BookService {
 
     @Autowired
     private BookRepository bookRepository;
+    @Autowired
+    private LibRepository libRepository;
 
     // mbti로 도서목록 찾기기
    public List<Book> findAllByMbti(String mbti) {
@@ -32,6 +43,20 @@ public class BookService {
         return books;
     }
 
+    public int cntByIsbn(String isbn){
+        Book book = new Book();
+        List<Lib> lib = libRepository.findAll();
+        List<LibDto> bookCnt = new ArrayList<>();
+
+        for(int i = 0; i < lib.size(); i++){
+            if(lib.get(i).getBook().getIsbn().equals(book.getIsbn())){
+                bookCnt.add(lib.get(i));
+            }
+        }
+
+        System.out.println(bookCnt.size());
+        return bookCnt.size();
+    }
 
 //    public Book selectTop1() {
 //        List<Book> books = bookRepository.selectTop3();

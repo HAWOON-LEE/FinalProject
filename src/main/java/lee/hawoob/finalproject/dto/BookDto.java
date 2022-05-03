@@ -34,16 +34,5 @@ public class BookDto {
 
     private Mbti mbti;
 
-    public BookDto(Book book) {
-        this.isbn = book.getIsbn();
-        this.title = book.getTitle();
-        this.link = book.getLink();
-        this.imageUrl = book.getImageUrl();
-        this.author = book.getAuthor();
-        this.price = book.getPrice();
-        this.publisher = book.getPublisher();
-        this.pubDate = book.getPubDate();
-        this.bookDesc = book.getBookDesc();
-        this.mbti = book.getMbti();
-    }
+    private int inStocks;
 }

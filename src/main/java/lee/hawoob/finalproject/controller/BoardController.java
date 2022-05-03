@@ -24,6 +24,7 @@ import java.util.Optional;
 @RequestMapping("board")
 @Transactional
 public class BoardController {
+
     private final BoardService service;
 
     @GetMapping("/list")

@@ -25,17 +25,4 @@ public class CreateBoardDto {
 
     private LocalDateTime date;
 
-
-    public CreateBoardDto(Board board){
-        title = board.getTitle();
-        user = board.getUser().getNickname();
-        content = board.getContent();
-    }
-
-
-//    public record CreateBoardDto(String title, String content){
-//        public Post toEntity(){
-//            return Post.builder().title(title).content(content).build();
-//        }
-//    }
 }

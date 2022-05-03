@@ -30,7 +30,7 @@ public class BoardService {
 
     public Page<SearchBoardDto> getBoardList(Pageable pageable){
         int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
-        pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "boardIndex")); // <- Sort 추가
+        pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "boardIndex"));
         Page<SearchBoardDto> dto = repository.findAll(pageable).map(b -> new SearchBoardDto(b));
 
         return dto;
@@ -49,7 +49,6 @@ public class BoardService {
         return dto;
     }
 
-
     public BoardDto getBoardDto(Board board) {
         BoardDto dto = new BoardDto();
 
@@ -61,8 +60,6 @@ public class BoardService {
 
         return dto;
     }
-
-
 
     public Optional<Board> findByIndex(Long boardIndex){
         return repository.findById(boardIndex);
