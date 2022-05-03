@@ -14,5 +14,6 @@ import java.util.List;
 public interface BookRepository extends JpaRepository<Book, String> {
 
     List<Book> findAllByMbti_Mbti(@Param(value = "mbti") String mbti);
-  
+
+    List<Book> findByIsbn(String isbn);
 }
