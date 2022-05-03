@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Data
 @Transactional
@@ -18,7 +20,7 @@ public class VerseDto extends Verse {
 
     private Long index;
 
-    private Book book;
+    private String isbn;
 
     private User user;
 

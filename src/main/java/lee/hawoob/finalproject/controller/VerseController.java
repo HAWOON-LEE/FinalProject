@@ -4,6 +4,8 @@ import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.LibDto;
 import lee.hawoob.finalproject.dto.VerseDto;
 import lee.hawoob.finalproject.entity.Lib;
+import lee.hawoob.finalproject.entity.User;
+import lee.hawoob.finalproject.entity.Verse;
 import lee.hawoob.finalproject.form.VerseForm;
 import lee.hawoob.finalproject.service.VerseService;
 import lombok.AllArgsConstructor;
@@ -22,25 +24,6 @@ public class VerseController {
 
     private final VerseService service;
 
-//    @GetMapping("list")
-//    public ModelAndView addVerse(@ModelAttribute("libs") VerseDto dto, Model model, ModelAndView mav,@RequestParam(value = "custom", required = false) @AuthenticationPrincipal PrincipalDetails custom){
-//        mav.setViewName("passage");
-//        mav.addObject("dto", dto);
-//
-//        List<LibDto> libs = service.findAll(custom);
-//
-//        model.addAttribute("libs", libs);
-//        return mav;
-//    }
-//    @GetMapping("list")
-//    public ModelAndView verse(VerseDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
-////        model.addAttribute("dto", dto);
-//        List<LibDto> libs = service.findAll(custom);
-//        ModelAndView mav = new ModelAndView();
-//        mav.addObject("libs", libs);
-//        mav.setViewName("passage");
-//        return mav;
-//    }
     @GetMapping("list")
     public ModelAndView verse(VerseDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
         model.addAttribute("dto", dto);
@@ -53,19 +36,23 @@ public class VerseController {
         return mav;
     }
 
-
-
     @PostMapping("enroll")
     public String addVerse(@ModelAttribute VerseForm form, @AuthenticationPrincipal PrincipalDetails custom, Model model){
         model.addAttribute("dto", form);
         model.addAttribute("libs", form);
-        service.saveVerse(form, custom);
+        User user = custom.getUser();
 
+        Verse verse = new Verse();
+        verse.setVerse(form.getVerse());
+        verse.setPage(form.getPage());
+        verse.setSub(form.getSub());
+        verse.setUser(user);
+        verse.setBook(form.getBook());
 
-        return "redirect:/verse";
+        service.save(verse);
+
+        return "redirect:/verse/list";
     }
-
-
 
 
 }

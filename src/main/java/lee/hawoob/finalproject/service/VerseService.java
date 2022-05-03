@@ -42,15 +42,13 @@ public class VerseService {
                 libs.add(libList.get(i));
             }
         }
-        System.out.println(libs.size());
         return libs;
     }
-
 
     public void saveVerse(VerseForm form, @AuthenticationPrincipal PrincipalDetails custom){
         Verse verse = new Verse();
         User user = userRepository.findById(custom.getUser().getUser_id()).get();
-        Book book = bookRepository.findById(form.getBook().getIsbn()).get();
+        Book book = bookRepository.findById(form.getIsbn()).get();
 
 
         verse.setVerse(form.getVerse());
@@ -61,6 +59,10 @@ public class VerseService {
 
         repository.save(verse);
     }
+    public void save(Verse verse){
+        repository.save(verse);
+    }
+
 
     public void deleteVerse(Long index){
         repository.deleteById(index);

@@ -54,8 +54,8 @@ public class HomeController {
         return "/review";
     }
 
-    @GetMapping("/bookshelf")
-    public String gotobookshelf(){ return "/bookshelf"; }
+//    @GetMapping("/bookshelf")
+//    public String gotobookshelf(){ return "/bookshelf"; }
 
     @GetMapping("/detail")
     public String gotodetail() { return "/detail"; }
