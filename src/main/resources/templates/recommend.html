@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko" class="no-js">
+<html lang="ko" class="no-js" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
 
     <meta name="author" content="Labartisan">
     <meta name="description"
-        content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+          content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ====****>  Meta tags for Social Media(Better SEO)  <****==== -->
@@ -25,406 +25,159 @@
     <link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
- <!-- site title -->
- <title>나만의 도서관- MBTI에 맞는 도서추천 사이트</title>
+    <!-- site title -->
+    <title>나만의 도서관- MBTI에 맞는 도서추천 사이트</title>
 </head>
 
 <body class="home-3">
-  <!-- preloader start here -->
-  <div class="preloader">
+<!-- preloader start here -->
+<div class="preloader">
     <div class="preloader-inner">
-      <div class="preloader-icon">
-        <span></span>
-        <span></span>
-      </div>
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
     </div>
-  </div>
-  <!-- preloader ending here -->
+</div>
+<!-- preloader ending here -->
 
-   <!-- ===============// header section start here \\================= -->
-  <header class="header" th:replace="fragment/common::header">
-  </header>
-  <!-- ===============//header section end here \\================= -->
+<!-- ===============// header section start here \\================= -->
+<header class="header" th:replace="fragment/common::header">
+</header>
+<!-- ===============//header section end here \\================= -->
 
 
-    <!-- ==========Activity Section start Here========== -->
-    <section class="activity-section padding-top padding-bottom">
-        <div class="container">
+<!-- ==========Activity Section start Here========== -->
+<section class="activity-section padding-top padding-bottom">
+    <div class="container">
 
-            <div class="section-wrapper">
-                <div class="row">
-                    <div class="col-xl-8">
-                        <div class="section-header">
-                            <h3>MBTI별 도서추천</h3>
-                            <div class="nft-filter d-flex flex-wrap justify-content-center gap-15">
-                                
-                            </div>
-                        </div>
-                        <div class="activity-wrapper activity-loadmore">
-                            <div class="row gy-3">
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/달러구트꿈백화점.jpg" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">달러구트 꿈 백화점</a>
-                                                </h4>
-                                                <p class="mb-2">이미예 | 팩토리나인 | 2021.12.25
-                                                   
-                                                   
-                                                </p>
-                                               
-                                              
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/불편한편의점.jpg" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">불편한 편의점</a>
-                                                </h4>
-                                                <p class="mb-2">김호연 | 나무옆의자 | 2021.04.20
-        
-                                                </p>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/위저드베이커리.jpg" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">위저드 베이커리</a>
-                                                </h4>
-                                                <p class="mb-2">구병모 | 창비 | 2022.03.27
-        
-                                                </p>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/아몬드.jpg" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">아몬드</a>
-                                                    
-                                                    </h4>
-                                                    <p class="mb-2">손원평 | 창비 | 2017.03.31
-            
-                                                    </p>
-                                                    
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/03.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">책 제목</a>
-                                                </h4>
-                                                <p class="mb-2">글쓴이 출판사 출판일
-        
-                                                </p>
-                                                <p class="user-id">공백<a href="author.html"></a></p>
-                                                <p>공백</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/01.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">책 제목</a>
-                                                </h4>
-                                                <p class="mb-2">글쓴이 출판사 출판일
-        
-                                                </p>
-                                                <p class="user-id">공백<a href="author.html"></a></p>
-                                                <p>공백</p>
-                                                
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/02.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">ghost lix xrf</a>
-                                                </h4>
-                                                <p class="mb-2">two rare collection purchased for
-                                                    <b>0.001
-                                                        ETH</b>
-                                                </p>
-                                                <p class="user-id">By: <a href="author.html">@reo2lxsr</a></p>
-                                                <p>At: 10/07/2022, 08:23 am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/04.jpg" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">Trust In meh </a>
-                                                </h4>
-                                                <p class="mb-2">The Shopping Cart #54/65 was put up
-                                                    for sale for <b>0.021
-                                                        ETH</b>
-                                                </p>
-                                                <p class="user-id">By: <a href="author.html">@reo2lxsr</a></p>
-                                                <p>At: 10/07/2022, 12:03 am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/05.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">Sysytan #0le </a>
-                                                </h4>
-                                                <p class="mb-2">A offer of $200.00 was placed for
-                                                    ÜNDERSTANDING (Sean Williams) #1/20
-                                                </p>
-                                                <p class="user-id">By: <a href="author.html">@reo2lxsr</a></p>
-                                                <p>At: 10/07/2022, 10:03 am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/03.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">ghost lix xrf</a>
-                                                </h4>
-                                                <p class="mb-2">two rare collection purchased for
-                                                    <b>0.001
-                                                        ETH</b>
-                                                </p>
-                                                <p class="user-id">By: <a href="author.html">@reo2lxsr</a></p>
-                                                <p>At: 10/07/2022, 02:03 pm</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/05.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">Sysytan #0le </a>
-                                                </h4>
-                                                <p class="mb-2">A offer of $200.00 was placed for
-                                                    ÜNDERSTANDING (Sean Williams) #1/20
-                                                </p>
-                                                <p class="user-id">By: <a href="author.html">@reo2lxsr</a></p>
-                                                <p>At: 10/07/2022, 10:03 am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/03.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">ghost lix xrf</a>
-                                                </h4>
-                                                <p class="mb-2">two rare collection purchased for
-                                                    <b>0.001
-                                                        ETH</b>
-                                                </p>
-                                                <p class="user-id">By: <a href="author.html">@reo2lxsr</a></p>
-                                                <p>At: 10/07/2022, 02:03 pm</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/01.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">Gold digger x</a>
-                                                </h4>
-                                                <p class="mb-2">GOLD DIGGER (x Antoni Tudisco)
-                                                    #44/44 was put up for sale for
-                                                    <b>0.0991
-                                                        ETH</b>
-                                                </p>
-                                                <p class="user-id">By: <a href="author.html">@rasselmrh</a></p>
-                                                <p>At: 10/07/2022, 10:03 am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="/images/activity/02.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">ghost lix xrf</a>
-                                                </h4>
-                                                <p class="mb-2">two rare collection purchased for
-                                                    <b>0.001
-                                                        ETH</b>
-                                                </p>
-                                                <p class="user-id">By: <a href="author.html">@reo2lxsr</a></p>
-                                                <p>At: 10/07/2022, 08:23 am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="section-wrapper">
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="section-header">
+                        <h3>MBTI별 도서추천</h3>
+                        <div class="nft-filter d-flex flex-wrap justify-content-center gap-15">
+
                         </div>
                     </div>
-                    <!-- Aside Part -->
-                    <div class="col-xl-4">
-                        <aside class="mt-5 mt-xl-0">
-                            <div class="widget widget-tags">
-                                <div class="widget-header">
-                                      <div class="nft-search">
-                                      <div class="form-floating nft-search-input">
-                                          <input type="text" class="form-control" id="nftSearch" placeholder="Search NFT">
-                                          <label for="nftSearch">도서 검색</label>
-                                          <button type="button"> <i class="icofont-search-1"></i></button>
-                                      </div>
-                                  </div>
+                    <div class="activity-wrapper activity-loadmore">
+                        <div class="row gy-3">
+                            <div class="col-12" th:each="books: ${bookList}">
+                                <div class="activity-item">
+                                    <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
+                                        <div class="lab-thumb me-3 me-md-4">
+                                            <img th:src="${books.imageUrl}" alt="img">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4><a href="nft-single.html" th:text="${books.title}">도서명</a></h4>
+                                            <p class="mb-2" th:text="${books.author}">저자</p>
+                                            <p class="mb-2" th:text="${books.publisher}">출판사</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                
-
-                                <ul class="widget-wrapper justify-content-start">
-                                  
-                                    <li><a href="#">ENTJ</a></li>
-                                    <li><a href="#">ENTP</a></li>
-                                    <li><a href="#">ENFJ</a></li>
-                                    <li><a href="#">ENFP</a></li>
-                                    <li><a href="#">ESTJ</a></li>
-                                    <li><a href="#">ESFJ</a></li>
-                                    <li><a href="#">ESFP</a></li>
-                                    <li><a href="#">INTJ</a></li>
-                                    <li><a href="#">INTP</a></li>
-                                    <li><a href="#">INFJ</a></li>
-                                    <li><a href="#">INFP</a></li>
-                                    <li><a href="#">ISTJ</a></li>
-                                    <li><a href="#">ISFJ</a></li>
-                                    <li><a href="#">ISTP</a></li>
-                                    <li><a href="#">ISFP</a></li>
-                                </ul>
                             </div>
-                        </aside>
+                        </div>
                     </div>
                 </div>
+                <!-- Aside Part -->
+                <div class="col-xl-4">
+                    <aside class="mt-5 mt-xl-0">
+                        <div class="widget widget-tags">
+                            <div class="widget-header">
+                                <div class="nft-search">
+                                    <div class="form-floating nft-search-input">
+                                        <input type="text" class="form-control" id="nftSearch" placeholder="Search NFT">
+                                        <label for="nftSearch">도서 검색</label>
+                                        <button type="button"> <i class="icofont-search-1"></i></button>
+                                    </div>
+                                </div>
+                            </div>
 
+
+                            <ul class="widget-wrapper justify-content-start" th:each="lists: ${list}">
+                                <li><a th:href="@{/recommend/{mbti}(mbti=${lists.mbti})}" th:text="${lists.mbti}">ENTJ</a></li>
+<!--                                <li><a href="#">ENTP</a></li>-->
+<!--                                <li><a href="#">ENFJ</a></li>-->
+<!--                                <li><a href="#">ENFP</a></li>-->
+<!--                                <li><a href="#">ESTJ</a></li>-->
+<!--                                <li><a href="#">ESFJ</a></li>-->
+<!--                                <li><a href="#">ESFP</a></li>-->
+<!--                                <li><a href="#">INTJ</a></li>-->
+<!--                                <li><a href="#">INTP</a></li>-->
+<!--                                <li><a href="#">INFJ</a></li>-->
+<!--                                <li><a href="#">INFP</a></li>-->
+<!--                                <li><a href="#">ISTJ</a></li>-->
+<!--                                <li><a href="#">ISFJ</a></li>-->
+<!--                                <li><a href="#">ISTP</a></li>-->
+<!--                                <li><a href="#">ISFP</a></li>-->
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==========explore Section ends Here========== -->
+
+
+
+<!-- ===============//footer section start here \\================= -->
+<footer class="footer-section">
+    <div class="footer-top">
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-center">
+                    <div class="col-lg-6">
+
+
+
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    
-    <!-- ==========explore Section ends Here========== -->
+    </div>
+    <div class="footer-bottom">
+        <div class="text-center py-0 mb-0">
+            <a href="../../../../../../Desktop/KH%20파이널%20프로젝트/anftiz%20main%20file%20test0422/anftiz-buyerfile/anftiz-dark/home.html">
+                <img
+                        src="/images/logo/nado_white (1).png"
+                        alt="nado_white"
+                />
+            </a>
+        </div>
+        <div class="container">
+            <p class="text-center py-4 mb-0">
+                All rights reserved &copy; 나만의 도서관
+
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- ===============//footer section end here \\================= -->
 
 
 
-    <!-- ===============//footer section start here \\================= -->
-  <footer class="footer-section">
-      <div class="footer-top">
-          <div class="footer-newsletter">
-              <div class="container">
-                  <div class="row g-4 align-items-center justify-content-center">
-                      <div class="col-lg-6">
-
-
-
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="footer-bottom">
-          <div class="text-center py-0 mb-0">
-              <a href="../../../../../../Desktop/KH%20파이널%20프로젝트/anftiz%20main%20file%20test0422/anftiz-buyerfile/anftiz-dark/home.html">
-                  <img
-                          src="/images/logo/nado_white (1).png"
-                          alt="nado_white"
-                  />
-              </a>
-          </div>
-          <div class="container">
-              <p class="text-center py-4 mb-0">
-                  All rights reserved &copy; 나만의 도서관
-
-              </p>
-          </div>
-      </div>
-  </footer>
-      <!-- ===============//footer section end here \\================= -->
-
-
-
-    <!-- scrollToTop start here -->
-    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
-    <!-- scrollToTop ending here -->
+<!-- scrollToTop start here -->
+<a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+<!-- scrollToTop ending here -->
 
 
 
 
-    <!-- All Scripts -->
-  <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-  <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-  <script th:src="@{/js/waypoints.min.js}"></script>
-  <script th:src="@{/js/swiper-bundle.min.js}"></script>
-  <script th:src="@{/js/countdown.min.js}"></script>
-  <script th:src="@{/js/jquery.counterup.min.js}"></script>
-  <script th:src="@{/js/wow.min.js}"></script>
-  <script th:src="@{/js/jquery.simpleLoadMore.min.js}"></script>
-  <script th:src="@{/js/isotope.pkgd.min.js}"></script>
-  <script th:src="@{/js/functions.js}"></script>
+<!-- All Scripts -->
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/waypoints.min.js}"></script>
+<script th:src="@{/js/swiper-bundle.min.js}"></script>
+<script th:src="@{/js/countdown.min.js}"></script>
+<script th:src="@{/js/jquery.counterup.min.js}"></script>
+<script th:src="@{/js/wow.min.js}"></script>
+<script th:src="@{/js/jquery.simpleLoadMore.min.js}"></script>
+<script th:src="@{/js/isotope.pkgd.min.js}"></script>
+<script th:src="@{/js/functions.js}"></script>
 </body>
 
 </html>

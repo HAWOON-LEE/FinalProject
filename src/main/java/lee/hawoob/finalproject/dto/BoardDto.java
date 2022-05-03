@@ -32,6 +32,6 @@ public class BoardDto {
 //        this.imgURL = board.getImgURL();
         this.content = board.getContent();
         this.user = board.getUser();
-
+        this.date = board.getCreateDate();
     }
 }

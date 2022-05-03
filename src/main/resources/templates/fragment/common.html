@@ -61,41 +61,47 @@
                             aria-haspopup="true"
                             aria-expanded="false"
                             data-bs-offset="0,10"
-                    >내 서재</a
-                    >
-
+                    >내 서재</a>
                     <ul class="dropdown-menu header__nav-menu">
                         <li>
-                            <a class="drop-down-item" th:href="@{/bookshelf}"
-                            >내 서재 목록(작성중)</a>
+                            <th:block>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}">
+                                <a class="drop-down-item" th:href="@{/bookshelf}">내 서재 목록</a>
+                            </div>
+                        </th:block>
+                            <th:block>
+                                <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                                    <a th:href="@{/message}">내 서재 목록</a>
+                                </div>
+                            </th:block>
                         </li>
                         <li>
-                            <a class="drop-down-item" th:href="@{/passage}">구절 등록</a>
+                            <th:block>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}">
+                                <a class="drop-down-item" th:href="@{/verse/list}">구절 등록</a>
+                            </div>
+                            </th:block>
+                            <th:block>
+                            <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                                <a th:href="@{/message}">구절등록</a>
+                            </div>
+                            </th:block>
                         </li>
                         <li>
-                            <a class="drop-down-item" th:href="@{/review}">한줄평</a>
+                            <th:block>
+                                <div th:if="${#authorization.expr('isAuthenticated()')}">
+                                    <a class="drop-down-item" th:href="@{/review}">한줄평</a>
+                                </div>
+                            </th:block>
+                            <th:block>
+                                <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                                    <a th:href="@{/message}">한줄평</a>
+                                </div>
+                            </th:block>
                         </li>
                     </ul>
                 </li>
-                <li class="header__nav-item">
-                    <a class="header__nav-link"
-                            th:href="@{/pboard}"
-                    >나만의 구절</a
-                    >
-<!--                            role="button"-->
-<!--                            data-bs-toggle="dropdown"-->
-<!--                            aria-haspopup="true"-->
-<!--                            aria-expanded="false"-->
-<!--                            data-bs-offset="0,10"-->
 
-
-<!--                    <ul class="dropdown-menu header__nav-menu">-->
-<!--                        <li>-->
-<!--                            <a class="drop-down-item" href="pboard.html">나만의 구절 작성중</a>-->
-<!--                        </li>-->
-
-<!--                    </ul>-->
-                </li>
                 <li class="header__nav-item">
                     <a
                             class="header__nav-link"
@@ -108,26 +114,7 @@
 <!--                            data-bs-offset="0,10"-->
 
                 </li>
-                <li class="header__nav-item">
 
-
-                    <ul
-                            class="dropdown-menu header__nav-menu"
-                            data-popper-placement="top-start"
-                    >
-                        <li>
-                            <a class="drop-down-item" href="activity.html"
-                            >내 정보 조회</a
-                            >
-                        </li>
-                        <li>
-                            <a class="drop-down-item" href="help.html">공백</a>
-                        </li>
-                        <li>
-                            <a class="drop-down-item" href="help-single.html">공백</a>
-                        </li>
-                    </ul>
-                </li>
                 </ul>
             </div>
 
@@ -139,6 +126,7 @@
                 </div>
 
                 <div class="header__action header__action--profile">
+                    <span><i class="icofont-user"></i></span>
                     <div class="dropdown">
                         <a
                                 class="dropdown-toggle"
@@ -148,12 +136,17 @@
                                 aria-expanded="false"
                                 data-bs-offset="-100,10"
                         >
-                            <span><i class="icofont-user"></i></span>
-                            <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
+                            <th:block>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}">
                             <span class="d-none d-md-inline" th:text="${#authentication.getName()}"></span>
-                            <div th:unless="${#authorization.expr('isAuthenticated()')}">
-                                <a href="/login" th:href="@{/login}">Login</a>
                             </div>
+                            </th:block>
+                            <th:block>
+                            <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                                <a href="/oauth2/authorization/naver">Login</a>
+<!--                                <a href="/login" th:href="@{/login}">Login</a>-->
+                            </div>
+                            </th:block>
                         </a>
 
                         <ul class="dropdown-menu">
@@ -166,10 +159,9 @@
                     </div>
                 </div>
                 <div class="wallet-btn">
-                    <a href="wallet.html"
-                    ><span><i class="icofont-wallet" data-blast="color"></i></span>
+                    <a><span><i class="icofont-wallet" data-blast="color"></i></span>
                         <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
-                        <span class="d-none d-md-inline"><a th:href="@{/}">Logout</a></span>
+                        <span class="d-none d-md-inline"><a href="/logout" th:href="@{/logout}">Logout</a></span>
                         <div th:unless="${#authorization.expr('isAuthenticated()')}">
                         </div>
                     </a>

@@ -6,7 +6,7 @@
 
     <meta name="author" content="Labartisan">
     <meta name="description"
-        content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+          content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ====****>  Meta tags for Social Media(Better SEO)  <****==== -->
@@ -25,307 +25,307 @@
     <link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
- <!-- site title -->
- <title>나만의 도서관- MBTI에 맞는 도서추천 사이트</title>
+    <!-- site title -->
+    <title>나만의 도서관- MBTI에 맞는 도서추천 사이트</title>
 </head>
 
 <body class="home-3">
-  <!-- preloader start here -->
-  <div class="preloader">
+<!-- preloader start here -->
+<div class="preloader">
     <div class="preloader-inner">
-      <div class="preloader-icon">
-        <span></span>
-        <span></span>
-      </div>
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
     </div>
-  </div>
-  <!-- preloader ending here -->
+</div>
+<!-- preloader ending here -->
 
-   <!-- ===============// header section start here \\================= -->
-  <header class="header" th:replace="fragment/common::header">
-  </header>
-  <!-- ===============//header section end here \\================= -->
+<!-- ===============// header section start here \\================= -->
+<header class="header" th:replace="fragment/common::header">
+</header>
+<!-- ===============//header section end here \\================= -->
 
 
-    <!-- ==========Activity Section start Here========== -->
-    <section class="activity-section padding-top padding-bottom">
-        <div class="container">
+<!-- ==========Activity Section start Here========== -->
+<section class="activity-section padding-top padding-bottom">
+    <div class="container">
 
-            <div class="section-wrapper">
-                <div class="row">
-                    <div class="col-xl-8">
-                        <div class="section-header">
-                            <h3>나만의 구절 게시판</h3>
-                            <div class="nft-filter d-flex flex-wrap justify-content-center gap-15">
-                                <div class="select-wrapper">
-                                    <select class="form-select " aria-label="Collection select">
-                                        <option value="1">최신순</option>
-                                        <option value="2">좋아요순</option>
-                                    </select>
-                                </div>
+        <div class="section-wrapper">
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="section-header">
+                        <h3>나만의 구절 게시판</h3>
+                        <div class="nft-filter d-flex flex-wrap justify-content-center gap-15">
+                            <div class="select-wrapper">
+                                <select class="form-select " aria-label="Collection select">
+                                    <option value="1">최신순</option>
+                                    <option value="2">좋아요순</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="activity-wrapper activity-loadmore">
-                            <div class="row gy-3">
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="assets/images/activity/달러구트꿈백화점.jpg" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">달러구트 꿈 백화점</a>
-                                                </h4>
-                                                <p class="mb-2">작성된 나만의 구절</p>
-                                                
-                                                <div class="wrap">
-                                                    <div class="button-wrap">
-                                                        <button class="heart-button" onclick="heartClick(this)">
+                    </div>
+                    <div class="activity-wrapper activity-loadmore">
+                        <div class="row gy-3">
+                            <div class="col-12">
+                                <div class="activity-item">
+                                    <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
+                                        <div class="lab-thumb me-3 me-md-4">
+                                            <img src="assets/images/activity/달러구트꿈백화점.jpg" alt="img">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4><a href="detail.html">달러구트 꿈 백화점</a>
+                                            </h4>
+                                            <p class="mb-2">작성된 나만의 구절</p>
+
+                                            <div class="wrap">
+                                                <div class="button-wrap">
+                                                    <button class="heart-button" onclick="heartClick(this)">
                                                         <svg mlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" class="heart">
-                                                          <path class="heart" d="M471.4,72.6C444.9,43.8,408.5,28,369,28c-29.6,0-56.6,9.3-80.4,27.8c-12,9.3-22.9,20.7-32.5,34c-9.6-13.3-20.5-24.7-32.5-34
+                                                            <path class="heart" d="M471.4,72.6C444.9,43.8,408.5,28,369,28c-29.6,0-56.6,9.3-80.4,27.8c-12,9.3-22.9,20.7-32.5,34c-9.6-13.3-20.5-24.7-32.5-34
                                                                                  C199.6,37.3,172.6,28,143,28c-39.5,0-75.9,15.8-102.4,44.6C14.4,101,0,139.8,0,181.9c0,43.3,16.1,82.9,50.8,124.7
                                                                                  c31,37.4,75.5,75.4,127.1,119.3c17.6,15,37.6,32,58.3,50.2c5.5,4.8,12.5,7.4,19.8,7.4c7.3,0,14.3-2.6,19.8-7.4
                                                                                  c20.7-18.1,40.7-35.2,58.3-50.2c51.6-43.9,96.1-81.9,127.1-119.3c34.6-41.8,50.8-81.4,50.8-124.7C512,139.8,497.6,101,471.4,72.6
                                                                                  L471.4,72.6z"/>
                                                         </svg>
-                                                      </button>
-                                                      <div class="number">0</div>
-                                                      
-                                                    </div>
-                                                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;닉네임 | 2022-04-21</p>
-                                                  </div>
-                                                 
-                                              </div>
+                                                    </button>
+                                                    <div class="number">0</div>
+
+                                                </div>
+                                                <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;닉네임 | 2022-04-21</p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="assets/images/activity/불편한편의점.jpg" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="detail.html">불편한 편의점</a>
-                                                </h4>
-                                                <p class="mb-2">작성된 나만의 구절
-                                             </p>
-                                                <div class="wrap">
-                                                    <div class="button-wrap">
-                                                        <button class="heart-button" onclick="heartClick(this)">
-                                                            <svg mlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" class="heart">
-                                                                <path class="heart" d="M471.4,72.6C444.9,43.8,408.5,28,369,28c-29.6,0-56.6,9.3-80.4,27.8c-12,9.3-22.9,20.7-32.5,34c-9.6-13.3-20.5-24.7-32.5-34
+                            </div>
+                            <div class="col-12">
+                                <div class="activity-item">
+                                    <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
+                                        <div class="lab-thumb me-3 me-md-4">
+                                            <img src="assets/images/activity/불편한편의점.jpg" alt="img">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4><a href="detail.html">불편한 편의점</a>
+                                            </h4>
+                                            <p class="mb-2">작성된 나만의 구절
+                                            </p>
+                                            <div class="wrap">
+                                                <div class="button-wrap">
+                                                    <button class="heart-button" onclick="heartClick(this)">
+                                                        <svg mlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" class="heart">
+                                                            <path class="heart" d="M471.4,72.6C444.9,43.8,408.5,28,369,28c-29.6,0-56.6,9.3-80.4,27.8c-12,9.3-22.9,20.7-32.5,34c-9.6-13.3-20.5-24.7-32.5-34
                                                                                C199.6,37.3,172.6,28,143,28c-39.5,0-75.9,15.8-102.4,44.6C14.4,101,0,139.8,0,181.9c0,43.3,16.1,82.9,50.8,124.7
                                                                                c31,37.4,75.5,75.4,127.1,119.3c17.6,15,37.6,32,58.3,50.2c5.5,4.8,12.5,7.4,19.8,7.4c7.3,0,14.3-2.6,19.8-7.4
                                                                                c20.7-18.1,40.7-35.2,58.3-50.2c51.6-43.9,96.1-81.9,127.1-119.3c34.6-41.8,50.8-81.4,50.8-124.7C512,139.8,497.6,101,471.4,72.6
                                                                                L471.4,72.6z"/>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="number">0</div>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="number">0</div>
 
-                                                    </div>
-                                                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;닉네임 | 2022-04-21</p>
                                                 </div>
+                                                <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;닉네임 | 2022-04-21</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="assets/images/activity/위저드베이커리.jpg" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="nft-single.html">위저드 베이커리</a>
-                                                </h4>
-                                                <p class="mb-2">
-        
-                                                </p>
-                                               
-                                            </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="activity-item">
+                                    <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
+                                        <div class="lab-thumb me-3 me-md-4">
+                                            <img src="assets/images/activity/위저드베이커리.jpg" alt="img">
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="assets/images/activity/아몬드.jpg" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="nft-single.html">아몬드</a>
-                                                    
-                                                    </h4>
-                                                    <p class="mb-2">
-            
-                                                    </p>
-                                                    
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="assets/images/activity/03.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="nft-single.html">책 제목</a>
-                                                </h4>
-                                                <p class="mb-2">
-        
-                                                </p>
-                                                <p class="user-id">공백<a href="author.html"></a></p>
-                                                <p>공백</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="assets/images/activity/01.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="nft-single.html">책 제목</a>
-                                                </h4>
-                                                <p class="mb-2">
-        
-                                                </p>
-                                                <p class="user-id">공백<a href="author.html"></a></p>
-                                                <p>공백</p>
-                                                
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
+                                        <div class="lab-content">
+                                            <h4><a href="nft-single.html">위저드 베이커리</a>
+                                            </h4>
+                                            <p class="mb-2">
 
-                                <div class="col-12">
-                                    <div class="activity-item">
-                                        <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
-                                            <div class="lab-thumb me-3 me-md-4">
-                                                <img src="assets/images/activity/02.gif" alt="img">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h4><a href="nft-single.html">ghost lix xrf</a>
-                                                </h4>
-                                                <p class="mb-2">two rare collection purchased for
-                                                    <b>0.001
-                                                        ETH</b>
-                                                </p>
-                                                <p class="user-id">By: <a href="author.html">@reo2lxsr</a></p>
-                                                <p>At: 10/07/2022, 08:23 am</p>
-                                            </div>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="activity-item">
+                                    <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
+                                        <div class="lab-thumb me-3 me-md-4">
+                                            <img src="assets/images/activity/아몬드.jpg" alt="img">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4><a href="nft-single.html">아몬드</a>
+
+                                            </h4>
+                                            <p class="mb-2">
+
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="activity-item">
+                                    <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
+                                        <div class="lab-thumb me-3 me-md-4">
+                                            <img src="assets/images/activity/03.gif" alt="img">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4><a href="nft-single.html">책 제목</a>
+                                            </h4>
+                                            <p class="mb-2">
+
+                                            </p>
+                                            <p class="user-id">공백<a href="author.html"></a></p>
+                                            <p>공백</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="activity-item">
+                                    <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
+                                        <div class="lab-thumb me-3 me-md-4">
+                                            <img src="assets/images/activity/01.gif" alt="img">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4><a href="nft-single.html">책 제목</a>
+                                            </h4>
+                                            <p class="mb-2">
+
+                                            </p>
+                                            <p class="user-id">공백<a href="author.html"></a></p>
+                                            <p>공백</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="activity-item">
+                                    <div class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
+                                        <div class="lab-thumb me-3 me-md-4">
+                                            <img src="assets/images/activity/02.gif" alt="img">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4><a href="nft-single.html">ghost lix xrf</a>
+                                            </h4>
+                                            <p class="mb-2">two rare collection purchased for
+                                                <b>0.001
+                                                    ETH</b>
+                                            </p>
+                                            <p class="user-id">By: <a href="author.html">@reo2lxsr</a></p>
+                                            <p>At: 10/07/2022, 08:23 am</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Aside Part -->
-                    <div class="col-xl-4">
-                        <aside class="mt-5 mt-xl-0">
-                            <div class="widget widget-tags">
-                                <div class="widget-header">
-                                      <div class="nft-search">
-                                      <div class="form-floating nft-search-input">
-                                          <input type="text" class="form-control" id="nftSearch" placeholder="Search NFT">
-                                          <label for="nftSearch">나만의 구절 검색</label>
-                                          <button type="button"> <i class="icofont-search-1"></i></button>
-                                      </div>
-                                  </div>
+                </div>
+                <!-- Aside Part -->
+                <div class="col-xl-4">
+                    <aside class="mt-5 mt-xl-0">
+                        <div class="widget widget-tags">
+                            <div class="widget-header">
+                                <div class="nft-search">
+                                    <div class="form-floating nft-search-input">
+                                        <input type="text" class="form-control" id="nftSearch" placeholder="Search NFT">
+                                        <label for="nftSearch">나만의 구절 검색</label>
+                                        <button type="button"> <i class="icofont-search-1"></i></button>
+                                    </div>
                                 </div>
-                                
-
-                                <ul class="widget-wrapper justify-content-start">
-                                  
-                                    <li><a href="#">ENTJ</a></li>
-                                    <li><a href="#">ENTP</a></li>
-                                    <li><a href="#">ENFJ</a></li>
-                                    <li><a href="#">ENFP</a></li>
-                                    <li><a href="#">ESTJ</a></li>
-                                    <li><a href="#">ESFJ</a></li>
-                                    <li><a href="#">ESFP</a></li>
-                                    <li><a href="#">INTJ</a></li>
-                                    <li><a href="#">INTP</a></li>
-                                    <li><a href="#">INFJ</a></li>
-                                    <li><a href="#">INFP</a></li>
-                                    <li><a href="#">ISTJ</a></li>
-                                    <li><a href="#">ISFJ</a></li>
-                                    <li><a href="#">ISTP</a></li>
-                                    <li><a href="#">ISFP</a></li>
-                                </ul>
                             </div>
-                        </aside>
+
+
+                            <ul class="widget-wrapper justify-content-start">
+
+                                <li><a href="#">ENTJ</a></li>
+                                <li><a href="#">ENTP</a></li>
+                                <li><a href="#">ENFJ</a></li>
+                                <li><a href="#">ENFP</a></li>
+                                <li><a href="#">ESTJ</a></li>
+                                <li><a href="#">ESFJ</a></li>
+                                <li><a href="#">ESFP</a></li>
+                                <li><a href="#">INTJ</a></li>
+                                <li><a href="#">INTP</a></li>
+                                <li><a href="#">INFJ</a></li>
+                                <li><a href="#">INFP</a></li>
+                                <li><a href="#">ISTJ</a></li>
+                                <li><a href="#">ISFJ</a></li>
+                                <li><a href="#">ISTP</a></li>
+                                <li><a href="#">ISFP</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==========explore Section ends Here========== -->
+
+
+
+<!-- ===============//footer section start here \\================= -->
+<footer class="footer-section">
+    <div class="footer-top">
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-center">
+                    <div class="col-lg-6">
+
+
+
                     </div>
                 </div>
-
             </div>
         </div>
-    </section>
-    
-    <!-- ==========explore Section ends Here========== -->
+    </div>
+    <div class="footer-bottom">
+        <div class="text-center py-0 mb-0">
+            <a href="../../../../../../Desktop/KH%20파이널%20프로젝트/anftiz%20main%20file%20test0422/anftiz-buyerfile/anftiz-dark/home.html">
+                <img
+                        src="assets/images/logo/nado_white (1).png"
+                        alt="nado_white"
+                />
+            </a>
+        </div>
+        <div class="container">
+            <p class="text-center py-4 mb-0">
+                All rights reserved &copy; 나만의 도서관
+
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- ===============//footer section end here \\================= -->
 
 
 
-    <!-- ===============//footer section start here \\================= -->
-  <footer class="footer-section">
-      <div class="footer-top">
-          <div class="footer-newsletter">
-              <div class="container">
-                  <div class="row g-4 align-items-center justify-content-center">
-                      <div class="col-lg-6">
-
-
-
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="footer-bottom">
-          <div class="text-center py-0 mb-0">
-              <a href="../../../../../../Desktop/KH%20파이널%20프로젝트/anftiz%20main%20file%20test0422/anftiz-buyerfile/anftiz-dark/home.html">
-                  <img
-                          src="assets/images/logo/nado_white (1).png"
-                          alt="nado_white"
-                  />
-              </a>
-          </div>
-          <div class="container">
-              <p class="text-center py-4 mb-0">
-                  All rights reserved &copy; 나만의 도서관
-
-              </p>
-          </div>
-      </div>
-  </footer>
-      <!-- ===============//footer section end here \\================= -->
-
-
-
-    <!-- scrollToTop start here -->
-    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
-    <!-- scrollToTop ending here -->
+<!-- scrollToTop start here -->
+<a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+<!-- scrollToTop ending here -->
 
 
 
 
-    <!-- All Scripts -->
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/countdown.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/jquery.simpleLoadMore.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/functions.js"></script>
+<!-- All Scripts -->
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/waypoints.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/countdown.min.js"></script>
+<script src="assets/js/jquery.counterup.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.simpleLoadMore.min.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/functions.js"></script>
 </body>
 
 </html>

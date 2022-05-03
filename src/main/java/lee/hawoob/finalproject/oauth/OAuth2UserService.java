@@ -1,10 +1,12 @@
 package lee.hawoob.finalproject.oauth;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
+import lee.hawoob.finalproject.dto.UserDto;
 import lee.hawoob.finalproject.entity.User;
 import lee.hawoob.finalproject.oauth.provider.NaverUserInfo;
 import lee.hawoob.finalproject.oauth.provider.OAuth2UserInfo;
 import lee.hawoob.finalproject.repository.UserRepository;
+import lee.hawoob.finalproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
+import java.util.Optional;
 
 
 @Service
@@ -22,6 +25,9 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private HttpSession httpSession;
@@ -44,23 +50,30 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
         String nickname = oAuth2UserInfo.getEmail().substring(0,oAuth2UserInfo.getEmail().indexOf('@'));
         String email = oAuth2UserInfo.getEmail();
         String role = "ROLE_USER";
-        String key = oAuth2UserInfo.getProviderId();
-        System.out.println(key);
+        String keyID = oAuth2UserInfo.getProviderId();
+        System.out.println(keyID);
 
-        User userEntity = userRepository.findByEmail("email");
-        if(userEntity == null){
+        User userEntity = userRepository.findByEmail(email);
+//        Optional<User> userKey = userRepository.findByKeyID(keyID);
+//        System.out.println(userKey);
+
+        if(userEntity==null){
             System.out.println("최초 로그인");
             userEntity = new User().builder()
                     .email(email)
                     .nickname(nickname)
                     .role(role)
+                    .keyID(keyID)
                     .build();
             userRepository.save(userEntity);
-        }else {
+            httpSession.setAttribute("user", userEntity.getMbti());
+        }else if(userEntity != null){
+//            userService.logininfo(String.valueOf(userKey));
             System.out.println("로그인 한 적이 있습니다.");
+            httpSession.setAttribute("user", userEntity.getMbti());
+
         }
 
-        httpSession.setAttribute("user", userEntity);
         return new PrincipalDetails(userEntity, oAuth2User.getAttributes());
     }
 }

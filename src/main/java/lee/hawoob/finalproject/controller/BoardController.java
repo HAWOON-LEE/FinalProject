@@ -8,46 +8,48 @@ import lee.hawoob.finalproject.form.CreatePostForm;
 import lee.hawoob.finalproject.form.UpdateBoardForm;
 import lee.hawoob.finalproject.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("board")
 @Transactional
-public class BoardApiController {
-
+public class BoardController {
     private final BoardService service;
 
     @GetMapping("/list")
-    public ModelAndView list(ModelAndView mav){
-        List<SearchBoardDto> boardList = service.findAll();
-        mav.addObject("boardList", boardList);
-        mav.setViewName("board/list");
+    public String boardView(@PageableDefault Pageable pageable, Model model){
+        Page<SearchBoardDto> boardList1 = service.getBoardList(pageable);
+        model.addAttribute("boardList1", boardList1);
 
-        return mav;
+        return "board/list";
     }
 
     @GetMapping("search")
-    public String searchBoard(@RequestParam("keyword") String keyword, Model model){
-        List<SearchBoardDto> boardList = service.searchBoard(keyword);
+    public String searchBoard(@RequestParam("keyword") String keyword,Pageable pageable , Model model){
+        Page<SearchBoardDto> boardList = service.searchBoard(keyword, pageable);
         model.getAttribute("keyword");
-        model.addAttribute("boardList", boardList);
+        model.addAttribute("boardList1", boardList);
 
         return "board/list";
     }
 
     @GetMapping("/detail/{boardIndex}")
-    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav){
+    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav, @AuthenticationPrincipal PrincipalDetails custom){
         Optional<Board> board = service.findByIndex(boardIndex);
         BoardDto dto =service.getBoardDto(board.get());
-        mav.setViewName("board/details");
+        service.updateView(boardIndex); // views ++
+
+        mav.setViewName("board/detailsPost");
         mav.addObject("dto", dto);
         return mav;
     }
@@ -55,12 +57,13 @@ public class BoardApiController {
     @GetMapping("/create")
     public ModelAndView create(@ModelAttribute CreatePostForm form, ModelAndView mav){
         mav.addObject("form", form);
-        mav.setViewName("board/create");
+        mav.setViewName("board/createPost");
         return mav;
     }
 
     @PostMapping("/create")
-    public String createBoard(@ModelAttribute CreatePostForm form, PrincipalDetails custom){
+    public String createBoard(@ModelAttribute CreatePostForm form,@AuthenticationPrincipal PrincipalDetails custom, Model model){
+        model.addAttribute("form", form);
         service.createBoard(form, custom);
         return "redirect:/board/list";
     }
@@ -82,7 +85,7 @@ public class BoardApiController {
         form.setContent(board.get().getContent());
         form.setDate(board.get().getCreateDate());
 
-        mav.setViewName("/board/update");
+        mav.setViewName("/board/updatePost");
         mav.addObject("form", form);
 
         return mav;
@@ -90,7 +93,11 @@ public class BoardApiController {
 
     @PostMapping("/update")
     public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav){
+
+        mav.setViewName("board/updatePost");
+        mav.addObject("form", form);
         service.updateBoard(form);
+
 
         mav = new ModelAndView("redirect:/board/list");
         return mav;

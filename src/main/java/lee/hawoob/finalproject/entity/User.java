@@ -6,6 +6,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,21 +26,40 @@ public class User implements Serializable {
     @Column(name = "EMAIL")
     private String email;
 
+    @Column(name = "KEYID")
+    private String keyID;
+
     @Column(name = "NICKNAME", nullable = false, unique = true)
     private String nickname;
 
-    @JoinColumn(name = "MBTI_NAME")
-    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "MBTI")
+    @OneToOne(fetch = FetchType.LAZY)
     private Mbti mbti;
 
     @CreationTimestamp
     @Column(name = "C_DATE")
     private Timestamp c_date;
 
+    @Column(name = "ROLE")
     private String role;
+
+
+//    @OneToMany(targetEntity = Lib.class)
+//    private List<Lib> lib;
 
     public User(String nickname, Mbti mbti) {
         this.nickname = nickname;
         this.mbti = mbti;
     }
+
+    public static User createUser(){
+        return User.builder()
+                .user_id(1L)
+                .email("")
+                .nickname("")
+                .build();
+    }
+
+//    @OneToMany(mappedBy = "nickname", cascade = CascadeType.ALL)
+//    List<Lib> nicknameList = new ArrayList<>();
 }

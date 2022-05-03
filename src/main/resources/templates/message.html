@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>메세지</title>
+</head>
+<script th:inline="javascript">
+
+    var message = [[${message}]]
+    alert(message);
+
+    location.replace([[${url}]]);
+
+</script>
+
+<body>
+
+</body>
+</html>

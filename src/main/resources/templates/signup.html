@@ -40,6 +40,8 @@
 
 </script>
 <body>
+<header class="header" th:replace="fragment/common::header">
+</header>
 <!-- preloader start here -->
 
 <!-- preloader ending here -->
@@ -55,13 +57,13 @@
                     <h3 class="title">추가정보</h3>
                     <form method="post" th:action="@{/signup}" class="account-form">
 
-                            <div class="form-floating mb-3">
+                        <div class="form-floating mb-3">
                             <div class="input-group mb-3">
                                 <input type="hidden" name="email" th:value="${email}">
                                 <input type="text" class="form-control" placeholder="닉네임" aria-label="Recipient's username"
                                        name="nickname" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">중복검사</button>
+                                    <a th:href="@{/nicknameCheck1}" class="btn btn-outline-secondary">중복검사</a>
                                 </div>
                             </div>
                         </div>
@@ -84,13 +86,14 @@
                                 <option value="ESFJ">ESFJ</option>
                                 <option value="ESTP">ESTP</option>
                                 <option value="ESFP">ESFP</option>
-                            </div>
-                        </select>
+                            </select>
                         </div>
+                        </form>
+                </div>
                 <div class="form-group">
                     <button class="d-block default-btn move-top" type="submit"><span>완료</span></button>
                 </div>
-                     </form>
+                </form>
             </div>
         </div>
         <div class="col-lg-7">
@@ -110,15 +113,15 @@
 <!-- scrollToTop ending here -->
 
 <!-- All Scripts -->
-<script src="static/js/jquery-3.6.0.min.js"></script>
-<script src="static/js/bootstrap.bundle.min.js"></script>
-<script src="static/js/waypoints.min.js"></script>
-<script src="static/js/swiper-bundle.min.js"></script>
-<script src="static/js/countdown.min.js"></script>
-<script src="static/js/jquery.counterup.min.js"></script>
-<script src="static/js/wow.min.js"></script>
-<script src="static/js/jquery.simpleLoadMore.min.js"></script>
-<script src="static/js/isotope.pkgd.min.js"></script>
-<script src="static/js/functions.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/waypoints.min.js"></script>
+<script src="/js/swiper-bundle.min.js"></script>
+<script src="/js/countdown.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<script src="/js/wow.min.js"></script>
+<script src="/js/jquery.simpleLoadMore.min.js"></script>
+<script src="/js/isotope.pkgd.min.js"></script>
+<script src="/js/functions.js"></script>
 </body>
 </html>

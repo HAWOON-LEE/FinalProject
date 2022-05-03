@@ -1,24 +1,25 @@
 package lee.hawoob.finalproject.entity;
 
-import lombok.Data;
-
+import lee.hawoob.finalproject.dto.LibDto;
+import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "LIBRARY")
+@Table(name = "MY_LIBRARY")
 @Data
-public class Lib {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class Lib extends LibDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "LIB_INDEX")
-    private int libIndex;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ISBN", nullable = false)
-    private Book isbn;
+    @EmbeddedId
+    private LibId libId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", nullable = false)
+    @JoinColumn(name = "BOOK_ISBN", insertable = false, updatable = false)
+    private Book book;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME", insertable = false, updatable = false)
     private User user;
+
 }
