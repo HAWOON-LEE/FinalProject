@@ -1,5 +1,6 @@
 package lee.hawoob.finalproject.entity;
 
+import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -16,4 +17,5 @@ public class LibId implements Serializable {
 
     @Column(name = "NICKNAME")
     private String nickname;
+
 }

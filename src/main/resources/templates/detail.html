@@ -87,13 +87,12 @@
                                             <div><a></a></div>
 
                                             <h7 th:text="${obj.bookDesc}">Description</h7>
-                                            <form method="post" th:action="@{/detail/insert}">
+                                            <form method="get" th:action="@{/detail/insert}">
                                                 <button type="submit" name="isbn" th:value="${obj.isbn}" class="detail-btn btn-14">
                                                     내 서재 보관</i>
                                                 </button>
                                             </form>
                                             <a th:href="${obj.link}" target="_blank" class="detail-btn btn-14">구매 링크</i></a>
-
                                         </div>
                                     </div>
                                     </p>
@@ -209,7 +208,6 @@
                                     <span class="author-name">달러구트 꿈 백화점</span>
                                     <ul class="rating list-unstyled list-inline">
                                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-
                                     </ul>
                                     <div><p></p></div>
                                     <p>리뷰 공간입니다.</p>
@@ -246,7 +244,7 @@
                 <div class="text-center py-0 mb-0">
                     <a th:href="@{/}">
                         <img
-                                th:src="@{/images/logo/nado_white%20(1).png}"
+                                th:src="@{/images/logo/nado_white20(1).png}"
                                 alt="nado_white"
                         />
                     </a>

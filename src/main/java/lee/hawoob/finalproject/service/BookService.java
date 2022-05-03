@@ -1,13 +1,17 @@
 package lee.hawoob.finalproject.service;
 
 import lee.hawoob.finalproject.dto.BookDto;
+import lee.hawoob.finalproject.dto.LibDto;
 import lee.hawoob.finalproject.entity.Book;
+import lee.hawoob.finalproject.entity.Lib;
 import lee.hawoob.finalproject.entity.Mbti;
 import lee.hawoob.finalproject.repository.BookRepository;
+import lee.hawoob.finalproject.repository.LibRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +21,9 @@ public class BookService {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private LibRepository libRepository;
 
     // mbti로 도서목록 찾기기
    public List<Book> findAllByMbti(String mbti) {
@@ -30,6 +37,22 @@ public class BookService {
         List<Book> books = bookRepository.findByIsbn(isbn);
 
         return books;
+    }
+
+    public int cntByIsbn(String isbn){
+        Book book = new Book();
+        book.setIsbn("1130605213 9791130605210");
+        List<Lib> lib = libRepository.findAll();
+        List<LibDto> bookCnt = new ArrayList<>();
+
+        for(int i = 0; i < lib.size(); i++){
+            if(lib.get(i).getBook().getIsbn().equals(book.getIsbn())){
+                bookCnt.add(lib.get(i));
+            }
+        }
+
+        System.out.println(bookCnt.size());
+        return bookCnt.size();
     }
 
 

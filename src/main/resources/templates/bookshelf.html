@@ -82,12 +82,12 @@
                                 <div class="nft-content">
                                     <div class="content-title">
                                         <h5>
-                                            <a th:text="${obj.book.title}" href="item-details.html">도서명</a>
+                                            <a th:href="@{/detail/{id}(id=${obj.book.isbn})}" th:text="${obj.book.title}">도서명</a>
                                         </h5>
                                     </div>
                                     <div class="nft-status d-flex flex-wrap justify-content-between align-items-center">
                                           <span class="nft-view">
-                                              <a href="activity.html" th:text="${obj.book.author}">저자</a>
+                                              <a th:text="${obj.book.author}">저자</a>
                                           </span>
                                         <div class="nft-stock" th:text="${sum}">12 in Stock</div>
                                     </div>
