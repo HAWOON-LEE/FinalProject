@@ -11,6 +11,7 @@ import lee.hawoob.finalproject.repository.LibRepository;
 import lee.hawoob.finalproject.repository.UserRepository;
 import lee.hawoob.finalproject.repository.VerseRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
@@ -23,14 +24,17 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 @Transactional
 public class VerseService {
 
-    private final VerseRepository repository;
-    private final LibRepository libRepository;
-    private final UserRepository userRepository;
-    private final BookRepository bookRepository;
+    @Autowired
+    VerseRepository repository;
+    @Autowired
+    LibRepository libRepository;
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    BookRepository bookRepository;
 
     public List<LibDto> findByNickname(@AuthenticationPrincipal PrincipalDetails custom){
         List<Lib> libList = libRepository.findAll();

@@ -27,7 +27,7 @@ public class LibService {
 
     public List<Lib> findAllByNickname(@AuthenticationPrincipal PrincipalDetails principalDetails) {
         List<Lib> isbns = libRepository.findAll();
-        User user = userRepository.findByNickname(principalDetails.getUsername());
+        User user = userRepository.findByNickname(principalDetails.getUser().getNickname());
 
         List<Lib> libs = new ArrayList<>();
         for(int i=0; i < isbns.size(); i++) {
