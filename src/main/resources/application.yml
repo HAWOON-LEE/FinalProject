@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://hawoon-db.cgyhqan4ehca.ap-northeast-2.rds.amazonaws.com/mbti_book_service
     username: hawoon94
-    password: a1013012
+    password: a1013012A
   security:
     oauth2:
       client:
