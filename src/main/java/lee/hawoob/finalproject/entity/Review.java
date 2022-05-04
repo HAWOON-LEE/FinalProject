@@ -11,7 +11,7 @@ public class Review {
 
     @Id
     @Column(name = "REVIEW_INDEX")
-    private int index;
+    private Long index;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "BOOK_ISBN", nullable = false)

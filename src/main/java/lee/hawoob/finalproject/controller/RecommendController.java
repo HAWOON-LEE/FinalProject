@@ -29,6 +29,7 @@ public class RecommendController {
         Iterable<Mbti> list = mbtiService.selectAll();
         List<Book> bookList = bookService.findAllByMbti("enfj");
 
+        model.addAttribute("msg", "ENFJ");
         model.addAttribute("list", list);
         model.addAttribute("bookList", bookList);
         return "recommend";
@@ -39,6 +40,7 @@ public class RecommendController {
         Iterable<Mbti> list = mbtiService.selectAll();
         List<Book> bookList = bookService.findAllByMbti(mbti);
 
+        model.addAttribute("msg", mbti);
         model.addAttribute("list", list);
         model.addAttribute("bookList", bookList);
         return "recommend";
