@@ -24,7 +24,7 @@ import java.util.List;
 public class VerseController {
 
     @Autowired
-    private final VerseService service;
+    VerseService service;
 
     @GetMapping("list")
     public ModelAndView verse(VerseDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
