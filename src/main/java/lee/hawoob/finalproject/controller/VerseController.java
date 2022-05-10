@@ -25,7 +25,7 @@ public class VerseController {
 
     @Autowired
     VerseService service;
-
+    
     @GetMapping("list")
     public ModelAndView verse(VerseDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
         model.addAttribute("dto", dto);
@@ -42,13 +42,12 @@ public class VerseController {
     public String addVerse(@ModelAttribute VerseForm form, @AuthenticationPrincipal PrincipalDetails custom, Model model){
         model.addAttribute("dto", form);
         model.addAttribute("libs", form);
-        User user = custom.getUser();
 
         Verse verse = new Verse();
         verse.setVerse(form.getVerse());
         verse.setPage(form.getPage());
         verse.setSub(form.getSub());
-        verse.setUser(user);
+        verse.setUser(custom.getUser());
         verse.setBook(form.getBook());
 
         service.save(verse);

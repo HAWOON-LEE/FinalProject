@@ -7,9 +7,13 @@ import lombok.Data;
 @Data
 public class ReviewForm {
 
+//    private Long index;
+
     private String nickname;
 
     private String review;
+
+    private String sub;
 
     private int rating;
 

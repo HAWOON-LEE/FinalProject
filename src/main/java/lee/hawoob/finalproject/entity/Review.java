@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class Review {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REVIEW_INDEX")
     private Long index;
 
@@ -23,7 +24,10 @@ public class Review {
 
     @Column(name = "REVIEW", nullable = false)
     private String review;
-//, nullable = false 별점에도 넣나?
+
     @Column(name = "RATING")
     private int rating;
+
+    @Column(name="SUB")
+    private String sub;
 }

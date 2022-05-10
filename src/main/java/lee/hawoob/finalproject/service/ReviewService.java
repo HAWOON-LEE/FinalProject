@@ -2,36 +2,33 @@ package lee.hawoob.finalproject.service;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.LibDto;
-import lee.hawoob.finalproject.dto.VerseDto;
+import lee.hawoob.finalproject.dto.ReviewDto;
 import lee.hawoob.finalproject.entity.*;
 import lee.hawoob.finalproject.form.ReviewForm;
-import lee.hawoob.finalproject.form.VerseForm;
 import lee.hawoob.finalproject.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 @Transactional
 public class ReviewService {
 
-    @Autowired
-    ReviewRepository reviewRepository;
-    @Autowired
-    LibRepository libRepository;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    BookRepository bookRepository;
+    private final ReviewRepository repository;
+    private final LibRepository libRepository;
+    private final UserRepository userRepository;
+    private final BookRepository bookRepository;
+
 
     public List<LibDto> findByNickname(@AuthenticationPrincipal PrincipalDetails custom){
         List<Lib> libList = libRepository.findAll();
-        User user = userRepository.findByNickname(custom.getUsername());
+        User user = userRepository.findByNickname(custom.getUser().getNickname());
 
         List<LibDto> libs = new ArrayList<>();
         for(int i=0; i < libList.size(); i++){
@@ -50,19 +47,31 @@ public class ReviewService {
 
         review.setReview(form.getReview());
         review.setBook(book);
+        review.setSub(form.getSub());
         review.setRating(form.getRating());
         review.setUser(user);
 
-        reviewRepository.save(review);
+        repository.save(review);
+    }
+    public void save(Review review){
+        repository.save(review);
     }
 
-    public void save(Review review){
-        reviewRepository.save(review);
-    }
 
     public void deleteReview(Long index){
-        reviewRepository.deleteById(index);
+        repository.deleteById(index);
     }
 
-}
+    public void updateReview(ReviewDto dto){
+        Optional<Review> opReview = repository.findById(dto.getIndex());
 
+        Review review = opReview.get();
+
+        review.setReview(dto.getReview());
+        review.setIndex(dto.getIndex());
+        review.setRating(dto.getRating());
+        review.setSub(dto.getSub());
+
+        repository.save(review);
+    }
+}

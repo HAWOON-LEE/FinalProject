@@ -50,39 +50,7 @@
 
 <!-- ==========Page Header Section Start Here========== -->
 <section class="variation-section padding-bottom padding-top">
-    <div id="drag-container">
-        <div id="spin-container">
-            <!-- Add your images (or video) here -->
-
-            <img
-                    src="/images/nft-item/위저드베이커리.jpg"
-                    alt="nft-img"/>
-            <img
-                    src="/images/nft-item/달러구트꿈백화점.jpg"
-                    alt="nft-img"/>
-            <img
-                    src="/images/nft-item/불편한편의점.jpg"
-                    alt="nft-img"/>
-            <img
-                    src="/images/nft-item/아몬드.jpg"
-                    alt="nft-img"/>
-            <img
-                    src="/images/nft-item/위저드베이커리.jpg"
-                    alt="nft-img"/>
-            <img
-                    src="/images/nft-item/달러구트꿈백화점.jpg"
-                    alt="nft-img"/>
-            <img
-                    src="/images/nft-item/불편한편의점.jpg"
-                    alt="nft-img"/>
-            <img
-                    src="/images/nft-item/아몬드.jpg"
-                    alt="nft-img"/>
-
-
-        </div>
-        <div id="ground"></div>
-    </div>
+    <div clss="drag" th:replace="fragment/drag::#drag-container"></div>
 
 
     <!-- ==========Page Header Section End Here========== -->
@@ -96,19 +64,19 @@
                     <div class="col-lg-8">
                         <!-- create item -->
                         <div class="create-nft py-4 px-4">
-                            <form class="create-nft-form">
+                            <form class="create-nft-form" th:action="@{/review/enroll}" method="post" th:object="${dto}">
 
                                 <!-- item name input -->
                                 <div class="form-floating item-name-field mb-3">
-                                    <input type="text" class="form-control" id="itemNameInput" placeholder="Item Name">
+                                    <input type="text" class="form-control" id="itemNameInput" name="review">
                                     <label for="itemNameInput">한줄평을 등록해주세요.</label>
                                 </div>
                                 <!-- item-description -->
-<!--                                <div class="form-floating item-desc-field mb-30">-->
-<!--                                    <textarea class="form-control" placeholder="Item Description"-->
-<!--                                              id="itemDesc"></textarea>-->
-<!--                                    <label for="itemDesc">감상이나 추가 설명이 있을 경우 입력해주세요.</label>-->
-<!--                                </div>-->
+                                <div class="form-floating item-desc-field mb-30">
+                                    <textarea class="form-control" name="sub"
+                                              id="itemDesc"></textarea>
+                                    <label for="itemDesc">감상이나 추가 설명이 있을 경우 입력해주세요.</label>
+                                </div>
 
                                 <!-- item price -->
                                 <div class="item-price-field mb-3">
@@ -117,38 +85,31 @@
                                             <div class="container">
                                                 <div class="feedback">
                                                     <div class="rating-1">
-                                                        <input type="radio" name="rating-1" id="rating-5">
+                                                        <input type="radio" name="rating" id="rating-5" value="5">
                                                         <label for="rating-5"></label>
-                                                        <input type="radio" name="rating-1" id="rating-4">
+                                                        <input type="radio" name="rating" id="rating-4" value="4">
                                                         <label for="rating-4"></label>
-                                                        <input type="radio" name="rating-1" id="rating-3">
+                                                        <input type="radio" name="rating" id="rating-3" value="3">
                                                         <label for="rating-3"></label>
-                                                        <input type="radio" name="rating-1" id="rating-2">
+                                                        <input type="radio" name="rating" id="rating-2" value="2">
                                                         <label for="rating-2"></label>
-                                                        <input type="radio" name="rating-1" id="rating-1">
+                                                        <input type="radio" name="rating" id="rating-1" value="1">
                                                         <label for="rating-1"></label>
-
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <select class="form-select" id="selectCrypto"
-                                                        aria-label="Floating label select">
-                                                    <option selected>
-                                                        위저드 베이커리
-                                                    </option>
-                                                    <option value="1">
-                                                        달러구트 꿈 백화점
-                                                    </option>
-                                                    <option value="2">불편한 편의점
-                                                    </option>
-                                                    <option value="3">아몬드
-                                                    </option>
-
+                                                <input type="text" id="changeInput" name="book.isbn" readonly>
+                                                <select class="form-select" aria-label="Floating label select" onchange="selectBoxChange(this.value)">
+                                                    <option value="">도서 선택</option>
+                                                    <th:block th:each="lib: ${libs}">
+                                                        <option th:value="${lib.book.isbn}"
+                                                                th:text="${lib.book.title}">
+                                                        </option>
+                                                    </th:block>
                                                 </select>
-                                                <label for="selectCrypto">도서 선택</label>
                                             </div>
                                         </div>
                                     </div>
@@ -200,6 +161,22 @@
     <script th:src="@{/js/jquery.simpleLoadMore.min.js}"></script>
     <script th:src="@{/js/isotope.pkgd.min.js}"></script>
     <script th:src="@{/js/functions.js}"></script>
+    <script>
+        var selectBoxChange = function (value){
+            $("#changeInput").val(value);
+        }
+
+        var number = document.getElementById('number');
+        number.onkeydown = function(e) {
+            if(!((e.keyCode > 95 && e.keyCode < 106)
+                || (e.keyCode > 47 && e.keyCode < 58)
+                || e.keyCode == 8)) {
+                return false;
+            }
+        }
+
+    </script>
+
 </section>
 </body>
 

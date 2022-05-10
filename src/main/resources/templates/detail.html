@@ -87,7 +87,7 @@
                                             <div><a></a></div>
 
                                             <h7 th:text="${obj.bookDesc}">Description</h7>
-                                            <form method="get" th:action="@{/detail/insert}">
+                                            <form method="post" th:action="@{/detail/insert}">
                                                 <button type="submit" name="isbn" th:value="${obj.isbn}" class="detail-btn btn-14">
                                                     내 서재 보관</i>
                                                 </button>
@@ -257,10 +257,7 @@
                     </p>
                 </div>
             </div>
-=======
-        <footer th:replace="fragment/footer::footer">
->>>>>>> 2a8b2d375cb86693f443ed266f729f276c238f8f
-        </footer>
+        <footer th:replace="fragment/footer::footer"></footer>
         <!-- ===============//footer section end here \\================= -->
 
         <!-- scrollToTop start here -->
@@ -278,5 +275,6 @@
         <script src="/js/jquery.simpleLoadMore.min.js"></script>
         <script src="/js/isotope.pkgd.min.js"></script>
         <script src="/js/functions.js"></script>
+        </footer>
     </div>
 </section>

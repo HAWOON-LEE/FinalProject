@@ -32,10 +32,10 @@ public class DetailController {
         return "detail";
     }
 
-    @GetMapping("/insert")
-    public String insertBook(@RequestParam("isbn") String isbn,
-                             @AuthenticationPrincipal PrincipalDetails principalDetails) {
-        libService.saveBook(isbn, principalDetails);
-        return "detail";
-    }
+//    @GetMapping("/insert")
+//    public String insertBook(@RequestParam("isbn") String isbn,
+//                             @AuthenticationPrincipal PrincipalDetails principalDetails) {
+//        libService.saveBook(isbn, principalDetails);
+//        return "detail";
+//    }
 }
