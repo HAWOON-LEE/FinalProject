@@ -44,8 +44,8 @@ public class User implements Serializable {
     private String role;
 
 
-//    @OneToMany(targetEntity = Lib.class)
-//    private List<Lib> lib;
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
 
     public User(String nickname, Mbti mbti) {
         this.nickname = nickname;

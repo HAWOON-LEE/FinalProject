@@ -2,11 +2,13 @@ package lee.hawoob.finalproject.controller;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.BoardDto;
+import lee.hawoob.finalproject.dto.CommentDto;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.form.CreatePostForm;
 import lee.hawoob.finalproject.form.UpdateBoardForm;
 import lee.hawoob.finalproject.service.BoardService;
+import lee.hawoob.finalproject.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -26,6 +30,8 @@ import java.util.Optional;
 public class BoardController {
 
     private final BoardService service;
+
+    private final CommentService commentService;
 
     @GetMapping("/list")
     public String boardView(@PageableDefault Pageable pageable, Model model){
@@ -52,6 +58,9 @@ public class BoardController {
 
         mav.setViewName("board/detailsPost");
         mav.addObject("dto", dto);
+
+        List<CommentDto> commentList = commentService.getCommentList(boardIndex);
+        mav.addObject("commentList", commentList);
         return mav;
     }
 

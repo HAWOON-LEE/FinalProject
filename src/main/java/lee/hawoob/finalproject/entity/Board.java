@@ -40,9 +40,9 @@ public class Board extends BaseTimeEntity{
 
     @Column(name = "VIEW", columnDefinition = "integer default 0", nullable = false)
     private int view;
-
-//    @OneToMany(mappedBy = "Board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-//    private List<Comment> comments;
+//, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE
+    @OneToMany(mappedBy = "board")
+    private List<Comment> comments;
 
 //    public void addComment(Comment comment){
 //        commentList.add(comment);

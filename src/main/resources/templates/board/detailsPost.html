@@ -65,6 +65,31 @@
                             </div>
                             <!-- submit button -->
                         </form>
+
+                        <tr th:each="comment: ${commentList}">
+                            <th scope="row" class="rank-sl" th:text="${comment.user.nickname}"></th>
+                            <td class="rank-vol" th:text="${comment.comment}"></td>
+                            <td class="rank-hour text-success" th:text="${#temporals.format(comment.createDate, 'yy.MM.dd HH:mm')}"></td>
+                        </tr>
+
+
+                        <div class="input-group mb-3" th:object="${dto}">
+
+                            <form id="reply" action="/createComment" method="post">
+                                <input type="text" id="content" name="content" class="form-control" placeholder="댓글을 입력해주세요.." aria-label="댓글을 입력해주세요.." aria-describedby="basic-addon2">
+                                <input type="hidden" id="boardIndex" name="boardIndex" th:value="${dto.boardIndex}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit">등록</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+
+                        <!-- Reply Section End -->
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="/board" role="button">목록으로</a>
+                        </p>
                     </div>
                 </div>
             </div>
