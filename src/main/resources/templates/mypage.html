@@ -26,7 +26,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     <!-- site title -->
-    <title>Anftiz- NFT Marketplace HTML Template</title>
+    <title>회원정보</title>
 </head>
 <script>
     $(document).ready(function() {
@@ -36,6 +36,40 @@
             $("#mbtiImg").attr("src", src);
         });
     });
+
+    var isChecking = false;
+
+    // 중복검사 안하면 완료가 안되는 함수
+    function vaild(){
+        return isChecking;
+    }
+
+    //중복검사
+    function usernameCheck(){
+        //원래는 이렇게 찾지만, ajax에서는 간단하게 찾을 수 있다
+        //.text() - text만 , .html() - 태그를 포함한 텍스트 , val() - 입력값(value)를 찾음
+        // var nickname = document.querySelector("#nickname");
+        var nickname = $("#nickname").val();
+
+        $.ajax({
+            type: "post",
+            url: "/nicknameCheck2?nickname=" + nickname,
+            data: {nickname: nickname},
+            contentType: "text/plain: charset=utf-8",
+            dataType:"text",
+            success : function(cnt){
+            //아이디 있음
+            if(cnt == 1){
+                isChecking = false;
+                alert("사용할 수 없는 닉네임입니다.")
+            }else {
+                isChecking = true;
+                alert("사용가능한 닉네임입니다.")
+            }
+        }
+
+    });
+    }
 
 </script>
 <body>
@@ -82,7 +116,7 @@
             <div class="col-lg-5">
                 <div class="account-wrapper">
                     <h3 class="title">회원정보</h3>
-                    <form class="account-form" method="post" th:action="@{/mypage}">
+                    <form class="account-form" method="post" th:action="@{/mypage}" onsubmit="return valid()">
                         <div class="form-floating mb-3">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="이메일" aria-label="Recipient's username"
@@ -92,9 +126,9 @@
                         <div class="form-floating mb-3">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="닉네임" aria-label="Recipient's username"
-                                       name="nickname" id="nickname" th:value="${nickname}" aria-describedby="basic-addon2"/>
+                                       name="nickname" id="nickname" th:value="${nickname}" aria-describedby="basic-addon2" required/>
                                 <div class="input-group-append">
-                                    <a th:href="@{/nicknameCheck2}" class="btn btn-outline-secondary">중복검사</a>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="usernameCheck()">중복검사</button>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +161,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <button class="d-block default-btn move-top"><span>회원정보 수정</span></button>
+                            <button type="submit" class="d-block default-btn move-top"><span>회원정보 수정</span></button>
                         </div>
 
                     </form>

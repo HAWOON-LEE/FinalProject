@@ -28,7 +28,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByNickname(String nickname);
 
     //닉네임 중복 검사
-    boolean existsByNickname(String nickname);
+    @Query("SELECT count (nickname) from User where nickname = :nickname")
+    int nicknameCheck(String nickname);
 
     //MBTI 찾기
     User findByMbti(String mbti);
