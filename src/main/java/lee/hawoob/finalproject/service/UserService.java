@@ -49,8 +49,9 @@ public class UserService {
         return userRepository.mypage(email);
     }
 
-    public boolean nicknameOverlap(String nickname) {
-        return userRepository.existsByNickname(nickname);
+    public int nicknameOverlap(String nickname) {
+        int cnt = userRepository.nicknameCheck(nickname);
+        return cnt;
     }
 
     public User findMbti(String mbti){

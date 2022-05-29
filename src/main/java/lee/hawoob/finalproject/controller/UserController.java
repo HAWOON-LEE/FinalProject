@@ -61,25 +61,14 @@ public class UserController {
         return "/mypage";
     }
 
-    @GetMapping("/nicknameCheck2")
-    public String nicknameCheck2(UserDto user, Model model) {
+    @PostMapping("/nicknameCheck2")
+    @ResponseBody
+    public int nicknameCheck2(@RequestParam("nickname") String nickname) {
 
-        String nickname = user.getNickname();
-        boolean result = userService.nicknameOverlap(nickname);
-
-        if (result) {
-            System.out.println("사용중");
-            model.addAttribute("message", "사용중인 닉네임입니다.");
-            model.addAttribute("url", "/mypage");
-            return "/message";
-
-        } else {
-            System.out.println("새 닉네임");
-            model.addAttribute("message", "사용가능한 닉네임입니다.");
-            model.addAttribute("url", "/mypage");
-            return "/message";
-        }
-
+        System.out.println(nickname);
+        int cnt = userService.nicknameOverlap(nickname);
+        System.out.println(cnt);
+        return cnt;
     }
 
     @PostMapping("/mypage")
