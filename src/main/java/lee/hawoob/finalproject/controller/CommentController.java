@@ -7,6 +7,7 @@ import lee.hawoob.finalproject.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -20,5 +21,10 @@ public class CommentController {
         User user = custom.getUser();
 
         return service.createComment(comment, user, BoardIndex);
+    }
+
+    @PostMapping("/deleteComment/{id}")
+    public String deleteComment(@PathVariable Long id){
+        return service.deleteComment(id);
     }
 }

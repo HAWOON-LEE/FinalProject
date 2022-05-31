@@ -67,9 +67,9 @@
                         </form>
 
                         <tr th:each="comment: ${commentList}">
-                            <th scope="row" class="rank-sl" th:text="${comment.user.nickname}"></th>
+                            <th scope="row" class="rank-sl" th:text="${comment.user}"></th>
                             <td class="rank-vol" th:text="${comment.comment}"></td>
-                            <td class="rank-hour text-success" th:text="${#temporals.format(comment.createDate, 'yy.MM.dd HH:mm')}"></td>
+<!--                            <td class="rank-hour text-success" th:text="${#temporals.format(comment.createDate, 'yy.MM.dd HH:mm')}"></td>-->
                         </tr>
 
 

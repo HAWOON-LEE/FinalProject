@@ -1,5 +1,6 @@
 package lee.hawoob.finalproject.service;
 
+import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.CommentDto;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.Board;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -30,18 +32,14 @@ public class CommentService {
 
 
     public List<CommentDto> getCommentList(Long boardIndex){
-//        Board board = new Board();
-//        boardIndex = board.getBoardIndex();
         Board board = new Board();
         board.setBoardIndex(boardIndex);
-        List<CommentDto> dto = repository.findByBoard(board);
-
+        List<CommentDto> dto = repository.findAll().stream().map(c -> new CommentDto(c)).collect(Collectors.toList());
 
         return dto;
     }
 
     public String createComment(Comment comment, User user, Long boardId){
-
         User findUser = userRepository.findById(user.getUser_id()).get();
         Optional<Board> findBoard = boardRepository.findById(boardId);
 
@@ -52,9 +50,9 @@ public class CommentService {
         return "home";
     }
 
-    public String deleteComment(Comment comment){
-
-        repository.delete(comment);
+    public String deleteComment(Long id){
+        repository.deleteById(id);
+//        repository.delete(comment);
 
         return "home";
     }

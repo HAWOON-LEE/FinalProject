@@ -60,7 +60,9 @@ public class BoardController {
         mav.addObject("dto", dto);
 
         List<CommentDto> commentList = commentService.getCommentList(boardIndex);
-        mav.addObject("commentList", commentList);
+        new ModelAndView().addObject("commentList", commentList);
+        mav.setViewName("board/detailsPost");
+
         return mav;
     }
 
