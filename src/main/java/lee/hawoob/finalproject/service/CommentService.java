@@ -32,7 +32,10 @@ public class CommentService {
     public List<CommentDto> getCommentList(Long boardIndex){
 //        Board board = new Board();
 //        boardIndex = board.getBoardIndex();
-        List<CommentDto> dto = repository.findByBoardindex(boardIndex);
+        Board board = new Board();
+        board.setBoardIndex(boardIndex);
+        List<CommentDto> dto = repository.findByBoard(board);
+
 
         return dto;
     }

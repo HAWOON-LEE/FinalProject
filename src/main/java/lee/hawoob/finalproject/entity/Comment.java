@@ -16,28 +16,28 @@ import java.util.Optional;
 @Getter
 @Setter
 @Entity
-public class Comment extends BaseTimeEntity{
-
+public class Comment{
+// extends BaseTimeEntity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "COMMENT_ID")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "NICKNAME")
-    private User user;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "NICKNAME")
+    private String nickname;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "POST_INDEX")
     private Board board;
 
-    private Long boardindex;
+//    private Long boardindex;
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "PARENT_ID")
 //    private Comment parent;
 
-    @Column(name = "COMMENT", nullable = false)
+    @Column(name = "REPLY", nullable = false)
     private String comment;
 
 //    @Column(name = "CREATE_DATE")

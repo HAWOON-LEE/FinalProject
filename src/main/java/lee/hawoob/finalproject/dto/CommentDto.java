@@ -20,20 +20,21 @@ public class CommentDto {
 
     private String comment;
 
-    private User user;
+//    private User user;
 
-//    private String nickname;
+    private String nickname;
 
     private Board board;
 
-    private LocalDateTime createDate;
+//    private LocalDateTime createDate;
 
-//    public CommentDto(Comment comment){
-//        this.id = comment.getId();
-//        this.comment = comment.getComment();
+    public CommentDto(Comment comment){
+        this.id = comment.getId();
+        this.comment = comment.getComment();
 //        this.user = comment.getUser();
-//        this.board = comment.getBoard();
+        this.nickname = comment.getUser().getNickname();
+        this.board = comment.getBoard();
 //        this.createDate = comment.getCreateDate();
-//    }
+    }
 
 }

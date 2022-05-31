@@ -35,6 +35,8 @@ public class VerseController {
         mav.addObject("libs", libs);
         mav.setViewName("passage");
 
+        System.out.println();
+
         return mav;
     }
 
