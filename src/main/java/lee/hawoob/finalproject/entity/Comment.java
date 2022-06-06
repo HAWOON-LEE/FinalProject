@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-//@Builder
+@Builder
 @Entity
 @Table(name="COMMENT")
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class Comment{
 // extends BaseTimeEntity

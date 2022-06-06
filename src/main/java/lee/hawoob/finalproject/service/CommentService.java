@@ -6,6 +6,7 @@ import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.entity.Comment;
 import lee.hawoob.finalproject.entity.User;
+import lee.hawoob.finalproject.form.CreateCommentForm;
 import lee.hawoob.finalproject.repository.BoardRepository;
 import lee.hawoob.finalproject.repository.CommentRepository;
 import lee.hawoob.finalproject.repository.UserRepository;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,15 +41,15 @@ public class CommentService {
         return dto;
     }
 
-    public String createComment(Comment comment, User user, Long boardId){
-        User findUser = userRepository.findById(user.getUser_id()).get();
-        Optional<Board> findBoard = boardRepository.findById(boardId);
+    public void createComment(CreateCommentForm form, @AuthenticationPrincipal PrincipalDetails custom){
+        User user = userRepository.findById(custom.getUser().getUser_id()).get();
+        Comment comment = new Comment();
 
-        comment.setBoard(findBoard.get());
-        comment.setUser(findUser);
+        comment.setBoard(form.getBoard());
+        comment.setComment(form.getComment());
+        comment.setUser(user);
+
         repository.save(comment);
-
-        return "home";
     }
 
     public String deleteComment(Long id){

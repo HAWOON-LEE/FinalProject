@@ -73,10 +73,10 @@
                         </tr>
 
 
-                        <div class="input-group mb-3" th:object="${dto}">
+                        <div class="input-group mb-3" th:object="${form}">
 
                             <form id="reply" action="/createComment" method="post">
-                                <input type="text" id="content" name="content" class="form-control" placeholder="댓글을 입력해주세요.." aria-label="댓글을 입력해주세요.." aria-describedby="basic-addon2">
+                                <input type="text" id="comment" name="comment" class="form-control" placeholder="댓글을 입력해주세요.." aria-label="댓글을 입력해주세요.." aria-describedby="basic-addon2">
                                 <input type="hidden" id="boardIndex" name="boardIndex" th:value="${dto.boardIndex}">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="submit">등록</button>

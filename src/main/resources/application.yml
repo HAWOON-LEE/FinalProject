@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db1.chawd6qm5q6i.ap-northeast-2.rds.amazonaws.com/mbti_book_service
-    username: minsu
-    password: hm092274
+    url: jdbc:mysql://database-1.c6ut9dkjmacd.ap-northeast-2.rds.amazonaws.com/mbti_book_service
+    username: admin
+    password: rhkr1004
   security:
     oauth2:
       client:
