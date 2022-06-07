@@ -23,11 +23,11 @@ public class Comment{
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "NICKNAME")
+    @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "POST_INDEX")
+    @JoinColumn(name = "POST_INDEX", referencedColumnName = "POST_INDEX")
     private Board board;
 
     @Column(name = "REPLY", nullable = false)

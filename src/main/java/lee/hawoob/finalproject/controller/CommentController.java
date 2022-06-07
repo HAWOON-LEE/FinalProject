@@ -20,10 +20,10 @@ public class CommentController {
     private final CommentService service;
 
     @PostMapping("/createComment")
-    public void createComment(@ModelAttribute CreateCommentForm form, @AuthenticationPrincipal PrincipalDetails custom, Model model){
-        model.addAttribute("form", form);
+    public void createComment(@ModelAttribute CreateCommentForm dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
+        model.addAttribute("dto", dto);
 
-        service.createComment(form, custom);
+        service.createComment(dto, custom);
 //        return "redirect:/detail/"
     }
 
