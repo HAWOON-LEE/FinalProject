@@ -61,6 +61,7 @@ public class BoardController {
 
         List<CommentDto> commentList = commentService.getCommentList(boardIndex);
         new ModelAndView().addObject("commentList", commentList);
+        System.out.println(commentList.size());
         mav.setViewName("board/detailsPost");
 
         return mav;

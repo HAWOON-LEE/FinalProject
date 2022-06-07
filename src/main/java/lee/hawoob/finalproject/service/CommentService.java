@@ -34,18 +34,20 @@ public class CommentService {
 
 
     public List<CommentDto> getCommentList(Long boardIndex){
-        Board board = new Board();
-        board.setBoardIndex(boardIndex);
-        List<CommentDto> dto = repository.findAll().stream().map(c -> new CommentDto(c)).collect(Collectors.toList());
-
+//        Board board = new Board();
+//        board.setBoardIndex(boardIndex);
+        List<CommentDto> dto = repository.findByBoard(boardRepository.findById(boardIndex).get());
+//                repository.findAll().stream().map(c -> new CommentDto(c)).collect(Collectors.toList());
         return dto;
     }
 
     public void createComment(CreateCommentForm form, @AuthenticationPrincipal PrincipalDetails custom){
         User user = userRepository.findById(custom.getUser().getUser_id()).get();
         Comment comment = new Comment();
+        System.out.println(form.getBoardIndex());
+//        System.out.println(form.getBoard().getBoardIndex());
 
-        comment.setBoard(form.getBoard());
+        comment.setBoard(boardRepository.getById(form.getBoardIndex()));
         comment.setComment(form.getComment());
         comment.setUser(user);
 

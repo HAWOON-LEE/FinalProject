@@ -52,6 +52,7 @@ public class BoardService {
     public BoardDto getBoardDto(Board board) {
         BoardDto dto = new BoardDto();
 
+        dto.setBoard(board);
         dto.setBoardIndex(board.getBoardIndex());
         dto.setTitle(board.getTitle());
         dto.setContent(board.getContent());

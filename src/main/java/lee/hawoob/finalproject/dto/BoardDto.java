@@ -17,7 +17,7 @@ public class BoardDto {
 
     private String title;
 
-//    private String imgURL;
+    private Board board;
 
     private String content;
 

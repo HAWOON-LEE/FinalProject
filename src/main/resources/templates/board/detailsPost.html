@@ -65,19 +65,21 @@
                             </div>
                             <!-- submit button -->
                         </form>
-
+         <table>
+                <tbody>
                         <tr th:each="comment: ${commentList}">
                             <th scope="row" class="rank-sl" th:text="${comment.user}"></th>
                             <td class="rank-vol" th:text="${comment.comment}"></td>
 <!--                            <td class="rank-hour text-success" th:text="${#temporals.format(comment.createDate, 'yy.MM.dd HH:mm')}"></td>-->
                         </tr>
-
+                </tbody>
+         </table>
 
                         <div class="input-group mb-3" th:object="${dto}">
 
                             <form id="reply" action="/createComment" method="post">
                                 <input type="text" id="comment" name="comment" class="form-control" placeholder="댓글을 입력해주세요.." aria-label="댓글을 입력해주세요.." aria-describedby="basic-addon2">
-                                <input type="hidden" id="boardIndex" name="boardIndex" th:value="${dto.boardIndex}">
+                                <input type="hidden" id="boardIndex" name="boardIndex" th:value="${dto.board.boardIndex}">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="submit">등록</button>
                                 </div>
