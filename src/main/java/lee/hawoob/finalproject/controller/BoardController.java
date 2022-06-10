@@ -51,7 +51,7 @@ public class BoardController {
     }
 
     @GetMapping("/detail/{boardIndex}")
-    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav, @AuthenticationPrincipal PrincipalDetails custom){
+    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav, @AuthenticationPrincipal PrincipalDetails custom, Model model){
         Optional<Board> board = service.findByIndex(boardIndex);
         BoardDto dto =service.getBoardDto(board.get());
         service.updateView(boardIndex); // views ++
@@ -60,7 +60,8 @@ public class BoardController {
         mav.addObject("dto", dto);
 
         List<CommentDto> commentList = commentService.getCommentList(boardIndex);
-        new ModelAndView().addObject("commentList", commentList);
+        model.addAttribute("commentList", commentList);
+//        mav = new ModelAndView().addObject("commentList", commentList);
         System.out.println(commentList.size());
         mav.setViewName("board/detailsPost");
 

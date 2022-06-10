@@ -36,8 +36,10 @@ public class CommentService {
     public List<CommentDto> getCommentList(Long boardIndex){
 //        Board board = new Board();
 //        board.setBoardIndex(boardIndex);
-        List<CommentDto> dto = repository.findByBoard(boardRepository.findById(boardIndex).get());
+//        List<CommentDto> dto = repository.findByBoard(boardRepository.findById(boardIndex).get());
 //                repository.findAll().stream().map(c -> new CommentDto(c)).collect(Collectors.toList());
+        List<CommentDto> dto = repository.findCommentByBoard(boardRepository.findById(boardIndex).get()).stream().map(c -> new CommentDto(c)).collect(Collectors.toList());
+
         return dto;
     }
 

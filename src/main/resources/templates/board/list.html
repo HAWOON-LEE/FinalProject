@@ -22,110 +22,110 @@
     <title>Anftiz- NFT Marketplace HTML Template</title>
 </head>
 
-    <body>
-        <!-- preloader start here -->
-        <div class="preloader">
-            <div class="preloader-inner">
-                <div class="preloader-icon">
-                    <span></span>
-                    <span></span>
-                </div>
+<body>
+<!-- preloader start here -->
+<div class="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- preloader ending here -->
+
+<!-- ===============// header section start here \\================= -->
+<header class="header" th:replace="fragment/common::header">
+</header>
+
+<section class="ranking-section padding-top padding-bottom">
+    <div class="container">
+        <div class="section-header">
+            <div class="nft-filter d-flex flex-wrap align-items-center justify-content-center  gap-15">
+                <h3>토론장</h3>
+            </div>
+            <div class="nft-search">
+                <form class="form-floating nft-search-input" th:action="@{/board/search}" method="get" th:object="${boardList}">
+                    <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력하세요.">
+                    <button type="submit"> <i class="icofont-search-1"></i></button>
+
+                </form>
             </div>
         </div>
-        <!-- preloader ending here -->
+        <div class="ranking-wrapper table-responsive">
+            <table class="table table-hover rank-table">
+                <thead>
+                <tr>
+                    <th scope="col" style="width: 15%">번호</th>
+                    <th scope="col" >제목</th>
+                    <th scope="col" style="width: 20%">작성자</th>
+                    <th scope="col" style="width: 20%">등록일</th>
+                    <th scope="col" style="width: 15%">조회수</th>
+                </tr>
+                </thead>
+                <tbody >
+                <!--                        th:if="${boardList.size() >= 0}"-->
+                <tr th:each="board: ${boardList1}">
+                    <th scope="row" class="rank-sl" th:text="${board.boardIndex}"></th>
+                    <td class="rank-collection" >
+                        <a th:href="@{/board/detail/{boardIndex}(boardIndex=${board.boardIndex})}" th:text="${board.title}"></a>
+                    </td>
+                    <td class="rank-vol" th:text="${board.user.nickname}">
+                    </td>
+                    <td class="rank-hour text-success" th:text="${#temporals.format(board.createDate, 'yy.MM.dd HH:mm')}"></td>
+                    <td class="rank-vol" th:text="${board.view}">
+                    </td>
+                </tr>
 
-        <!-- ===============// header section start here \\================= -->
-        <header class="header" th:replace="fragment/common::header">
-        </header>
-
-        <section class="ranking-section padding-top padding-bottom">
-            <div class="container">
-                <div class="section-header">
-                    <div class="nft-filter d-flex flex-wrap align-items-center justify-content-center  gap-15">
-                        <h3>토론장</h3>
-                    </div>
-                    <div class="nft-search">
-                        <form class="form-floating nft-search-input" th:action="@{/board/search}" method="get" th:object="${boardList}">
-                            <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력하세요.">
-                            <button type="submit"> <i class="icofont-search-1"></i></button>
-
-                        </form>
-                    </div>
+                </tbody>
+                <div>
+                    <a th:href="@{/board/create}">글 작성</a>
                 </div>
-                <div class="ranking-wrapper table-responsive">
-                    <table class="table table-hover rank-table">
-                        <thead>
-                            <tr>
-                                <th scope="col" style="width: 15%">번호</th>
-                                <th scope="col" >제목</th>
-                                <th scope="col" style="width: 20%">작성자</th>
-                                <th scope="col" style="width: 20%">등록일</th>
-                                <th scope="col" style="width: 15%">조회수</th>
-                            </tr>
-                        </thead>
-                        <tbody >
-<!--                        th:if="${boardList.size() >= 0}"-->
-                            <tr th:each="board: ${boardList1}">
-                                <th scope="row" class="rank-sl" th:text="${board.boardIndex}"></th>
-                                <td class="rank-collection" >
-                                    <a th:href="@{/board/detail/{boardIndex}(boardIndex=${board.boardIndex})}" th:text="${board.title}"></a>
-                                </td>
-                                <td class="rank-vol" th:text="${board.user.nickname}">
-                                </td>
-                                <td class="rank-hour text-success" th:text="${#temporals.format(board.createDate, 'yy.MM.dd HH:mm')}"></td>
-                                <td class="rank-vol" th:text="${board.view}">
-                                </td>
-                            </tr>
+            </table>
+            <!--                    -->
+            <nav style="text-align: center;">
+                <div style="display: flex; justify-content: center">
+                    <ul style="justify-content: space-around; width: 60%" class="pagination" th:with="start=${T(java.lang.Math).floor(boardList1.number/10)*10 + 1}, last=(${start + 9 < boardList1.totalPages ? start + 9 : boardList1.totalPages})">
+                        <li>
+                            <a th:href="@{/board/list(page=1)}" aria-label="First">
+                                <span aria-hidden="true">First</span>
+                            </a>
+                        </li>
 
-                        </tbody>
-                        <div>
-                            <a th:href="@{/board/create}">글 작성</a>
-                        </div>
-                    </table>
-                    <!--                    -->
-                    <nav style="text-align: center;">
-                        <div style="display: flex; justify-content: center">
-                            <ul style="justify-content: space-around; width: 60%" class="pagination" th:with="start=${T(java.lang.Math).floor(boardList1.number/10)*10 + 1}, last=(${start + 9 < boardList1.totalPages ? start + 9 : boardList1.totalPages})">
-                                <li>
-                                    <a th:href="@{/board/list(page=1)}" aria-label="First">
-                                        <span aria-hidden="true">First</span>
-                                    </a>
-                                </li>
+                        <li th:class="${boardList1.first} ? 'disabled'">
+                            <a th:href="${boardList1.first} ? '#' :@{/board/list(page=${boardList1.number + 1})}" aria-label="Previous">
+                                <span aria-hidden="true">&lt;</span>
+                            </a>
+                        </li>
 
-                                <li th:class="${boardList1.first} ? 'disabled'">
-                                    <a th:href="${boardList1.first} ? '#' :@{/board/list(page=${boardList1.number + 1})}" aria-label="Previous">
-                                        <span aria-hidden="true">&lt;</span>
-                                    </a>
-                                </li>
+                        <li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == boardList1.number} ? 'active'">
+                            <a th:text="${page}" th:href="@{/board/list(page=${page})}"></a>
+                        </li>
 
-                                <li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == boardList1.number} ? 'active'">
-                                    <a th:text="${page}" th:href="@{/board/list(page=${page})}"></a>
-                                </li>
+                        <li th:class="${boardList1.last} ? 'disabled'">
+                            <a th:href="${boardList1.last} ? '#' : @{/board/list(page=${boardList1.number + 2})}" aria-label="Next">
+                                <span aria-hidden="true">&gt;</span>
+                            </a>
+                        </li>
 
-                                <li th:class="${boardList1.last} ? 'disabled'">
-                                    <a th:href="${boardList1.last} ? '#' : @{/board/list(page=${boardList1.number + 2})}" aria-label="Next">
-                                        <span aria-hidden="true">&gt;</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a th:href="@{/board/list(page=${boardList1.totalPages})}" aria-label="Last">
-                                        <span aria-hidden="true">Last</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <!--                    -->
+                        <li>
+                            <a th:href="@{/board/list(page=${boardList1.totalPages})}" aria-label="Last">
+                                <span aria-hidden="true">Last</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </section>
+            </nav>
+            <!--                    -->
+        </div>
+    </div>
+</section>
 
-        <footer th:replace="fragment/footer::footer">
-        </footer>
-        <!-- scrollToTop start here -->
-        <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
-        <!-- scrollToTop ending here -->
+<footer th:replace="fragment/footer::footer">
+</footer>
+<!-- scrollToTop start here -->
+<a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+<!-- scrollToTop ending here -->
 
 <!-- All Scripts -->
 <script src="/js/jquery-3.6.0.min.js"></script>
@@ -135,7 +135,6 @@
 <script src="/js/countdown.min.js"></script>
 <script src="/js/jquery.counterup.min.js"></script>
 <script src="/js/wow.min.js"></script>
-<!--<script src="/js/jquery.simpleLoadMore.min.js"></script>-->
 <script src="/js/isotope.pkgd.min.js"></script>
 <script src="/js/functions.js"></script>
 </body>
