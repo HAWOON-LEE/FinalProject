@@ -13,7 +13,5 @@ public class CreateCommentForm {
 
     private String comment;
 
-//    private Board board;
-
     private Long boardIndex;
 }

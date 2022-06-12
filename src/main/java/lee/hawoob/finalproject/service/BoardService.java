@@ -5,7 +5,7 @@ import lee.hawoob.finalproject.dto.BoardDto;
 import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.User;
-import lee.hawoob.finalproject.form.CreatePostForm;
+import lee.hawoob.finalproject.form.CreateBoardForm;
 import lee.hawoob.finalproject.form.UpdateBoardForm;
 import lee.hawoob.finalproject.repository.BoardRepository;
 import lee.hawoob.finalproject.repository.UserRepository;
@@ -49,15 +49,17 @@ public class BoardService {
         return dto;
     }
 
-    public BoardDto getBoardDto(Board board) {
+    public BoardDto getBoardDto(Long boardIndex) {
+        Optional<Board> board = repository.findById(boardIndex);
+
         BoardDto dto = new BoardDto();
 
-        dto.setBoard(board);
-        dto.setBoardIndex(board.getBoardIndex());
-        dto.setTitle(board.getTitle());
-        dto.setContent(board.getContent());
-        dto.setDate(board.getCreateDate());
-        dto.setUser(board.getUser());
+        dto.setBoard(board.get());
+        dto.setBoardIndex(board.get().getBoardIndex());
+        dto.setTitle(board.get().getTitle());
+        dto.setContent(board.get().getContent());
+        dto.setDate(board.get().getCreateDate());
+        dto.setUser(board.get().getUser());
 
         return dto;
     }
@@ -66,7 +68,7 @@ public class BoardService {
         return repository.findById(boardIndex);
     }
 
-    public void createBoard(CreatePostForm form, @AuthenticationPrincipal PrincipalDetails custom) {
+    public void createBoard(CreateBoardForm form, @AuthenticationPrincipal PrincipalDetails custom) {
         Board board = new Board();
         User user = userRepository.findById(custom.getUser().getUser_id()).get();
 

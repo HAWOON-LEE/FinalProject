@@ -28,7 +28,11 @@ public class CommentController {
     }
 
     @PostMapping("/deleteComment/{id}")
-    public String deleteComment(@PathVariable Long id){
-        return service.deleteComment(id);
+    public String deleteComment(@PathVariable Long id, RedirectAttributes redirectAttributes){
+        service.deleteComment(id);
+        Long boardIndex = service.findBoardIndexByCommentId(id);
+
+        redirectAttributes.addAttribute("boardIndex", boardIndex);
+        return "redirect:/board/detail/{boardIndex}";
     }
 }

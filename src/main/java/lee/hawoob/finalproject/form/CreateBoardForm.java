@@ -1,6 +1,5 @@
 package lee.hawoob.finalproject.form;
 
-import lee.hawoob.finalproject.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreatePostForm {
+public class CreateBoardForm {
 
 
     private String title;

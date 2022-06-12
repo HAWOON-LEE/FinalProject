@@ -71,17 +71,13 @@
                                  <tr th:each="comment: ${commentList}">
                                      <th scope="row" class="rank-sl" style="width:20%" th:text="${comment.user.nickname}"></th>
                                      <td class="form-control rank-collection" th:text="${comment.comment}"></td>
+                                     <td style="width:10%" th:if="${dto.user.nickname == #authentication.getName()}" >
+                                         <a th:href="@{/comment/deleteComment/{id}(id=${comment.id})}"><button value=삭제"></button></a>
+                                     </td>
+
                                  </tr>
 
                                 </tbody>
-
-    <!--                <tbody>-->
-    <!--                        <tr th:each="comment: ${commentList}">-->
-    <!--                            <th scope="row" class="rank-sl" th:text="${comment.user}"></th>-->
-    <!--                            <td class="rank-vol" th:text="${comment.comment}"></td>-->
-    <!--&lt;!&ndash;                            <td class="rank-hour text-success" th:text="${#temporals.format(comment.createDate, 'yy.MM.dd HH:mm')}"></td>&ndash;&gt;-->
-    <!--                        </tr>-->
-    <!--                </tbody>-->
                             </table>
                         </div>
 

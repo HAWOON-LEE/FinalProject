@@ -34,10 +34,6 @@ public class CommentService {
 
 
     public List<CommentDto> getCommentList(Long boardIndex){
-//        Board board = new Board();
-//        board.setBoardIndex(boardIndex);
-//        List<CommentDto> dto = repository.findByBoard(boardRepository.findById(boardIndex).get());
-//                repository.findAll().stream().map(c -> new CommentDto(c)).collect(Collectors.toList());
         List<CommentDto> dto = repository.findCommentByBoard(boardRepository.findById(boardIndex).get()).stream().map(c -> new CommentDto(c)).collect(Collectors.toList());
 
         return dto;
@@ -56,11 +52,12 @@ public class CommentService {
         repository.save(comment);
     }
 
-    public String deleteComment(Long id){
+    public void deleteComment(Long id){
         repository.deleteById(id);
-//        repository.delete(comment);
+    }
 
-        return "home";
+    public Long findBoardIndexByCommentId(Long id){
+        return repository.findById(id).get().getBoard().getBoardIndex();
     }
 
 }

@@ -5,7 +5,7 @@ import lee.hawoob.finalproject.dto.BoardDto;
 import lee.hawoob.finalproject.dto.CommentDto;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.Board;
-import lee.hawoob.finalproject.form.CreatePostForm;
+import lee.hawoob.finalproject.form.CreateBoardForm;
 import lee.hawoob.finalproject.form.UpdateBoardForm;
 import lee.hawoob.finalproject.service.BoardService;
 import lee.hawoob.finalproject.service.CommentService;
@@ -52,8 +52,7 @@ public class BoardController {
 
     @GetMapping("/detail/{boardIndex}")
     public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav, @AuthenticationPrincipal PrincipalDetails custom, Model model){
-        Optional<Board> board = service.findByIndex(boardIndex);
-        BoardDto dto =service.getBoardDto(board.get());
+        BoardDto dto =service.getBoardDto(boardIndex);
         service.updateView(boardIndex); // views ++
 
         mav.setViewName("board/detailsPost");
@@ -61,22 +60,20 @@ public class BoardController {
 
         List<CommentDto> commentList = commentService.getCommentList(boardIndex);
         model.addAttribute("commentList", commentList);
-//        mav = new ModelAndView().addObject("commentList", commentList);
-        System.out.println(commentList.size());
         mav.setViewName("board/detailsPost");
 
         return mav;
     }
 
     @GetMapping("/create")
-    public ModelAndView create(@ModelAttribute CreatePostForm form, ModelAndView mav){
+    public ModelAndView create(@ModelAttribute CreateBoardForm form, ModelAndView mav){
         mav.addObject("form", form);
         mav.setViewName("board/createPost");
         return mav;
     }
 
     @PostMapping("/create")
-    public String createBoard(@ModelAttribute CreatePostForm form,@AuthenticationPrincipal PrincipalDetails custom, Model model){
+    public String createBoard(@ModelAttribute CreateBoardForm form, @AuthenticationPrincipal PrincipalDetails custom, Model model){
         model.addAttribute("form", form);
         service.createBoard(form, custom);
         return "redirect:/board/list";
@@ -107,11 +104,9 @@ public class BoardController {
 
     @PostMapping("/update")
     public ModelAndView updateBoard(@ModelAttribute UpdateBoardForm form, ModelAndView mav){
-
         mav.setViewName("board/updatePost");
         mav.addObject("form", form);
         service.updateBoard(form);
-
 
         mav = new ModelAndView("redirect:/board/list");
         return mav;
