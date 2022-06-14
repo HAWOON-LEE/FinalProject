@@ -24,8 +24,9 @@ import java.util.List;
 @RequestMapping("review")
 @AllArgsConstructor
 public class ReviewController {
-    @Autowired
+
     private final ReviewService service;
+
     @GetMapping("list")
     public ModelAndView review(ReviewDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
         model.addAttribute("dto", dto);
@@ -42,14 +43,7 @@ public class ReviewController {
         model.addAttribute("dto", form);
         model.addAttribute("libs", form);
 
-        Review review = new Review();
-        review.setReview(form.getReview());
-        review.setRating(form.getRating());
-        review.setSub(form.getSub());
-        review.setUser(custom.getUser());
-        review.setBook(form.getBook());
-
-        service.save(review);
+        service.saveReview(form, custom);
 
         return "redirect:/review/list";
     }

@@ -25,16 +25,16 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class VerseService {
 
-    @Autowired
-    VerseRepository repository;
-    @Autowired
-    LibRepository libRepository;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    BookRepository bookRepository;
+    private final VerseRepository repository;
+
+    private final LibRepository libRepository;
+
+    private final UserRepository userRepository;
+
+    private final BookRepository bookRepository;
 
     public List<LibDto> findByNickname(@AuthenticationPrincipal PrincipalDetails custom){
         List<Lib> libList = libRepository.findAll();
@@ -52,21 +52,16 @@ public class VerseService {
     public void saveVerse(VerseForm form, @AuthenticationPrincipal PrincipalDetails custom){
         Verse verse = new Verse();
         User user = userRepository.findById(custom.getUser().getUser_id()).get();
-        Book book = bookRepository.findById(form.getIsbn()).get();
+        Book book = bookRepository.findBookByIsbn(form.getBook().getIsbn()).get();
 
-
-        verse.setVerse(form.getVerse());
         verse.setBook(book);
+        verse.setUser(user);
+        verse.setVerse(form.getVerse());
         verse.setSub(form.getSub());
         verse.setPage(form.getPage());
-        verse.setUser(user);
 
         repository.save(verse);
     }
-    public void save(Verse verse){
-        repository.save(verse);
-    }
-
 
     public void deleteVerse(Long index){
         repository.deleteById(index);

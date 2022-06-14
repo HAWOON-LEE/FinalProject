@@ -68,15 +68,16 @@
                         <div class="ranking-wrapper table-responsive">
                             <table class="table table-hover rank-table">
                                 <tbody >
+                                <form>
                                  <tr th:each="comment: ${commentList}">
                                      <th scope="row" class="rank-sl" style="width:20%" th:text="${comment.user.nickname}"></th>
                                      <td class="form-control rank-collection" th:text="${comment.comment}"></td>
-                                     <td style="width:10%" th:if="${dto.user.nickname == #authentication.getName()}" >
-                                         <a th:href="@{/comment/deleteComment/{id}(id=${comment.id})}"><button value=삭제"></button></a>
-                                     </td>
+<!--                                     <td style="width:10%" th:if="${dto.user.nickname == #authentication.getName()}" >-->
+<!--                                         <a th:href="@{/comment/deleteComment/{id}(id=${comment.id})}"><input type="button" value=삭제"></a>-->
+<!--                                     </td>-->
 
                                  </tr>
-
+                                </form>
                                 </tbody>
                             </table>
                         </div>

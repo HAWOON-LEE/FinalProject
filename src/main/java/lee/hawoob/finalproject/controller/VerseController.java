@@ -23,8 +23,7 @@ import java.util.List;
 @AllArgsConstructor
 public class VerseController {
 
-    @Autowired
-    VerseService service;
+    private final VerseService service;
     
     @GetMapping("list")
     public ModelAndView verse(VerseDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
@@ -35,8 +34,6 @@ public class VerseController {
         mav.addObject("libs", libs);
         mav.setViewName("passage");
 
-        System.out.println();
-
         return mav;
     }
 
@@ -45,17 +42,9 @@ public class VerseController {
         model.addAttribute("dto", form);
         model.addAttribute("libs", form);
 
-        Verse verse = new Verse();
-        verse.setVerse(form.getVerse());
-        verse.setPage(form.getPage());
-        verse.setSub(form.getSub());
-        verse.setUser(custom.getUser());
-        verse.setBook(form.getBook());
-
-        service.save(verse);
+        service.saveVerse(form, custom);
 
         return "redirect:/verse/list";
     }
-
 
 }

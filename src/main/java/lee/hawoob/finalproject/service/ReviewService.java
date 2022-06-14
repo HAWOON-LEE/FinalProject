@@ -21,8 +21,11 @@ import java.util.Optional;
 public class ReviewService {
 
     private final ReviewRepository repository;
+
     private final LibRepository libRepository;
+
     private final UserRepository userRepository;
+
     private final BookRepository bookRepository;
 
 
@@ -42,14 +45,13 @@ public class ReviewService {
     public void saveReview(ReviewForm form, @AuthenticationPrincipal PrincipalDetails custom){
         Review review = new Review();
         User user = userRepository.findById(custom.getUser().getUser_id()).get();
-        Book book = bookRepository.findById(form.getIsbn()).get();
+        Book book = bookRepository.findBookByIsbn(form.getBook().getIsbn()).get();
 
-
-        review.setReview(form.getReview());
         review.setBook(book);
+        review.setUser(user);
+        review.setReview(form.getReview());
         review.setSub(form.getSub());
         review.setRating(form.getRating());
-        review.setUser(user);
 
         repository.save(review);
     }

@@ -23,6 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ 게시판 컨트롤러
+ */
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("board")
@@ -58,6 +61,7 @@ public class BoardController {
         mav.setViewName("board/detailsPost");
         mav.addObject("dto", dto);
 
+//        댓글 가져오기
         List<CommentDto> commentList = commentService.getCommentList(boardIndex);
         model.addAttribute("commentList", commentList);
         mav.setViewName("board/detailsPost");
