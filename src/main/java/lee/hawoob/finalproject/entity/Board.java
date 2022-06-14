@@ -24,10 +24,6 @@ public class Board extends BaseTimeEntity{
     @Column(name = "POST_TITLE")
     private String title;
 
-//    ERD에 없음(파일첨부)
-//    @Column(name = "IMG_URL")
-//    private String imgURL;
-
     @Column(name = "POST_CONTENT")
     @Lob
     private String content;
@@ -36,21 +32,11 @@ public class Board extends BaseTimeEntity{
     @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME")
     private User user;
 
-
-
     @Column(name = "VIEW", columnDefinition = "integer default 0", nullable = false)
     private int view;
-//, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE
+
     @OneToMany(mappedBy = "board")
     private List<Comment> comments;
-
-//    public void addComment(Comment comment){
-//        commentList.add(comment);
-//    }
-
-//    public void updateImgURL(String imgURL){
-//        this.imgURL = imgURL;
-//    }
 
     @Builder
     public Board(String title, User user, int view){

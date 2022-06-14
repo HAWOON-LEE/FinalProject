@@ -2,6 +2,7 @@ package lee.hawoob.finalproject.dto;
 
 import lee.hawoob.finalproject.entity.BaseTimeEntity;
 import lee.hawoob.finalproject.entity.Board;
+import lee.hawoob.finalproject.entity.Comment;
 import lee.hawoob.finalproject.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Column;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Transactional
 @Data
@@ -32,6 +34,8 @@ public class SearchBoardDto {
 
     private int view;
 
+//    private List<Comment> comment;
+
     public SearchBoardDto(Board board){
         this.boardIndex = board.getBoardIndex();
         this.title = board.getTitle();
@@ -39,6 +43,7 @@ public class SearchBoardDto {
         this.content = board.getContent();
         this.createDate = board.getCreateDate();
         this.view = board.getView();
+//        this.comment = board.getComments();
     }
 
 }

@@ -2,6 +2,7 @@ package lee.hawoob.finalproject.service;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.BoardDto;
+import lee.hawoob.finalproject.dto.BoardUpdateDto;
 import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
 import lee.hawoob.finalproject.entity.User;
@@ -43,7 +44,7 @@ public class BoardService {
 
     public Page<SearchBoardDto> searchBoard(String keyword, Pageable pageable) {
         int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
-        pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "boardIndex")); // <- Sort 추가
+        pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "boardIndex"));
         Page<SearchBoardDto> dto = repository.findByBoardTitleAndPostContentContaining(keyword, pageable).map(b -> new SearchBoardDto(b));
 
         return dto;
@@ -64,10 +65,6 @@ public class BoardService {
         return dto;
     }
 
-    public Optional<Board> findByIndex(Long boardIndex){
-        return repository.findById(boardIndex);
-    }
-
     public void createBoard(CreateBoardForm form, @AuthenticationPrincipal PrincipalDetails custom) {
         Board board = new Board();
         User user = userRepository.findById(custom.getUser().getUser_id()).get();
@@ -81,7 +78,15 @@ public class BoardService {
 
     public void deleteBoard(Long boardIndex) {
         repository.deleteById(boardIndex);
+    }
 
+    public BoardUpdateDto getDtoByBoardIndex(Long boardIndex){
+        BoardUpdateDto dto = new BoardUpdateDto();
+        dto.setBoardIndex(repository.findByBoardIndex(boardIndex).getBoardIndex());
+        dto.setTitle(repository.findByBoardIndex(boardIndex).getTitle());
+        dto.setContent(repository.findByBoardIndex(boardIndex).getContent());
+
+        return dto;
     }
 
     public void updateBoard(UpdateBoardForm form){

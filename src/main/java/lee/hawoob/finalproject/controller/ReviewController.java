@@ -20,6 +20,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+/**
+ 리뷰 등록 컨트롤러
+ */
+
 @Controller
 @RequestMapping("review")
 @AllArgsConstructor

@@ -64,7 +64,6 @@
                 </tr>
                 </thead>
                 <tbody >
-                <!--                        th:if="${boardList.size() >= 0}"-->
                 <tr th:each="board: ${boardList1}">
                     <th scope="row" class="rank-sl" th:text="${board.boardIndex}"></th>
                     <td class="rank-collection" >
@@ -76,13 +75,11 @@
                     <td class="rank-vol" th:text="${board.view}">
                     </td>
                 </tr>
-
                 </tbody>
                 <div>
                     <a th:href="@{/board/create}">글 작성</a>
                 </div>
             </table>
-            <!--                    -->
             <nav style="text-align: center;">
                 <div style="display: flex; justify-content: center">
                     <ul style="justify-content: space-around; width: 60%" class="pagination" th:with="start=${T(java.lang.Math).floor(boardList1.number/10)*10 + 1}, last=(${start + 9 < boardList1.totalPages ? start + 9 : boardList1.totalPages})">
@@ -116,7 +113,6 @@
                     </ul>
                 </div>
             </nav>
-            <!--                    -->
         </div>
     </div>
 </section>

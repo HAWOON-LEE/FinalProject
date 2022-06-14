@@ -2,9 +2,9 @@ package lee.hawoob.finalproject.controller;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
 import lee.hawoob.finalproject.dto.BoardDto;
+import lee.hawoob.finalproject.dto.BoardUpdateDto;
 import lee.hawoob.finalproject.dto.CommentDto;
 import lee.hawoob.finalproject.dto.SearchBoardDto;
-import lee.hawoob.finalproject.entity.Board;
 import lee.hawoob.finalproject.form.CreateBoardForm;
 import lee.hawoob.finalproject.form.UpdateBoardForm;
 import lee.hawoob.finalproject.service.BoardService;
@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  게시판 컨트롤러
@@ -37,7 +36,7 @@ public class BoardController {
     private final CommentService commentService;
 
     @GetMapping("/list")
-    public String boardView(@PageableDefault Pageable pageable, Model model){
+    public String getBoardList(@PageableDefault Pageable pageable, Model model){
         Page<SearchBoardDto> boardList1 = service.getBoardList(pageable);
         model.addAttribute("boardList1", boardList1);
 
@@ -54,14 +53,13 @@ public class BoardController {
     }
 
     @GetMapping("/detail/{boardIndex}")
-    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav, @AuthenticationPrincipal PrincipalDetails custom, Model model){
+    public ModelAndView detailBoard(@PathVariable Long boardIndex, ModelAndView mav, Model model){
         BoardDto dto =service.getBoardDto(boardIndex);
         service.updateView(boardIndex); // views ++
 
         mav.setViewName("board/detailsPost");
         mav.addObject("dto", dto);
 
-//        댓글 가져오기
         List<CommentDto> commentList = commentService.getCommentList(boardIndex);
         model.addAttribute("commentList", commentList);
         mav.setViewName("board/detailsPost");
@@ -70,7 +68,7 @@ public class BoardController {
     }
 
     @GetMapping("/create")
-    public ModelAndView create(@ModelAttribute CreateBoardForm form, ModelAndView mav){
+    public ModelAndView getCreateBoard(@ModelAttribute CreateBoardForm form, ModelAndView mav){
         mav.addObject("form", form);
         mav.setViewName("board/createPost");
         return mav;
@@ -91,17 +89,11 @@ public class BoardController {
     }
 
     @GetMapping("update/{boardIndex}")
-    public ModelAndView updateBoard(@PathVariable Long boardIndex, ModelAndView mav){
-        Optional<Board> board = service.findByIndex(boardIndex);
-        UpdateBoardForm form = new UpdateBoardForm();
-
-        form.setBoardIndex(board.get().getBoardIndex());
-        form.setTitle(board.get().getTitle());
-        form.setContent(board.get().getContent());
-        form.setDate(board.get().getCreateDate());
+    public ModelAndView getUpdateBoard(@PathVariable Long boardIndex, ModelAndView mav){
+        BoardUpdateDto dto = service.getDtoByBoardIndex(boardIndex);
 
         mav.setViewName("/board/updatePost");
-        mav.addObject("form", form);
+        mav.addObject("form", dto);
 
         return mav;
     }

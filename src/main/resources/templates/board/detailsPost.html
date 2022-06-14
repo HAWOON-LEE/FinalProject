@@ -52,7 +52,7 @@
                                 <a th:href="@{/board/delete/{boardIndex}(boardIndex=${dto.boardIndex})}"><input type="button" value="삭제"></a>
                             </div>
                             <input type="hidden" name="boardIndex" th:value="*{boardIndex}">
-                            <input type="hidden" th:value="*{date}">
+<!--                            <input type="hidden" th:value="*{date}">-->
                             <!-- item name input -->
                             <div class="form-floating item-name-field mb-3" style="display: flex; justify-content: space-between; padding: 0 10px">
                                 <h6 th:text="${dto.title}"></h6>

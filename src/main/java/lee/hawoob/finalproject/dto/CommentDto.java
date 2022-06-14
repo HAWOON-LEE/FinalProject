@@ -22,8 +22,6 @@ public class CommentDto {
 
     private User user;
 
-//    private String nickname;
-
     private Board board;
 
 //    private LocalDateTime createDate;
@@ -32,7 +30,6 @@ public class CommentDto {
         this.id = comment.getId();
         this.comment = comment.getComment();
         this.user = comment.getUser();
-//        this.nickname = comment.getUser().getNickname();
         this.board = comment.getBoard();
 //        this.createDate = comment.getCreateDate();
     }

@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+/**
+ 댓글 컨트롤러
+ */
 @Controller
 @RequiredArgsConstructor
 public class CommentController {

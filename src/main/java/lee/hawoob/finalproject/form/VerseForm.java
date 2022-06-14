@@ -7,8 +7,6 @@ import lombok.Data;
 @Data
 public class VerseForm {
 
-//    private Long index;
-
     private String nickname;
 
     private String verse;

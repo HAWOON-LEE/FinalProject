@@ -18,6 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+/**
+ 구절 등록 컨트롤러
+ */
+
 @Controller
 @RequestMapping("verse")
 @AllArgsConstructor

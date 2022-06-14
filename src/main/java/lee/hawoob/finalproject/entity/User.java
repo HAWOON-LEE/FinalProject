@@ -51,15 +51,5 @@ public class User implements Serializable {
         this.nickname = nickname;
         this.mbti = mbti;
     }
-
-    public static User createUser(){
-        return User.builder()
-                .user_id(1L)
-                .email("")
-                .nickname("")
-                .build();
-    }
-
-//    @OneToMany(mappedBy = "nickname", cascade = CascadeType.ALL)
-//    List<Lib> nicknameList = new ArrayList<>();
+    
 }
