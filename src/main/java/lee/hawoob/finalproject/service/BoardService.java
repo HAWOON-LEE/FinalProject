@@ -53,14 +53,15 @@ public class BoardService {
     public BoardDto getBoardDto(Long boardIndex) {
         Optional<Board> board = repository.findById(boardIndex);
 
-        BoardDto dto = new BoardDto();
+        BoardDto dto = BoardDto.builder()
+                .board(board.get())
+                .boardIndex(board.get().getBoardIndex())
+                .title(board.get().getTitle())
+                .content(board.get().getContent())
+                .date(board.get().getCreateDate())
+                .user(board.get().getUser())
+                .build();
 
-        dto.setBoard(board.get());
-        dto.setBoardIndex(board.get().getBoardIndex());
-        dto.setTitle(board.get().getTitle());
-        dto.setContent(board.get().getContent());
-        dto.setDate(board.get().getCreateDate());
-        dto.setUser(board.get().getUser());
 
         return dto;
     }
