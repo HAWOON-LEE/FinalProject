@@ -83,9 +83,12 @@ public class BoardService {
 
     public BoardUpdateDto getDtoByBoardIndex(Long boardIndex){
         BoardUpdateDto dto = new BoardUpdateDto();
-        dto.setBoardIndex(repository.findByBoardIndex(boardIndex).getBoardIndex());
-        dto.setTitle(repository.findByBoardIndex(boardIndex).getTitle());
-        dto.setContent(repository.findByBoardIndex(boardIndex).getContent());
+
+        Board board = repository.findByBoardIndex(boardIndex);
+
+        dto.setBoardIndex(board.getBoardIndex());
+        dto.setTitle(board.getTitle());
+        dto.setContent(board.getContent());
 
         return dto;
     }
