@@ -46,7 +46,4 @@ public class Book {
     @JoinColumn(name = "MBTI", nullable = false)
     private Mbti mbti;
 
-
-//    @OneToMany(mappedBy = "isbn", cascade = CascadeType.ALL)
-//    List<Lib> isbnList = new ArrayList<>();
 }

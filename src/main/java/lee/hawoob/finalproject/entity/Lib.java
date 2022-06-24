@@ -12,6 +12,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Lib extends LibDto {
 
+//  복합 PK 맵핑
     @EmbeddedId
     private LibId libId = new LibId();
 
