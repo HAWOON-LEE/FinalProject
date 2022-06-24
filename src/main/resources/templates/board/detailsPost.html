@@ -77,20 +77,20 @@
                                 </tbody>
                             </table>
                         </div>
-
-                        <div class="input-group mb-3" th:object="${dto}">
-                            <form id="reply" action="/createComment" method="post">
-                                <input type="text" id="comment" name="comment" class="form-control" placeholder="댓글을 입력해주세요.." aria-label="댓글을 입력해주세요.." aria-describedby="basic-addon2">
-                                <input type="hidden" id="boardIndex" name="boardIndex" th:value="${dto.board.boardIndex}">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">등록</button>
+                        <th:block>
+                            <div th:if="${#authorization.expr('isAuthenticated()')}">
+                                <div class="input-group mb-3" th:object="${dto}">
+                                    <form id="reply" action="/createComment" method="post">
+                                        <input type="text" id="comment" name="comment" class="form-control" placeholder="댓글을 입력해주세요.." aria-label="댓글을 입력해주세요.." aria-describedby="basic-addon2">
+                                        <input type="hidden" id="boardIndex" name="boardIndex" th:value="${dto.board.boardIndex}">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="submit">등록</button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </th:block>
 
-
-
-                        <!-- Reply Section End -->
                         <p class="lead">
                             <a class="btn btn-primary btn-lg" href="/board/list" role="button">목록으로</a>
                         </p>

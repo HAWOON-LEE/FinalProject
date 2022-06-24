@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/detail")
+@RequestMapping("detail")
 public class DetailController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class DetailController {
     private VerseService verseService;
 
     // 도서 상세보기 클릭
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public String showDetail(Model model, @PathVariable String id, @AuthenticationPrincipal PrincipalDetails principalDetails) {
 
         // 상세보기 도서 정보
@@ -53,7 +53,13 @@ public class DetailController {
         // 평균 별점(별)
         String avgStar = reviewService.convertToStar(avgRating);
         // 한줄평&나만의구절 삭제버튼 활성화용 현재 로그인된 회원 닉네임 정보
-        String user = principalDetails.getUser().getNickname();
+        String user = "";
+        // NullPointExeption 방지
+        if(principalDetails!=null) {
+            user = principalDetails.getUser().getNickname();
+        } else {
+            user = "";
+        }
 
         model.addAttribute("verses", verseList);
         model.addAttribute("avgStar", avgStar);
@@ -67,7 +73,7 @@ public class DetailController {
     }
 
     // 내 서재 보관 클릭 시 보관 유무 확인 후 보관
-    @PostMapping("/insert")
+    @PostMapping("insert")
     @ResponseBody
     public String insertBook(@RequestParam("isbn") String isbn, @AuthenticationPrincipal PrincipalDetails principalDetails) {
 
@@ -84,17 +90,17 @@ public class DetailController {
     }
 
     // 비로그인 상태에서 내 서재 보관 클릭 시 로그인 메세지 출력
-    @GetMapping("/message")
+    @GetMapping("message")
     public String message(Model model){
 
         model.addAttribute("message", "로그인 후 이용가능합니다.");
         model.addAttribute("url", "/oauth2/authorization/naver");
 
-        return "/message";
+        return "message";
     }
 
     // 한줄평 삭제 버튼 클릭
-    @GetMapping("/deleteR/{id}")
+    @GetMapping("deleteR/{id}")
     @ResponseBody
     public String deleteReview(@PathVariable Long id) {
 
@@ -108,7 +114,7 @@ public class DetailController {
     }
 
     // 나만의 구절 삭제 버튼 클릭
-    @GetMapping("/deleteV/{id}")
+    @GetMapping("deleteV/{id}")
     @ResponseBody
     public String deleterVerse(@PathVariable Long id) {
 

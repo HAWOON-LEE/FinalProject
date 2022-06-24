@@ -43,7 +43,7 @@ public class BoardController {
         return "board/list";
     }
 
-    @GetMapping("search")
+    @GetMapping("/search")
     public String searchBoard(@RequestParam("keyword") String keyword,Pageable pageable , Model model){
         Page<SearchBoardDto> boardList = service.searchBoard(keyword, pageable);
         model.getAttribute("keyword");

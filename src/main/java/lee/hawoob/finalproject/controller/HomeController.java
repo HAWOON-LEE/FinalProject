@@ -18,7 +18,7 @@ import java.util.*;
 
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("home")
 public class HomeController {
 
     @Autowired
@@ -42,7 +42,7 @@ public class HomeController {
         model.addAttribute("top3Books", top3Books);
         model.addAttribute("top4to10Books", top4to10Books);
 
-        return "/home";
+        return "home";
     }
 
     // 로그인 시 가입이력이 있다면 홈화면으로 이동, 가입 이력이 없다면 MBTI 및 닉네임 등록화면으로 이동
@@ -54,9 +54,9 @@ public class HomeController {
 
         if(httpSession.getAttribute("user") == null) {
             model.addAttribute("email", email);
-            return "/signup";
+            return "signup";
         } else {
-            return "redirect:/home";
+            return "redirect:home";
         }
     }
 
@@ -67,7 +67,6 @@ public class HomeController {
         model.addAttribute("message", "로그인 후 이용가능합니다.");
         model.addAttribute("url", "/oauth2/authorization/naver");
 
-        return "/message";
+        return "message";
     }
-
 }

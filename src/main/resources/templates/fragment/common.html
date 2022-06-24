@@ -31,25 +31,11 @@
 
                     </li>
                 </ul>
-                <a class="header__nav-link" th:href="@{/recommend}" >
-                    도서추천
-                </a>
-<!--                        href="#"-->
-<!--                        role="button"-->
-<!--                        data-bs-toggle="dropdown"-->
-<!--                        aria-haspopup="true"-->
-<!--                        aria-expanded="false"-->
-<!--                        data-bs-offset="0,10"-->
 
-
-<!--                <ul class="dropdown-menu header__nav-menu">-->
-<!--                    <li>-->
-<!--                        <a class="drop-down-item active"-->
-
-<!--                        >MBTI별 도서추천</a-->
-<!--                        >-->
-<!--                    </li>-->
-<!--                </ul>-->
+                <li>
+                    <a class="header__nav-link" th:href="@{/recommend}" >
+                        도서추천
+                    </a>
                 </li>
 
                 <li class="header__nav-item">
@@ -107,12 +93,6 @@
                             class="header__nav-link"
                             th:href="@{/board/list}">토론장</a
                     >
-<!--                            role="button"-->
-<!--                            data-bs-toggle="dropdown"-->
-<!--                            aria-haspopup="true"-->
-<!--                            aria-expanded="false"-->
-<!--                            data-bs-offset="0,10"-->
-
                 </li>
 
                 </ul>
@@ -143,7 +123,6 @@
                             <th:block>
                             <div th:unless="${#authorization.expr('isAuthenticated()')}">
                                 <a href="/oauth2/authorization/naver">Login</a>
-<!--                                <a href="/login" th:href="@{/login}">Login</a>-->
                             </div>
                             </th:block>
                         </a>
@@ -157,13 +136,19 @@
                         </ul>
                     </div>
                 </div>
-                <div class="wallet-btn">
-                    <a><span><i class="icofont-wallet" data-blast="color"></i></span>
-                        <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
-                            <span class="d-none d-md-inline"><a href="http://nid.naver.com/nidlogin.logout">Logout</a></span>
-                        <div th:unless="${#authorization.expr('isAuthenticated()')}"></div>
-                    </a>
-                </div>
+                <th:block>
+                    <div th:if="${#authorization.expr('isAuthenticated()')}">
+                        <div class="wallet-btn">
+                            <a><span><i class="icofont-wallet" data-blast="color"></i></span>
+                                <span class="d-none d-md-inline"><a href="http://nid.naver.com/nidlogin.logout">Logout</a></span>
+                                <div th:unless="${#authorization.expr('isAuthenticated()')}"></div>
+                            </a>
+                        </div>
+                    </div>
+                </th:block>
+                <th:block>
+                    <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                </th:block>
             </div>
 
             <button class="menu-trigger header__btn" id="menu05">

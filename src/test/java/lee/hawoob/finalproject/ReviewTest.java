@@ -83,27 +83,27 @@ public class ReviewTest {
         System.out.println(star);
     }
 
-    @Test
-    public void calculateRating() {
-
-        String isbn = "1190492970 9791190492973";
-
-        Book book = bookRepository.findByIsbn(isbn);
-
-        List<Review> reviews = reviewRepository.findAllByBook(book);
-
-        Integer addRating = 0;
-        Integer avgRating = 0;
-
-        for(int i=0; i<reviews.size(); i++) {
-
-            Integer rating = reviews.get(i).getRating();
-
-            addRating += rating;
-        }
-        avgRating = Math.round(addRating / reviews.size());
-
-        System.out.println(avgRating+"점");
-    }
+//    @Test
+//    public void calculateRating() {
+//
+//        String isbn = "1190492970 9791190492973";
+//
+//        Book book = bookRepository.findByIsbn(isbn);
+//
+//        List<Review> reviews = reviewRepository.findAllByBook(book);
+//
+//        Integer addRating = 0;
+//        Integer avgRating = 0;
+//
+//        for(int i=0; i<reviews.size(); i++) {
+//
+//            Integer rating = reviews.get(i).getRating();
+//
+//            addRating += rating;
+//        }
+//        avgRating = Math.round(addRating / reviews.size());
+//
+//        System.out.println(avgRating+"점");
+//    }
 
 }
