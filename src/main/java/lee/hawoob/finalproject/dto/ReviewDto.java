@@ -1,19 +1,18 @@
 package lee.hawoob.finalproject.dto;
 
 
+import lee.hawoob.finalproject.entity.Book;
 import lee.hawoob.finalproject.entity.Review;
 import lee.hawoob.finalproject.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.transaction.annotation.Transactional;
 
 
 @Data
-@Transactional
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewDto extends Review {
+public class ReviewDto{
 
     private Long index;
 
@@ -25,7 +24,5 @@ public class ReviewDto extends Review {
 
     private String review;
 
-    private String sub;
-
-    private int rating;
+    private Integer rating;
 }

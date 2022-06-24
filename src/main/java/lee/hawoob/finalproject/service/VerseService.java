@@ -1,87 +1,80 @@
 package lee.hawoob.finalproject.service;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
-import lee.hawoob.finalproject.dto.LibDto;
-import lee.hawoob.finalproject.dto.SearchBoardDto;
-import lee.hawoob.finalproject.dto.VerseDto;
 import lee.hawoob.finalproject.entity.*;
 import lee.hawoob.finalproject.form.VerseForm;
 import lee.hawoob.finalproject.repository.BookRepository;
 import lee.hawoob.finalproject.repository.LibRepository;
 import lee.hawoob.finalproject.repository.UserRepository;
 import lee.hawoob.finalproject.repository.VerseRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.EntityManager;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional
 public class VerseService {
 
     @Autowired
-    VerseRepository repository;
+    private VerseRepository verseRepository;
     @Autowired
-    LibRepository libRepository;
+    private LibRepository libRepository;
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
-    BookRepository bookRepository;
+    private BookRepository bookRepository;
 
-    public List<LibDto> findByNickname(@AuthenticationPrincipal PrincipalDetails custom){
+    // 현재 이용자의 내 서재에 담긴 도서 데이터를 불러온다
+    public List<Lib> findByNickname(@AuthenticationPrincipal PrincipalDetails principalDetails){
+
         List<Lib> libList = libRepository.findAll();
-        User user = userRepository.findByNickname(custom.getUsername());
+        User user = userRepository.findByNickname(principalDetails.getUsername());
 
-        List<LibDto> libs = new ArrayList<>();
+        List<Lib> myBookList = new ArrayList<>();
+
         for(int i=0; i < libList.size(); i++){
             if(libList.get(i).getUser().getNickname() == user.getNickname()){
-                libs.add(libList.get(i));
+                myBookList.add(libList.get(i));
             }
         }
-        return libs;
+        return myBookList;
     }
 
-    public void saveVerse(VerseForm form, @AuthenticationPrincipal PrincipalDetails custom){
+    // 도서별 나만의구절 정보를 불러오기
+    public List<Verse> findAllVerseByIsbn(String isbn) {
+
+        Book book = bookRepository.findByIsbn(isbn);
+
+        List<Verse> verses = verseRepository.findAllByBook(book);
+
+        return verses;
+    }
+
+    // Controller로부터 form에 담긴 데이터를 받아 Entity로 변환 후 저장
+    public void saveVerse(@ModelAttribute VerseForm verseForm,
+                          @AuthenticationPrincipal PrincipalDetails principalDetails){
+
         Verse verse = new Verse();
-        User user = userRepository.findById(custom.getUser().getUser_id()).get();
-        Book book = bookRepository.findById(form.getIsbn()).get();
 
+        User user = userRepository.findById(principalDetails.getUser().getUser_id()).get();
+        Book book = bookRepository.findBookByIsbn(verseForm.getBook().getIsbn()).get();
 
-        verse.setVerse(form.getVerse());
         verse.setBook(book);
-        verse.setSub(form.getSub());
-        verse.setPage(form.getPage());
         verse.setUser(user);
+        verse.setVerse(verseForm.getVerse());
+        verse.setSub(verseForm.getSub());
+        verse.setPage(verseForm.getPage());
 
-        repository.save(verse);
+        verseRepository.save(verse);
     }
-    public void save(Verse verse){
-        repository.save(verse);
-    }
 
-
+    // 나만의 구절 삭제
     public void deleteVerse(Long index){
-        repository.deleteById(index);
+        verseRepository.deleteById(index);
     }
 
-    public void updateVerse(VerseDto dto){
-        Optional<Verse> opVerse = repository.findById(dto.getIndex());
-
-        Verse verse = opVerse.get();
-
-        verse.setVerse(dto.getVerse());
-        verse.setIndex(dto.getIndex());
-        verse.setPage(dto.getPage());
-        verse.setSub(dto.getSub());
-
-        repository.save(verse);
-    }
 }

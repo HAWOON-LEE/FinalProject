@@ -42,8 +42,7 @@
 <!-- preloader ending here -->
 
 <!-- ===============// header section start here \\================= -->
-<header class="header" th:replace="fragment/common::header">
-</header>
+<header class="header" th:replace="fragment/common::header"></header>
 <!-- ===============//header section end here \\================= -->
 
 
@@ -55,7 +54,12 @@
             <div class="row">
                 <div class="col-xl-8">
                     <div class="section-header">
-                        <h3 th:text="|${msg} 추천도서|">MBTI별 도서추천</h3>
+                        <th:block th:if="${msg!=null}">
+                            <h3 th:text="|${msg} 추천도서|">MBTI별 도서추천</h3>
+                        </th:block>
+                        <th:block th:unless="${msg!=null}">
+                            <h3>검색 도서</h3>
+                        </th:block>
                         <div class="nft-filter d-flex flex-wrap justify-content-center gap-15">
                         </div>
                     </div>
@@ -84,11 +88,13 @@
                         <div class="widget widget-tags">
                             <div class="widget-header">
                                 <div class="nft-search">
-                                    <div class="form-floating nft-search-input">
-                                        <input type="text" class="form-control" id="nftSearch" placeholder="Search NFT">
-                                        <label for="nftSearch">도서 검색</label>
-                                        <button type="button"> <i class="icofont-search-1"></i></button>
-                                    </div>
+                                    <form method="post" th:action="@{/recommend/search}">
+                                        <div class="form-floating nft-search-input">
+                                            <input type="text" name="keyword" class="form-control" id="nftSearch" placeholder="Search NFT">
+                                            <label for="nftSearch">도서 검색</label>
+                                            <button type="submit" style="margin-top: 0px"><i class="icofont-search-1"></i></button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <ul class="widget-wrapper justify-content-start" >
@@ -100,13 +106,9 @@
                     </aside>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
-
-<!-- ==========explore Section ends Here========== -->
-
 
 
 <!-- ===============//footer section start here \\================= -->

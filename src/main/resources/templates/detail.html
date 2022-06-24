@@ -72,26 +72,38 @@
                                             <h4 th:text="${obj.title}">도서명</h4>
                                             <div><a></a></div>
 
-                                            <p class="mb-15" th:text="${obj.author}">저자</p>
-                                            <p class="mb-15" th:text="${obj.publisher}">출판사</p>
-                                            <p class="mb-15" th:text="${obj.pubDate}">출판일</p>
-                                            <p class="mb-15" th:text="${obj.price}">가격</p>
+                                            <p class="mb-15" th:text="|저자: ${obj.author}|"><</p>
+                                            <p class="mb-15" th:text="|출판사: ${obj.publisher}|">출판사</p>
+                                            <p class="mb-15" th:text="|출판일: ${obj.pubDate}|">출판일</p>
+                                            <p class="mb-15" th:text="|가격: ${obj.price}원|">가격</p>
 
                                             <div><a></a></div>
 
-                                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span> |
+                                            <span style="color: yellow" th:text="${avgStar}">평균 별점</span> |
 
                                             <img src="/images/currency/책장.png" alt="currency img" />
-                                            <span>누적 보관 13권</span>
+                                            <span th:text="|서재 보관 ${count}권|">누적 보관 13권</span>
 
                                             <div><a></a></div>
 
                                             <h7 th:text="${obj.bookDesc}">Description</h7>
-                                            <form method="post" th:action="@{/detail/insert}">
-                                                <button type="submit" name="isbn" th:value="${obj.isbn}" class="detail-btn btn-14">
-                                                    내 서재 보관</i>
-                                                </button>
-                                            </form>
+                                            <th:block>
+                                                <div th:if="${#authorization.expr('isAuthenticated()')}" >
+                                                    <form method="post" th:action="@{/detail/insert}">
+                                                        <input type="hidden" name="isbn" th:value="${obj.isbn}">
+                                                        <button class="detail-btn btn-14">
+                                                            내 서재 보관</i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </th:block>
+                                            <th:block>
+                                                <div th:unless="${#authorization.expr('isAuthenticated()')}">
+                                                    <button type="button" class="detail-btn btn-14" th:onclick="|location.href='@{/detail/message}'|">
+                                                        내 서재 보관</i>
+                                                    </button>
+                                                </div>
+                                            </th:block>
                                             <a th:href="${obj.link}" target="_blank" class="detail-btn btn-14">구매 링크</i></a>
                                         </div>
                                     </div>
@@ -105,158 +117,76 @@
         </div>
 
 
-        <!-- ==========explore Section ends Here========== -->
+        <!-- 한줄평 및 나만의 구절 영역 -->
         <div id="wrap">
             <div class="container">
                 <div class="col-lg-12">
-
-                    <h3 class="review-title text-center">리뷰</h3>
-
-                    <div class="review">
+                    <div class="container">
                         <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-4">
-                                <div class="review__head text-center">
-                                    <img src="assets/images/activity/달러구트꿈백화점.jpg" alt="" class="profile-img img-circle center-block">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-8">
-                                <div class="review__body">
-                                    <span class="author-name">달러구트 꿈 백화점</span>
-                                    <ul class="rating list-unstyled list-inline">
-                                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            <div class="col-xs-12 ">
+                                <!-- 탭 메뉴 -->
+                                <nav>
+                                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">한줄평</a>
+                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">나만의 구절</a>
+                                    </div>
+                                </nav>
 
-                                    </ul>
-                                    <div><p></p></div>
-                                    <p>리뷰 공간입니다.</p>
+                                <!-- 콘텐츠 영역 -->
+                                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                    <!-- 한줄평 영역 -->
+                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                        <div style="margin-top: 40px; " class="review" th:each="review: ${reviews}">
+                                            <div class="row">
+                                                <div class="col-lg-9 col-md-9 col-sm-8">
+                                                        <span th:text="|${review.user.nickname}(${review.user.mbti.mbti})|" class="author-name">작성자</span>
+                                                        <div th:if="${review.user.nickname == #authentication.getName()}">
+                                                            <a th:href="@{/detail/deleteR/{id}(id=${review.index})}">삭제</a>
+                                                        </div>
+                                                        <p style="color: yellow" th:text="${starMap.get(review.index)}">별점</p>
+                                                        <p></p>
+                                                        <p th:text="${review.review}">리뷰 공간</p>
+                                                </div>
+                                                <hr class="hr-5">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 나만의 구절 영역 -->
+                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                            <div style="margin-top: 40px; " class="review" th:each="verse: ${verses}">
+                                                <div class="row">
+                                                    <div class="col-lg-9 col-md-9 col-sm-8">
+                                                        <span th:text="|${verse.user.nickname}(${verse.user.mbti.mbti})|" class="author-name">작성자</span>
+                                                        <div th:if="${verse.user.nickname == #authentication.getName()}">
+                                                            <a th:href="@{/detail/deleteV/{id}(id=${verse.index})}">삭제</a>
+                                                        </div>
+                                                        <p><span style="color: #0080c7" th:text="|'${verse.verse}'|">나만의 구절</span>
+                                                            <span th:text="|[${verse.page}p]|">페이지</span>
+                                                        </p>
+                                                        <p></p>
+                                                        <p th:text="${verse.sub}">감상&추가설명</p>
+                                                    </div>
+                                                    <hr class="hr-5">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="review">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-4">
-                                <div class="review__head text-center">
-                                    <img src="assets/images/activity/달러구트꿈백화점.jpg" alt="" class="profile-img img-circle center-block">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-8">
-                                <div class="review__body">
-                                    <span class="author-name">달러구트 꿈 백화점</span>
-                                    <ul class="rating list-unstyled list-inline">
-                                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-
-                                    </ul>
-                                    <div><p></p></div>
-                                    <p>리뷰 공간입니다.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-4">
-                                <div class="review__head text-center">
-                                    <img src="assets/images/activity/달러구트꿈백화점.jpg" alt="" class="profile-img img-circle center-block">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-8">
-                                <div class="review__body">
-                                    <span class="author-name">달러구트 꿈 백화점</span>
-                                    <ul class="rating list-unstyled list-inline">
-                                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-
-                                    </ul>
-                                    <div><p></p></div>
-                                    <p>리뷰 공간입니다.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-4">
-                                <div class="review__head text-center">
-                                    <img src="assets/images/activity/달러구트꿈백화점.jpg" alt="" class="profile-img img-circle center-block">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-8">
-                                <div class="review__body">
-                                    <span class="author-name">달러구트 꿈 백화점</span>
-                                    <ul class="rating list-unstyled list-inline">
-                                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-
-                                    </ul>
-                                    <div><p></p></div>
-                                    <p>리뷰 공간입니다.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-4">
-                                <div class="review__head text-center">
-                                    <img src="assets/images/activity/달러구트꿈백화점.jpg" alt="" class="profile-img img-circle center-block">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-8">
-                                <div class="review__body">
-                                    <span class="author-name">달러구트 꿈 백화점</span>
-                                    <ul class="rating list-unstyled list-inline">
-                                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                                    </ul>
-                                    <div><p></p></div>
-                                    <p>리뷰 공간입니다.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                </div>
+            </div>
                     <div class="row">
                         <div class="col-lg-12 text-center"><a href="#" class="btn review__view-more">View More</i></a></div>
                     </div>
-
                 </div>
             </div>
         </div>
 
 
         <!-- ===============//footer section start here \\================= -->
-<<<<<<< HEAD
-        <footer class="footer-section">
-            <div class="footer-top">
-                <div class="footer-newsletter">
-                    <div class="container">
-                        <div class="row g-4 align-items-center justify-content-center">
-                            <div class="col-lg-6">
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="text-center py-0 mb-0">
-                    <a th:href="@{/}">
-                        <img
-                                th:src="@{/images/logo/nado_white20(1).png}"
-                                alt="nado_white"
-                        />
-                    </a>
-                </div>
-                <div class="container">
-                    <p class="text-center py-4 mb-0">
-                        All rights reserved &copy; 나만의 도서관
-
-                    </p>
-                </div>
-            </div>
         <footer th:replace="fragment/footer::footer"></footer>
         <!-- ===============//footer section end here \\================= -->
 
@@ -275,6 +205,9 @@
         <script src="/js/jquery.simpleLoadMore.min.js"></script>
         <script src="/js/isotope.pkgd.min.js"></script>
         <script src="/js/functions.js"></script>
-        </footer>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    </footer>
     </div>
 </section>

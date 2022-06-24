@@ -4,16 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
-public class UpdateBoardForm {
-
-    private Long BoardIndex;
+@AllArgsConstructor
+@NoArgsConstructor
+public class CreateBoardForm {
 
     private String title;
 
-    private String content;
+    private String imgURL;
 
-    private LocalDateTime date;
+    private String content;
 }

@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .oauth2Login()
                 .loginPage("/")
-                .defaultSuccessUrl("/mbtitest")
+                .defaultSuccessUrl("/home/mbtitest")
                 .userInfoEndpoint()
                 .userService(userService);
     }

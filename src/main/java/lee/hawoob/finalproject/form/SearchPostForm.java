@@ -5,7 +5,5 @@ import lombok.Data;
 @Data
 public class SearchPostForm {
 
-//    private Long postIndex;
-
     private String keyword;
 }

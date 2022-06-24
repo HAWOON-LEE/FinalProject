@@ -43,10 +43,6 @@ public class User implements Serializable {
     @Column(name = "ROLE")
     private String role;
 
-
-//    @OneToMany(targetEntity = Lib.class)
-//    private List<Lib> lib;
-
     public User(String nickname, Mbti mbti) {
         this.nickname = nickname;
         this.mbti = mbti;
@@ -60,6 +56,4 @@ public class User implements Serializable {
                 .build();
     }
 
-//    @OneToMany(mappedBy = "nickname", cascade = CascadeType.ALL)
-//    List<Lib> nicknameList = new ArrayList<>();
 }

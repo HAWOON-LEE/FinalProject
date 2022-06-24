@@ -1,5 +1,6 @@
 package lee.hawoob.finalproject.dto;
 
+import lee.hawoob.finalproject.entity.BaseTimeEntity;
 import lee.hawoob.finalproject.entity.Board;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +14,9 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardUpdateDto {
+public class BoardUpdateDto extends BaseTimeEntity {
+
+    private Long boardIndex;
 
     private String title;
 

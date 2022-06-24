@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="header__content">
             <div class="header__logo">
-                <a th:href="@{/}">
+                <a th:href="@{/home}">
                     <img
                             th:src="@{/images/logo/nado_white (1).png}"
                             alt="nado_white"
@@ -22,7 +22,7 @@
 
                         <a
                                 class="header__nav-link  active"
-                                th:href="@{/}"
+                                th:href="@{/home}"
                                 role="button"
 
                         >Home</a
@@ -71,31 +71,31 @@
                         </th:block>
                             <th:block>
                                 <div th:unless="${#authorization.expr('isAuthenticated()')}">
-                                    <a th:href="@{/message}">내 서재 목록</a>
+                                    <a th:href="@{/home/message}">내 서재 목록</a>
                                 </div>
                             </th:block>
                         </li>
                         <li>
                             <th:block>
                             <div th:if="${#authorization.expr('isAuthenticated()')}">
-                                <a class="drop-down-item" th:href="@{/verse/list}">구절 등록</a>
+                                <a class="drop-down-item" th:href="@{/verse}">나만의 구절</a>
                             </div>
                             </th:block>
                             <th:block>
                             <div th:unless="${#authorization.expr('isAuthenticated()')}">
-                                <a th:href="@{/message}">구절등록</a>
+                                <a th:href="@{/home/message}">나만의 구절</a>
                             </div>
                             </th:block>
                         </li>
                         <li>
                             <th:block>
                                 <div th:if="${#authorization.expr('isAuthenticated()')}">
-                                    <a class="drop-down-item" th:href="@{/review/list}">한줄평</a>
+                                    <a class="drop-down-item" th:href="@{/review}">한줄평</a>
                                 </div>
                             </th:block>
                             <th:block>
                                 <div th:unless="${#authorization.expr('isAuthenticated()')}">
-                                    <a th:href="@{/message}">한줄평</a>
+                                    <a th:href="@{/home/message}">한줄평</a>
                                 </div>
                             </th:block>
                         </li>
@@ -160,9 +160,8 @@
                 <div class="wallet-btn">
                     <a><span><i class="icofont-wallet" data-blast="color"></i></span>
                         <div th:if="${#authorization.expr('isAuthenticated()')}"></div>
-                        <span class="d-none d-md-inline"><a href="/logout" th:href="@{/logout}">Logout</a></span>
-                        <div th:unless="${#authorization.expr('isAuthenticated()')}">
-                        </div>
+                            <span class="d-none d-md-inline"><a href="http://nid.naver.com/nidlogin.logout">Logout</a></span>
+                        <div th:unless="${#authorization.expr('isAuthenticated()')}"></div>
                     </a>
                 </div>
             </div>

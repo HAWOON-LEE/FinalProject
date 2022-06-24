@@ -23,17 +23,4 @@ public class CommentRequestDto {
     private User user;
     private Board board;
 
-    /* Dto -> Entity */
-//    public Comment toEntity() {
-//        Comment comments = Comment.builder()
-//                .id(id)
-//                .comment(comment)
-//                .createdDate(createdDate)
-//                .modifiedDate(modifiedDate)
-//                .user(user)
-//                .board(board)
-//                .build();
-//
-//        return comments;
-//    }
 }

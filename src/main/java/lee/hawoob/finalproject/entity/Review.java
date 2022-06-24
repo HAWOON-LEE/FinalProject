@@ -1,12 +1,16 @@
 package lee.hawoob.finalproject.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "REVIEW")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Review {
 
     @Id
@@ -19,7 +23,7 @@ public class Review {
     private Book book;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "NICKNAME", nullable = false)
+    @JoinColumn(name = "NICKNAME", referencedColumnName = "NICKNAME", nullable = false)
     private User user;
 
     @Column(name = "REVIEW", nullable = false)
@@ -28,6 +32,4 @@ public class Review {
     @Column(name = "RATING")
     private int rating;
 
-    @Column(name="SUB")
-    private String sub;
 }

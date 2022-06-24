@@ -9,12 +9,6 @@
           content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Meta tags for Social Media(Better SEO) -->
-    <!-- <meta property="og:title" content=""> -->
-    <!-- <meta property="og:type" content=""> -->
-    <!-- <meta property="og:url" content=""> -->
-    <!-- <meta property="og:image" content=""> -->
-
     <!-- site favicon -->
     <link rel="icon" type="image/png" href="/images/favicon.png">
 
@@ -47,12 +41,6 @@
 <!-- ===============//header section end here \\================= -->
 
 
-<!-- ==========Collection banner Section start Here========== -->
-
-<!-- ==========Collection banner Section Ends Here========== -->
-
-
-
 <!-- ==========Collection Single Section start Here========== -->
 <section class="collecion-single padding-bottom padding-top">
     <div class="container">
@@ -67,15 +55,16 @@
                 <div class="col-xl-3 col-lg-4 col-md-6" th:each="obj : ${books}">
                     <div class="nft-item" >
                         <div class="nft-inner">
-                            <!-- nft top part -->
-                            <div class="nft-item-top d-flex justify-content-between align-items-center">
-                                <div class="more-part">
-                                    <a></a>
-                                </div>
-                            </div>
                             <!-- nft-bottom part -->
                             <div class="nft-item-bottom">
                                 <div class="nft-thumb">
+                                    <form method="post" th:action="@{/bookshelf/delete}">
+                                        <input type="hidden" name="isbn" th:value="${obj.book.isbn}">
+                                        <button class="close"></button>
+                                        <a style="float: right; margin-top: 20px" th:href="@{/review}">
+                                            <i class="icofont-pencil-alt-2"></i> 한줄평 작성
+                                        </a>
+                                    </form>
                                     <img th:src="${obj.book.imageUrl}" alt="nft-img">
                                     <!-- nft countdwon -->
                                 </div>
@@ -89,7 +78,6 @@
                                           <span class="nft-view">
                                               <a th:text="${obj.book.author}">저자</a>
                                           </span>
-                                        <div class="nft-stock" th:text="${sum}">12 in Stock</div>
                                     </div>
                                     <div class="price-like d-flex justify-content-between align-items-center">
                                         <div class="nft-price d-flex align-items-center">
@@ -134,6 +122,19 @@
 <script src="/js/jquery.simpleLoadMore.min.js"></script>
 <script src="/js/isotope.pkgd.min.js"></script>
 <script src="/js/functions.js"></script>
+
+<!--내 서재 삭제버튼 클릭 시-->
+<script>
+    $("#delete_button").click(function() {
+        if(confirm("내 서재에서 삭제하시겠습니까?")==true) {
+            alert("삭제되었습니다.");
+            location.href='/bookshelf/delete';
+        } else {
+            return;
+        }
+    });
+</script>
+
 </body>
 
 </html>

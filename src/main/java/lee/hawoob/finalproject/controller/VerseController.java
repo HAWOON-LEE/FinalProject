@@ -1,11 +1,7 @@
 package lee.hawoob.finalproject.controller;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
-import lee.hawoob.finalproject.dto.LibDto;
-import lee.hawoob.finalproject.dto.VerseDto;
 import lee.hawoob.finalproject.entity.Lib;
-import lee.hawoob.finalproject.entity.User;
-import lee.hawoob.finalproject.entity.Verse;
 import lee.hawoob.finalproject.form.VerseForm;
 import lee.hawoob.finalproject.service.VerseService;
 import lombok.AllArgsConstructor;
@@ -13,47 +9,57 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
 
 @Controller
 @RequestMapping("verse")
-@AllArgsConstructor
 public class VerseController {
 
     @Autowired
-    VerseService service;
-    
-    @GetMapping("list")
-    public ModelAndView verse(VerseDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
-        model.addAttribute("dto", dto);
-        List<LibDto> libs = service.findByNickname(custom);
+    private VerseService verseService;
 
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("libs", libs);
-        mav.setViewName("passage");
+    // 상단 태그를 통해 접근 시, 로그인된 사용자의 서재에 담긴 도서 정보와, 사용자의 입력정보를 받아올 form객체를 화면에 전달
+    @GetMapping("")
+    public String gotoWriteVerse(VerseForm verseForm, @AuthenticationPrincipal PrincipalDetails principalDetails, Model model){
 
-        return mav;
+        List<Lib> libs = verseService.findByNickname(principalDetails);
+
+        model.addAttribute("verseForm", verseForm);
+        model.addAttribute("libs", libs);
+
+        return "verse";
     }
 
+    // 나만의 구절 등록 시 입력 데이터 검증 후, 확인 메시지 출력 및 등록
     @PostMapping("enroll")
-    public String addVerse(@ModelAttribute VerseForm form, @AuthenticationPrincipal PrincipalDetails custom, Model model){
-        model.addAttribute("dto", form);
-        model.addAttribute("libs", form);
+    public String addVerse(@ModelAttribute @Validated VerseForm verseForm,
+                           BindingResult bindingResult, @AuthenticationPrincipal PrincipalDetails principalDetails, Model model){
 
-        Verse verse = new Verse();
-        verse.setVerse(form.getVerse());
-        verse.setPage(form.getPage());
-        verse.setSub(form.getSub());
-        verse.setUser(custom.getUser());
-        verse.setBook(form.getBook());
+        if(bindingResult.hasErrors()) {
 
-        service.save(verse);
+            List<Lib> libs = verseService.findByNickname(principalDetails);
 
-        return "redirect:/verse/list";
+            model.addAttribute("verseForm", verseForm);
+            model.addAttribute("libs", libs);
+
+            return "verse";
+
+        }
+
+        verseService.saveVerse(verseForm, principalDetails);
+        System.out.println("저장완료");
+
+        List<Lib> libs = verseService.findByNickname(principalDetails);
+
+        model.addAttribute("message", "나만의 구절이 등록되었습니다.");
+        model.addAttribute("url", "/verse");
+        model.addAttribute("verseForm", verseForm);
+        model.addAttribute("libs", libs);
+
+        return "message";
     }
-
 
 }

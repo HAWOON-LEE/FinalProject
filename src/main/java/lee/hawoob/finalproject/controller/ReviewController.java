@@ -1,56 +1,62 @@
 package lee.hawoob.finalproject.controller;
 
 import lee.hawoob.finalproject.auth.PrincipalDetails;
-import lee.hawoob.finalproject.dto.LibDto;
-import lee.hawoob.finalproject.dto.ReviewDto;
-import lee.hawoob.finalproject.entity.Review;
-import lee.hawoob.finalproject.entity.User;
+import lee.hawoob.finalproject.entity.Lib;
 import lee.hawoob.finalproject.form.ReviewForm;
 import lee.hawoob.finalproject.service.ReviewService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("review")
-@AllArgsConstructor
+@RequestMapping("/review")
 public class ReviewController {
+
     @Autowired
-    private final ReviewService service;
-    @GetMapping("list")
-    public ModelAndView review(ReviewDto dto, @AuthenticationPrincipal PrincipalDetails custom, Model model){
-        model.addAttribute("dto", dto);
-        List<LibDto> libs = service.findByNickname(custom);
+    private ReviewService reviewService;
 
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("libs", libs);
-        mav.setViewName("review");
+    // 상단 태그나 내 서재에서 특정도서 한줄평 작성하기 클릭을 통해 접근 시, 로그인된 사용자의 서재에 담긴 도서 정보와, 사용자의 입력정보를 받아올 form객체를 화면에 전달
+    @GetMapping("")
+    public String gotoWriteReview(ReviewForm reviewForm, @AuthenticationPrincipal PrincipalDetails principalDetails, Model model){
 
-        return mav;
+        List<Lib> libs = reviewService.findByNickname(principalDetails);
+
+        model.addAttribute("reviewForm", reviewForm);
+        model.addAttribute("libs", libs);
+
+        return "review";
     }
-    @PostMapping("enroll")
-    public String addReview(@ModelAttribute ReviewForm form, @AuthenticationPrincipal PrincipalDetails custom, Model model){
-        model.addAttribute("dto", form);
-        model.addAttribute("libs", form);
 
-        Review review = new Review();
-        review.setReview(form.getReview());
-        review.setRating(form.getRating());
-        review.setSub(form.getSub());
-        review.setUser(custom.getUser());
-        review.setBook(form.getBook());
+    // 한줄평 등록 시 입력 데이터 검증 후, 확인 메세지 출력 및 등록
+    @PostMapping("/enroll")
+    public String saveReview(@ModelAttribute @Validated ReviewForm reviewForm,
+                             BindingResult bindingResult, @AuthenticationPrincipal PrincipalDetails principalDetails, Model model){
 
-        service.save(review);
+        if(bindingResult.hasErrors()) {
 
-        return "redirect:/review/list";
+            List<Lib> libs = reviewService.findByNickname(principalDetails);
+
+            model.addAttribute("reviewForm", reviewForm);
+            model.addAttribute("libs", libs);
+
+            return "review";
+        }
+
+        reviewService.saveReview(reviewForm, principalDetails);
+        System.out.println("저장완료");
+
+        List<Lib> libs = reviewService.findByNickname(principalDetails);
+
+        model.addAttribute("message", "한줄평이 등록되었습니다.");
+        model.addAttribute("url", "/review");
+        model.addAttribute("reviewForm", reviewForm);
+        model.addAttribute("libs", libs);
+
+        return "message";
     }
 }

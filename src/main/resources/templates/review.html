@@ -42,48 +42,41 @@
 <!-- preloader ending here -->
 
 <!-- ===============// header section start here \\================= -->
-<header class="header" th:replace="fragment/common::header">
+<header class="header" th:replace="fragment/common::header"></header>
+    <div th:fragment="drag" id="drag-container">
+        <div id="spin-container">
+            <img th:attr="onclick=|selectBoxChange('${books.book.isbn}')|"
+                 th:each="books: ${libs}"
+                 th:src="${books.book.imageUrl}"
+                 alt="nft-img"/>
+        </div>
+        <div id="ground"></div>
+    </div>
 </header>
 <!-- ===============//header section end here \\================= -->
 
-
-
-<!-- ==========Page Header Section Start Here========== -->
-<section class="variation-section padding-bottom padding-top">
-    <div clss="drag" th:replace="fragment/drag::#drag-container"></div>
-
-
-    <!-- ==========Page Header Section End Here========== -->
-
-    <!-- ==========Create NFT Section start Here========== -->
+    <!-- ==========Main section start Here========== -->
     <section class="create-nft-section padding-bottom padding-top">
         <div class="container">
             <div class="section-wrapper">
                 <div class="row justify-content-center">
-
                     <div class="col-lg-8">
-                        <!-- create item -->
                         <div class="create-nft py-4 px-4">
-                            <form class="create-nft-form" th:action="@{/review/enroll}" method="post" th:object="${dto}">
 
-                                <!-- item name input -->
+                            <form class="create-nft-form" method="post" th:action="@{/review/enroll}" th:object="${reviewForm}">
+                                <!-- 한줄평 입력란-->
                                 <div class="form-floating item-name-field mb-3">
-                                    <input type="text" class="form-control" id="itemNameInput" name="review">
+                                    <input type="text" class="form-control" id="itemNameInput" name="review" th:value="*{review}">
                                     <label for="itemNameInput">한줄평을 등록해주세요.</label>
+                                    <div style="float: right" id="text_cnt">(0 / 50)</div>
+                                    <p th:if="${#fields.hasErrors('review')}" th:errors="*{review}"></p>
                                 </div>
-                                <!-- item-description -->
-                                <div class="form-floating item-desc-field mb-30">
-                                    <textarea class="form-control" name="sub"
-                                              id="itemDesc"></textarea>
-                                    <label for="itemDesc">감상이나 추가 설명이 있을 경우 입력해주세요.</label>
-                                </div>
-
-                                <!-- item price -->
+                                <!-- 별점 입력란 -->
                                 <div class="item-price-field mb-3">
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <div class="container">
-                                                <div class="feedback">
+                                                <div class="feedback"  th:value="*{rating}">
                                                     <div class="rating-1">
                                                         <input type="radio" name="rating" id="rating-5" value="5">
                                                         <label for="rating-5"></label>
@@ -98,38 +91,37 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <p th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}"></p>
                                         </div>
+
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" id="changeInput" name="book.isbn" readonly>
-                                                <select class="form-select" aria-label="Floating label select" onchange="selectBoxChange(this.value)">
-                                                    <option value="">도서 선택</option>
-                                                    <th:block th:each="lib: ${libs}">
-                                                        <option th:value="${lib.book.isbn}"
-                                                                th:text="${lib.book.title}">
-                                                        </option>
-                                                    </th:block>
-                                                </select>
+                                                <input type="hidden" id="changeInput" name="book.isbn" readonly>
+                                                    <select style="padding-top: 8px" class="form-select" required
+                                                            aria-label="Floating label select" onchange="selectBoxChange(this.value)">
+                                                        <option value="">도서 선택</option>
+                                                        <th:block th:each="lib: ${libs}">
+                                                            <option th:value="${lib.book.isbn}" th:text="${lib.book.title}"></option>
+                                                        </th:block>
+                                                    </select>
+                                                </input>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Royalites, Size & copy -->
-
                                 <!-- submit button -->
                                 <div class="submit-btn-field text-center">
                                     <button type="submit">등록</button>
-
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
-    <!-- ==========Create NFT Section Ends Here========== -->
+    <!-- ==========Main section Ends Here========== -->
 
 
     <!-- ===============//footer section start here \\================= -->
@@ -162,20 +154,25 @@
     <script th:src="@{/js/isotope.pkgd.min.js}"></script>
     <script th:src="@{/js/functions.js}"></script>
     <script>
+
         var selectBoxChange = function (value){
             $("#changeInput").val(value);
         }
 
-        var number = document.getElementById('number');
-        number.onkeydown = function(e) {
-            if(!((e.keyCode > 95 && e.keyCode < 106)
-                || (e.keyCode > 47 && e.keyCode < 58)
-                || e.keyCode == 8)) {
-                return false;
-            }
-        }
+        $(document).ready(function () {
+            $('#itemNameInput').on('keyup', function () {
+                $('#text_cnt').html("("+$(this).val().length+" / 50)");
+
+                if($(this).val().length > 50) {
+                    $(this).val($(this).val().substring(0, 50));
+                    $('#text_cnt').html("(50 / 50)");
+                }
+            })
+        })
 
     </script>
+
+
 
 </section>
 </body>

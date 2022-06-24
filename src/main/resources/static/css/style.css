@@ -7292,8 +7292,7 @@ body2 {
   }
 }
 
-/*리뷰
-*/
+/*리뷰&나만의구절*/
 htm2,
 body2 {
   height: 100%;
@@ -7340,35 +7339,93 @@ body1 {
   max-width: 110px;
   display: block;
 }
-.review__body {
-  position: relative;
-  margin-left: -110px;
-  border-bottom: 1px solid #cdcdcd;
-  padding-bottom: 15px;
-}
-@media (max-width: 767px) {
-  .review__body {
-    padding-top: 10px;
-    text-align: center;
-  }
-}
-.review__body .author-name,
-.review__body .rating {
-  display: block;
-}
-.review__body .author-name {
-  font-size: 18px;
-}
-.review__body .rating li {
-  margin: 0 -2px;
-  padding: 0;
-}
-.review__body .rating li i {
-  font-size: 25px;
+/*.review__body {*/
+/*  position: relative;*/
+/*  margin-left: -270px;*/
+/*  border-bottom: 1px solid #cdcdcd;*/
+/*  padding-bottom: 15px;*/
+/*}*/
+/*@media (max-width: 767px) {*/
+/*  .review__body {*/
+/*    padding-top: 10px;*/
+/*    text-align: center;*/
+/*  }*/
+/*}*/
+/*.review__body .author-name,*/
+/*.review__body .rating {*/
+/*  display: block;*/
+/*}*/
+/*.review__body .author-name {*/
+/*  font-size: 18px;*/
+/*}*/
+/*.review__body .rating li {*/
+/*  margin: 0 -2px;*/
+/*  padding: 0;*/
+/*}*/
+/*.review__body .rating li i {*/
+/*  font-size: 25px;*/
+/*}*/
+
+ul.tabs {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
 }
 
-/*별점
-*/
+nav > .nav.nav-tabs{
+
+  border: none;
+  color:#fff;
+  background:#272e38;
+  border-radius:0;
+
+}
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active
+{
+  border: none;
+  padding: 18px 25px;
+  color:#fff;
+  background:#272e38;
+  border-radius:0;
+}
+
+nav > div a.nav-item.nav-link.active:after
+{
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #00a1fa ;
+}
+.tab-content{
+  background: #001321;
+  line-height: 25px;
+  /*border: 1px solid #00a1fa;*/
+  /*border-top:1px solid #00a1fa;*/
+  /*border-bottom:1px solid #00a1fa;*/
+  padding:30px 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus
+{
+  border: none;
+  background: #00a1fa;
+  color:#fff;
+  border-radius:0;
+  transition:background 0.20s linear;
+}
+
+hr.hr-5 {
+  border: 0;
+  border-top: 3px double #8c8c8c;
+}
+
+
+
+/*별점*/
 * {
   box-sizing: border-box;
 }
@@ -7421,4 +7478,25 @@ body1 {
 .rating-1 > input:not(:checked) ~ label:hover,
 .rating-1 > input:not(:checked) ~ label:hover ~ label {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+}
+
+.close {
+  display: inline-block;
+}
+
+.close:after {
+  display: inline-block;
+  content: "\00d7";
+  font-size: 30pt;
+  background-color: #011f30;
+  color: gainsboro;
+}
+
+button {
+  border:none;
+}
+
+button:active {
+  outline: none;
+  box-shadow: none;
 }
