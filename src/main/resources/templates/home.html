@@ -223,13 +223,10 @@
                     <div class="swiper-slide" th:each="books: ${top4to10Books}">
                         <div class="nft-item">
                             <div class="nft-inner">
-                                <!-- nft top part -->
-                                <!-- nft-bottom part -->
                                 <div class="nft-item-bottom">
                                     <a></a>
                                     <div class="nft-thumb">
                                         <img th:src="${books.key.book.imageUrl}" alt="nft-img"/>
-                                        <!-- nft countdwon -->
                                         <span style="font-size: medium" class="badge rounded-pill position-absolute">
                                             <i style="font-family: 'Nanum Gothic Coding', monospace; font-weight: bold"
                                                th:text="| TOP${booksStat.count+3}|" class="icofont-like"></i>

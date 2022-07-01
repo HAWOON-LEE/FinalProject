@@ -3,7 +3,6 @@ package lee.hawoob.finalproject.entity;
 import lee.hawoob.finalproject.dto.LibDto;
 import lombok.*;
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "MY_LIBRARY")

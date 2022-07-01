@@ -61,7 +61,7 @@ public class VerseService {
         Verse verse = new Verse();
 
         User user = userRepository.findById(principalDetails.getUser().getUser_id()).get();
-        Book book = bookRepository.findBookByIsbn(verseForm.getBook().getIsbn()).get();
+        Book book = bookRepository.findByIsbn(verseForm.getBook().getIsbn());
 
         verse.setBook(book);
         verse.setUser(user);

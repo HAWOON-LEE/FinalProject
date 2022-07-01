@@ -73,7 +73,6 @@ public class ReviewService {
             avgRating = Math.round(addRating/reviews.size());
         }
 
-
         return avgRating;
     }
 
@@ -107,23 +106,18 @@ public class ReviewService {
                 case 0:
                     star = "☆☆☆☆☆";
                     break;
-
                 case 1:
                     star = "★☆☆☆☆";
                     break;
-
                 case 2:
                     star = "★★☆☆☆";
                     break;
-
                 case 3:
                     star = "★★★☆☆";
                     break;
-
                 case 4:
                     star = "★★★★☆";
                     break;
-
                 case 5:
                     star = "★★★★★";
                     break;
@@ -138,7 +132,7 @@ public class ReviewService {
         Review review = new Review();
 
         User user = userRepository.findById(principalDetails.getUser().getUser_id()).get();
-        Book book = bookRepository.findBookByIsbn(reviewForm.getBook().getIsbn()).get();
+        Book book = bookRepository.findByIsbn(reviewForm.getBook().getIsbn());
 
         review.setBook(book);
         review.setUser(user);

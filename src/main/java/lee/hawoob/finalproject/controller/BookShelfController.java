@@ -25,13 +25,8 @@ public class BookShelfController {
 
         List<Lib> books = libService.findAllByNickname(principalDetails);
 
-        List<String> isbns = new ArrayList<>();
-        for(int i=0; i<books.size(); i++) {
-            String isbn = books.get(i).getBook().getIsbn();
-            isbns.add(isbn);
-        }
-
         model.addAttribute("books", books);
+
         return "bookshelf";
     }
 

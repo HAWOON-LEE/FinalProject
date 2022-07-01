@@ -25,6 +25,7 @@ public class LibService {
 
     // 내 서재 목록 불러오기
     public List<Lib> findAllByNickname(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+
         List<Lib> isbns = libRepository.findAll();
         User user = userRepository.findByNickname(principalDetails.getUser().getNickname());
 

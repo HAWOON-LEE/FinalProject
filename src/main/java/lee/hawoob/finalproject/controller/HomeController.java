@@ -56,7 +56,7 @@ public class HomeController {
             model.addAttribute("email", email);
             return "signup";
         } else {
-            return "redirect:home";
+            return "redirect:";
         }
     }
 
